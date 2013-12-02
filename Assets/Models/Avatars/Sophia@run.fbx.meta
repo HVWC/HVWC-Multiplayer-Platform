@@ -1,0 +1,980 @@
+fileFormatVersion: 2
+guid: 06de6f5231d13244f8eb6b07e331cb56
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Body_Geo
+    100002: Hair_Geo
+    100004: L_EyeGeo
+    100006: R_EyeGeo
+    100008: Sophia:Head
+    100010: Sophia:HeadTop_End
+    100012: Sophia:Hips
+    100014: Sophia:LeftArm
+    100016: Sophia:LeftFoot
+    100018: Sophia:LeftFootToeBase_End
+    100020: Sophia:LeftForeArm
+    100022: Sophia:LeftHand
+    100024: Sophia:LeftHandIndex1
+    100026: Sophia:LeftHandIndex2
+    100028: Sophia:LeftHandIndex3
+    100030: Sophia:LeftHandIndex4
+    100032: Sophia:LeftHandMiddle1
+    100034: Sophia:LeftHandMiddle2
+    100036: Sophia:LeftHandMiddle3
+    100038: Sophia:LeftHandMiddle4
+    100040: Sophia:LeftHandPinky1
+    100042: Sophia:LeftHandPinky2
+    100044: Sophia:LeftHandPinky3
+    100046: Sophia:LeftHandPinky4
+    100048: Sophia:LeftHandRing1
+    100050: Sophia:LeftHandRing2
+    100052: Sophia:LeftHandRing3
+    100054: Sophia:LeftHandRing4
+    100056: Sophia:LeftHandThumb1
+    100058: Sophia:LeftHandThumb2
+    100060: Sophia:LeftHandThumb3
+    100062: Sophia:LeftHandThumb4
+    100064: Sophia:LeftLeg
+    100066: Sophia:LeftShoulder
+    100068: Sophia:LeftToeBase
+    100070: Sophia:LeftUpLeg
+    100072: Sophia:Neck
+    100074: Sophia:Neck1
+    100076: Sophia:RightArm
+    100078: Sophia:RightFoot
+    100080: Sophia:RightFootToeBase_End
+    100082: Sophia:RightForeArm
+    100084: Sophia:RightHand
+    100086: Sophia:RightHandIndex1
+    100088: Sophia:RightHandIndex2
+    100090: Sophia:RightHandIndex3
+    100092: Sophia:RightHandIndex4
+    100094: Sophia:RightHandMiddle1
+    100096: Sophia:RightHandMiddle2
+    100098: Sophia:RightHandMiddle3
+    100100: Sophia:RightHandMiddle4
+    100102: Sophia:RightHandPinky1
+    100104: Sophia:RightHandPinky2
+    100106: Sophia:RightHandPinky3
+    100108: Sophia:RightHandPinky4
+    100110: Sophia:RightHandRing1
+    100112: Sophia:RightHandRing2
+    100114: Sophia:RightHandRing3
+    100116: Sophia:RightHandRing4
+    100118: Sophia:RightHandThumb1
+    100120: Sophia:RightHandThumb2
+    100122: Sophia:RightHandThumb3
+    100124: Sophia:RightHandThumb4
+    100126: Sophia:RightLeg
+    100128: Sophia:RightShoulder
+    100130: Sophia:RightToeBase
+    100132: Sophia:RightUpLeg
+    100134: Sophia:Spine
+    100136: Sophia:Spine1
+    100138: Sophia:Spine2
+    100140: //RootNode
+    100142: Sophia_Meshes
+    400000: Body_Geo
+    400002: Hair_Geo
+    400004: L_EyeGeo
+    400006: R_EyeGeo
+    400008: Sophia:Head
+    400010: Sophia:HeadTop_End
+    400012: Sophia:Hips
+    400014: Sophia:LeftArm
+    400016: Sophia:LeftFoot
+    400018: Sophia:LeftFootToeBase_End
+    400020: Sophia:LeftForeArm
+    400022: Sophia:LeftHand
+    400024: Sophia:LeftHandIndex1
+    400026: Sophia:LeftHandIndex2
+    400028: Sophia:LeftHandIndex3
+    400030: Sophia:LeftHandIndex4
+    400032: Sophia:LeftHandMiddle1
+    400034: Sophia:LeftHandMiddle2
+    400036: Sophia:LeftHandMiddle3
+    400038: Sophia:LeftHandMiddle4
+    400040: Sophia:LeftHandPinky1
+    400042: Sophia:LeftHandPinky2
+    400044: Sophia:LeftHandPinky3
+    400046: Sophia:LeftHandPinky4
+    400048: Sophia:LeftHandRing1
+    400050: Sophia:LeftHandRing2
+    400052: Sophia:LeftHandRing3
+    400054: Sophia:LeftHandRing4
+    400056: Sophia:LeftHandThumb1
+    400058: Sophia:LeftHandThumb2
+    400060: Sophia:LeftHandThumb3
+    400062: Sophia:LeftHandThumb4
+    400064: Sophia:LeftLeg
+    400066: Sophia:LeftShoulder
+    400068: Sophia:LeftToeBase
+    400070: Sophia:LeftUpLeg
+    400072: Sophia:Neck
+    400074: Sophia:Neck1
+    400076: Sophia:RightArm
+    400078: Sophia:RightFoot
+    400080: Sophia:RightFootToeBase_End
+    400082: Sophia:RightForeArm
+    400084: Sophia:RightHand
+    400086: Sophia:RightHandIndex1
+    400088: Sophia:RightHandIndex2
+    400090: Sophia:RightHandIndex3
+    400092: Sophia:RightHandIndex4
+    400094: Sophia:RightHandMiddle1
+    400096: Sophia:RightHandMiddle2
+    400098: Sophia:RightHandMiddle3
+    400100: Sophia:RightHandMiddle4
+    400102: Sophia:RightHandPinky1
+    400104: Sophia:RightHandPinky2
+    400106: Sophia:RightHandPinky3
+    400108: Sophia:RightHandPinky4
+    400110: Sophia:RightHandRing1
+    400112: Sophia:RightHandRing2
+    400114: Sophia:RightHandRing3
+    400116: Sophia:RightHandRing4
+    400118: Sophia:RightHandThumb1
+    400120: Sophia:RightHandThumb2
+    400122: Sophia:RightHandThumb3
+    400124: Sophia:RightHandThumb4
+    400126: Sophia:RightLeg
+    400128: Sophia:RightShoulder
+    400130: Sophia:RightToeBase
+    400132: Sophia:RightUpLeg
+    400134: Sophia:Spine
+    400136: Sophia:Spine1
+    400138: Sophia:Spine2
+    400140: //RootNode
+    400142: Sophia_Meshes
+    4300000: R_EyeGeo
+    4300002: L_EyeGeo
+    4300004: Hair_Geo
+    4300006: Body_Geo
+    7400000: run
+    9500000: //RootNode
+    13700000: Body_Geo
+    13700002: Hair_Geo
+    13700004: L_EyeGeo
+    13700006: R_EyeGeo
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: run
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Sophia:Hips
+      humanName: Hips
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0748811066, y: 0, z: .0374405533}
+        length: .0936014205
+        modified: 1
+    - boneName: Sophia:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .330926865, y: 0, z: .165463433}
+        length: .413658708
+        modified: 1
+    - boneName: Sophia:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .330926865, y: 0, z: .165463433}
+        length: .413658708
+        modified: 1
+    - boneName: Sophia:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .316801846, y: 0, z: .158400923}
+        length: .396002442
+        modified: 1
+    - boneName: Sophia:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .316801846, y: 0, z: .158400923}
+        length: .396002442
+        modified: 1
+    - boneName: Sophia:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .119891517, y: 0, z: .0599457584}
+        length: .149864435
+        modified: 1
+    - boneName: Sophia:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .119891517, y: 0, z: .0599457584}
+        length: .149864435
+        modified: 1
+    - boneName: Sophia:Spine
+      humanName: Spine
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .130038843, y: 0, z: .0650194213}
+        length: .162548631
+        modified: 1
+    - boneName: Sophia:Spine1
+      humanName: Chest
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .224723518, y: 0, z: .112361759}
+        length: .280904472
+        modified: 1
+    - boneName: Sophia:Neck
+      humanName: Neck
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0684400722, y: 0, z: .0342200361}
+        length: .0855501294
+        modified: 1
+    - boneName: Sophia:Head
+      humanName: Head
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0684400722, y: 0, z: .0342200361}
+        length: .0855501294
+        modified: 1
+    - boneName: Sophia:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .0741020367, y: 0, z: .0370510183}
+        length: .0926275849
+        modified: 1
+    - boneName: Sophia:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .074133411, y: 0, z: .0370667055}
+        length: .0926667973
+        modified: 1
+    - boneName: Sophia:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .221495956, y: 0, z: .110747978}
+        length: .276870012
+        modified: 1
+    - boneName: Sophia:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .221495956, y: 0, z: .110747978}
+        length: .276870012
+        modified: 1
+    - boneName: Sophia:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .22299017, y: 0, z: .111495085}
+        length: .278737783
+        modified: 1
+    - boneName: Sophia:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .22299017, y: 0, z: .111495085}
+        length: .278737783
+        modified: 1
+    - boneName: Sophia:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .111495085, y: 0, z: .0557475425}
+        length: .139368892
+        modified: 1
+    - boneName: Sophia:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .111495085, y: 0, z: .0557475425}
+        length: .139368892
+        modified: 1
+    - boneName: Sophia:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: -50}
+        max: {x: 0, y: 0, z: 50}
+        value: {x: .058964476, y: 0, z: .029482238}
+        length: .0737056136
+        modified: 1
+    - boneName: Sophia:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: -50}
+        max: {x: 0, y: 0, z: 50}
+        value: {x: .058964476, y: 0, z: .029482238}
+        length: .0737056136
+        modified: 1
+    - boneName: Sophia:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: -25, z: -20}
+        max: {x: 0, y: 25, z: 20}
+        value: {x: .0365090184, y: 0, z: .0182545092}
+        length: .0456362925
+        modified: 1
+    - boneName: Sophia:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0266612824, y: 0, z: .0133306412}
+        length: .0333266109
+        modified: 1
+    - boneName: Sophia:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0199959595, y: 0, z: .00999797974}
+        length: .0249949582
+        modified: 1
+    - boneName: Sophia:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0298755094, y: 0, z: .0149377547}
+        length: .0373443961
+        modified: 1
+    - boneName: Sophia:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0230155811, y: 0, z: .0115077905}
+        length: .0287694857
+        modified: 1
+    - boneName: Sophia:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0172616839, y: 0, z: .00863084197}
+        length: .0215771142
+        modified: 1
+    - boneName: Sophia:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0316875391, y: 0, z: .0158437695}
+        length: .0396094397
+        modified: 1
+    - boneName: Sophia:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0229515564, y: 0, z: .0114757782}
+        length: .0286894552
+        modified: 1
+    - boneName: Sophia:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0172136649, y: 0, z: .00860683247}
+        length: .0215170905
+        modified: 1
+    - boneName: Sophia:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0309572294, y: 0, z: .0154786147}
+        length: .0386965461
+        modified: 1
+    - boneName: Sophia:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0233220402, y: 0, z: .0116610201}
+        length: .0291525591
+        modified: 1
+    - boneName: Sophia:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0174915288, y: 0, z: .00874576438}
+        length: .0218644198
+        modified: 1
+    - boneName: Sophia:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0247583855, y: 0, z: .0123791927}
+        length: .0309479907
+        modified: 1
+    - boneName: Sophia:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0217867251, y: 0, z: .0108933626}
+        length: .0272334162
+        modified: 1
+    - boneName: Sophia:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0163400434, y: 0, z: .0081700217}
+        length: .0204250626
+        modified: 1
+    - boneName: Sophia:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: -25, z: -20}
+        max: {x: 0, y: 25, z: 20}
+        value: {x: .0365089998, y: 0, z: .0182544999}
+        length: .0456362665
+        modified: 1
+    - boneName: Sophia:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0266612489, y: 0, z: .0133306244}
+        length: .0333265699
+        modified: 1
+    - boneName: Sophia:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0199959353, y: 0, z: .00999796763}
+        length: .0249949284
+        modified: 1
+    - boneName: Sophia:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0298755094, y: 0, z: .0149377547}
+        length: .0373443961
+        modified: 1
+    - boneName: Sophia:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0230155811, y: 0, z: .0115077905}
+        length: .0287694857
+        modified: 1
+    - boneName: Sophia:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0172616839, y: 0, z: .00863084197}
+        length: .0215771142
+        modified: 1
+    - boneName: Sophia:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0316875391, y: 0, z: .0158437695}
+        length: .0396094397
+        modified: 1
+    - boneName: Sophia:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0229515564, y: 0, z: .0114757782}
+        length: .0286894552
+        modified: 1
+    - boneName: Sophia:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0172136649, y: 0, z: .00860683247}
+        length: .0215170905
+        modified: 1
+    - boneName: Sophia:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0309572294, y: 0, z: .0154786147}
+        length: .0386965461
+        modified: 1
+    - boneName: Sophia:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0233220402, y: 0, z: .0116610201}
+        length: .0291525591
+        modified: 1
+    - boneName: Sophia:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0174915288, y: 0, z: .00874576438}
+        length: .0218644198
+        modified: 1
+    - boneName: Sophia:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0247583855, y: 0, z: .0123791927}
+        length: .0309479907
+        modified: 1
+    - boneName: Sophia:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0217867251, y: 0, z: .0108933626}
+        length: .0272334162
+        modified: 1
+    - boneName: Sophia:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0163400434, y: 0, z: .0081700217}
+        length: .0204250626
+        modified: 1
+    skeleton:
+    - name: Sophia@run
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Hips
+      position: {x: 0, y: .991791427, z: .0398552492}
+      rotation: {x: 0, y: -0, z: 0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftUpLeg
+      position: {x: -.0963378921, y: -.0327325426, z: -7.15255721e-09}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftLeg
+      position: {x: -0, y: -.413573682, z: -.00839145761}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftFoot
+      position: {x: -.000126047133, y: -.395620644, z: -.0173850618}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftToeBase
+      position: {x: .00183286658, y: -.121930853, z: .0828226358}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftFootToeBase_End
+      position: {x: -0, y: -9.72938506e-05, z: .0960000008}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightUpLeg
+      position: {x: .0963378921, y: -.0327325426, z: -7.15255721e-09}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightLeg
+      position: {x: -0, y: -.413573682, z: -.00839145761}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightFoot
+      position: {x: -.00012606621, y: -.395620644, z: -.0173850618}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightToeBase
+      position: {x: .00183309556, y: -.121930853, z: .0828226358}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightFootToeBase_End
+      position: {x: -3.19480896e-05, y: -9.72938506e-05, z: .0960000008}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Spine
+      position: {x: 2.6469779e-25, y: .0922631845, z: .0157713313}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Spine1
+      position: {x: -0, y: .162540287, z: -.00165605545}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Spine2
+      position: {x: -0, y: .136396483, z: -.0129230497}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftShoulder
+      position: {x: -.0614422597, y: .101870112, z: -.0379324332}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftArm
+      position: {x: -.0901905596, y: -.0111300526, z: -.0179346874}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftForeArm
+      position: {x: -.276870102, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHand
+      position: {x: -.278737783, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandIndex1
+      position: {x: -.100724101, y: .00489586964, z: .0276109353}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandIndex2
+      position: {x: -.0373408943, y: 3.84719097e-11, z: .000512524392}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandIndex3
+      position: {x: -.0287371632, y: -.00136414729, z: 2.220446e-18}
+      rotation: {x: 5.01746981e-05, y: -.00105691736, z: .0517357849, w: .998660207}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandIndex4
+      position: {x: -.0193719435, y: .00261610677, z: 7.22337354e-05}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandMiddle1
+      position: {x: -.101948038, y: .00718166912, z: .00978161488}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandMiddle2
+      position: {x: -.0396014377, y: -.00047074724, z: .000641522754}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandMiddle3
+      position: {x: -.0286001433, y: -.00226117508, z: 5.5149605e-05}
+      rotation: {x: -1.70427047e-05, y: .00124663871, z: .042274937, w: .999105215}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandMiddle4
+      position: {x: -.0199950915, y: .00169808208, z: -5.81343047e-05}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandPinky1
+      position: {x: -.0967799947, y: -.00119137578, z: -.0255252663}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandPinky2
+      position: {x: -.0309381448, y: -.000762126292, z: .000167942431}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandPinky3
+      position: {x: -.027224889, y: -.000640533166, z: .000231570652}
+      rotation: {x: .000137376512, y: .00276846159, z: .0238089338, w: .999712646}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandPinky4
+      position: {x: -.0172827486, y: .00181086478, z: -.000110839348}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandRing1
+      position: {x: -.0993022546, y: .00591952959, z: -.00958618056}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandRing2
+      position: {x: -.0386450924, y: -.00198950246, z: -.000147451065}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandRing3
+      position: {x: -.0291199852, y: -.001348519, z: -.000284069189}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandRing4
+      position: {x: -.0208331961, y: .000630072202, z: -.000199967239}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandThumb1
+      position: {x: -.02517768, y: -.00936660729, z: .0251366831}
+      rotation: {x: -.0613111965, y: .0416094661, z: -.0530030578, w: .995841444}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandThumb2
+      position: {x: -.0330885239, y: -.0114923017, z: .0292531345}
+      rotation: {x: .0131327137, y: .0559476428, z: .0368338674, w: .997667551}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandThumb3
+      position: {x: -.0282793771, y: -.00457375031, z: .0170299541}
+      rotation: {x: .000173703505, y: -.0315526053, z: -.008185721, w: .999468505}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:LeftHandThumb4
+      position: {x: -.0315209702, y: -.00686705019, z: .0258004889}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Neck
+      position: {x: -0, y: .13877441, z: -.0435418673}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Neck1
+      position: {x: -0, y: .043400269, z: .0092689516}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:Head
+      position: {x: -1.05879116e-24, y: .0402661115, z: .0085852053}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:HeadTop_End
+      position: {x: -5.17045827e-18, y: .17886588, z: .00123128889}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightShoulder
+      position: {x: .0614019744, y: .101870112, z: -.0379324332}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightArm
+      position: {x: .0902308449, y: -.0111300526, z: -.0179346874}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightForeArm
+      position: {x: .276870102, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHand
+      position: {x: .278737783, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandIndex1
+      position: {x: .100724101, y: .00489586964, z: .0276109353}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandIndex2
+      position: {x: .0373408943, y: 3.84719097e-11, z: .000512524392}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandIndex3
+      position: {x: .0287371632, y: -.00136414729, z: 2.220446e-18}
+      rotation: {x: .000165114616, y: .0034780982, z: -.0194972772, w: .999803782}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandIndex4
+      position: {x: .0190396011, y: .00136449153, z: .00040464531}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandMiddle1
+      position: {x: .101948038, y: .00718166912, z: .00978161488}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandMiddle2
+      position: {x: .0396014377, y: -.00047074724, z: .000641522754}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandMiddle3
+      position: {x: .0286001433, y: -.00226117508, z: 5.5149605e-05}
+      rotation: {x: 2.52544532e-06, y: -.000187018086, z: -.00897757616, w: .999959648}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandMiddle4
+      position: {x: .0209564213, y: .000446466816, z: -3.40044789e-06}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandPinky1
+      position: {x: .0967799947, y: -.00119137578, z: -.0255252663}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandPinky2
+      position: {x: .0309381448, y: -.000762126292, z: .000167942431}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandPinky3
+      position: {x: .027224889, y: -.000640533166, z: .000231570652}
+      rotation: {x: .000236498337, y: .00503126299, z: -.0138884326, w: .999890804}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandPinky4
+      position: {x: .0172469132, y: .00140290789, z: .000801888003}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandRing1
+      position: {x: .0993022546, y: .00591952959, z: -.00958618056}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandRing2
+      position: {x: .0386450924, y: -.00198950246, z: -.000147451065}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandRing3
+      position: {x: .0291199852, y: -.001348519, z: -.000284069189}
+      rotation: {x: 6.00493768e-05, y: .00425370643, z: -.0140370093, w: .999892354}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandRing4
+      position: {x: .0215934049, y: .00129755482, z: .00048559584}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandThumb1
+      position: {x: .02517768, y: -.00936660729, z: .0251366831}
+      rotation: {x: -.0613112114, y: -.0416097566, z: .0530030839, w: .995841444}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandThumb2
+      position: {x: .0330885239, y: -.0114923017, z: .0292531345}
+      rotation: {x: .0131327379, y: -.0559462048, z: -.0368333943, w: .99766767}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandThumb3
+      position: {x: .0282793771, y: -.00457375031, z: .0170299541}
+      rotation: {x: -.000614395831, y: .0412020236, z: .012086031, w: .999077499}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Sophia:RightHandThumb4
+      position: {x: .0299637169, y: -.00702123251, z: .0254590269}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  userData: 

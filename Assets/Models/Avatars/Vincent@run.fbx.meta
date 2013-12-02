@@ -1,0 +1,966 @@
+fileFormatVersion: 2
+guid: 21fd3d36c6cabd940abdbba0606cc1b5
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: polySurface6
+    100002: vincent:Head
+    100004: vincent:HeadTop_End
+    100006: vincent:Hips
+    100008: vincent:LeftArm
+    100010: vincent:LeftFoot
+    100012: vincent:LeftFootToeBase_End
+    100014: vincent:LeftForeArm
+    100016: vincent:LeftHand
+    100018: vincent:LeftHandIndex1
+    100020: vincent:LeftHandIndex2
+    100022: vincent:LeftHandIndex3
+    100024: vincent:LeftHandIndex4
+    100026: vincent:LeftHandMiddle1
+    100028: vincent:LeftHandMiddle2
+    100030: vincent:LeftHandMiddle3
+    100032: vincent:LeftHandMiddle4
+    100034: vincent:LeftHandPinky1
+    100036: vincent:LeftHandPinky2
+    100038: vincent:LeftHandPinky3
+    100040: vincent:LeftHandPinky4
+    100042: vincent:LeftHandRing1
+    100044: vincent:LeftHandRing2
+    100046: vincent:LeftHandRing3
+    100048: vincent:LeftHandRing4
+    100050: vincent:LeftHandThumb1
+    100052: vincent:LeftHandThumb2
+    100054: vincent:LeftHandThumb3
+    100056: vincent:LeftHandThumb4
+    100058: vincent:LeftLeg
+    100060: vincent:LeftShoulder
+    100062: vincent:LeftToeBase
+    100064: vincent:LeftUpLeg
+    100066: vincent:Neck
+    100068: vincent:Neck1
+    100070: vincent:RightArm
+    100072: vincent:RightFoot
+    100074: vincent:RightFootToeBase_End
+    100076: vincent:RightForeArm
+    100078: vincent:RightHand
+    100080: vincent:RightHandIndex1
+    100082: vincent:RightHandIndex2
+    100084: vincent:RightHandIndex3
+    100086: vincent:RightHandIndex4
+    100088: vincent:RightHandMiddle1
+    100090: vincent:RightHandMiddle2
+    100092: vincent:RightHandMiddle3
+    100094: vincent:RightHandMiddle4
+    100096: vincent:RightHandPinky1
+    100098: vincent:RightHandPinky2
+    100100: vincent:RightHandPinky3
+    100102: vincent:RightHandPinky4
+    100104: vincent:RightHandRing1
+    100106: vincent:RightHandRing2
+    100108: vincent:RightHandRing3
+    100110: vincent:RightHandRing4
+    100112: vincent:RightHandThumb1
+    100114: vincent:RightHandThumb2
+    100116: vincent:RightHandThumb3
+    100118: vincent:RightHandThumb4
+    100120: vincent:RightLeg
+    100122: vincent:RightShoulder
+    100124: vincent:RightToeBase
+    100126: vincent:RightUpLeg
+    100128: vincent:Spine
+    100130: vincent:Spine1
+    100132: vincent:Spine2
+    100134: //RootNode
+    400000: polySurface6
+    400002: vincent:Head
+    400004: vincent:HeadTop_End
+    400006: vincent:Hips
+    400008: vincent:LeftArm
+    400010: vincent:LeftFoot
+    400012: vincent:LeftFootToeBase_End
+    400014: vincent:LeftForeArm
+    400016: vincent:LeftHand
+    400018: vincent:LeftHandIndex1
+    400020: vincent:LeftHandIndex2
+    400022: vincent:LeftHandIndex3
+    400024: vincent:LeftHandIndex4
+    400026: vincent:LeftHandMiddle1
+    400028: vincent:LeftHandMiddle2
+    400030: vincent:LeftHandMiddle3
+    400032: vincent:LeftHandMiddle4
+    400034: vincent:LeftHandPinky1
+    400036: vincent:LeftHandPinky2
+    400038: vincent:LeftHandPinky3
+    400040: vincent:LeftHandPinky4
+    400042: vincent:LeftHandRing1
+    400044: vincent:LeftHandRing2
+    400046: vincent:LeftHandRing3
+    400048: vincent:LeftHandRing4
+    400050: vincent:LeftHandThumb1
+    400052: vincent:LeftHandThumb2
+    400054: vincent:LeftHandThumb3
+    400056: vincent:LeftHandThumb4
+    400058: vincent:LeftLeg
+    400060: vincent:LeftShoulder
+    400062: vincent:LeftToeBase
+    400064: vincent:LeftUpLeg
+    400066: vincent:Neck
+    400068: vincent:Neck1
+    400070: vincent:RightArm
+    400072: vincent:RightFoot
+    400074: vincent:RightFootToeBase_End
+    400076: vincent:RightForeArm
+    400078: vincent:RightHand
+    400080: vincent:RightHandIndex1
+    400082: vincent:RightHandIndex2
+    400084: vincent:RightHandIndex3
+    400086: vincent:RightHandIndex4
+    400088: vincent:RightHandMiddle1
+    400090: vincent:RightHandMiddle2
+    400092: vincent:RightHandMiddle3
+    400094: vincent:RightHandMiddle4
+    400096: vincent:RightHandPinky1
+    400098: vincent:RightHandPinky2
+    400100: vincent:RightHandPinky3
+    400102: vincent:RightHandPinky4
+    400104: vincent:RightHandRing1
+    400106: vincent:RightHandRing2
+    400108: vincent:RightHandRing3
+    400110: vincent:RightHandRing4
+    400112: vincent:RightHandThumb1
+    400114: vincent:RightHandThumb2
+    400116: vincent:RightHandThumb3
+    400118: vincent:RightHandThumb4
+    400120: vincent:RightLeg
+    400122: vincent:RightShoulder
+    400124: vincent:RightToeBase
+    400126: vincent:RightUpLeg
+    400128: vincent:Spine
+    400130: vincent:Spine1
+    400132: vincent:Spine2
+    400134: //RootNode
+    4300000: polySurface6
+    7400000: run
+    9500000: //RootNode
+    13700000: polySurface6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: run
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: vincent:Hips
+      humanName: Hips
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0748811141, y: 0, z: .037440557}
+        length: .093601428
+        modified: 1
+    - boneName: vincent:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .374056667, y: 0, z: .187028334}
+        length: .467570961
+        modified: 1
+    - boneName: vincent:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: -60.0000038, y: -60.0000038, z: -90}
+        max: {x: 60.0000038, y: 60.0000038, z: 50}
+        value: {x: .374056756, y: 0, z: .187028378}
+        length: .46757108
+        modified: 1
+    - boneName: vincent:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .273638695, y: 0, z: .136819348}
+        length: .342048526
+        modified: 1
+    - boneName: vincent:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .273638517, y: 0, z: .136819258}
+        length: .342048287
+        modified: 1
+    - boneName: vincent:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .119891517, y: 0, z: .0599457584}
+        length: .149864435
+        modified: 1
+    - boneName: vincent:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: -30.0000019, z: -50}
+        max: {x: 0, y: 30.0000019, z: 50}
+        value: {x: .119891569, y: 0, z: .0599457845}
+        length: .149864495
+        modified: 1
+    - boneName: vincent:Spine
+      humanName: Spine
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .130038664, y: 0, z: .0650193319}
+        length: .162548393
+        modified: 1
+    - boneName: vincent:Spine1
+      humanName: Chest
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .224723712, y: 0, z: .112361856}
+        length: .28090471
+        modified: 1
+    - boneName: vincent:Neck
+      humanName: Neck
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0684397966, y: 0, z: .0342198983}
+        length: .0855497792
+        modified: 1
+    - boneName: vincent:Head
+      humanName: Head
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: .0684397966, y: 0, z: .0342198983}
+        length: .0855497792
+        modified: 1
+    - boneName: vincent:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .0999888703, y: 0, z: .0499944352}
+        length: .124986127
+        modified: 1
+    - boneName: vincent:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: -15.000001, z: -15.000001}
+        max: {x: 0, y: 15.000001, z: 30.0000019}
+        value: {x: .10002052, y: 0, z: .0500102602}
+        length: .12502569
+        modified: 1
+    - boneName: vincent:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .221495852, y: 0, z: .110747926}
+        length: .276869893
+        modified: 1
+    - boneName: vincent:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.0000038}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: .221495882, y: 0, z: .110747941}
+        length: .276869923
+        modified: 1
+    - boneName: vincent:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .222990215, y: 0, z: .111495107}
+        length: .278737843
+        modified: 1
+    - boneName: vincent:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: .222990081, y: 0, z: .11149504}
+        length: .278737664
+        modified: 1
+    - boneName: vincent:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .111495107, y: 0, z: .0557475537}
+        length: .139368922
+        modified: 1
+    - boneName: vincent:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: .11149504, y: 0, z: .0557475202}
+        length: .139368832
+        modified: 1
+    - boneName: vincent:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: -50}
+        max: {x: 0, y: 0, z: 50}
+        value: {x: .0589644648, y: 0, z: .0294822324}
+        length: .0737055987
+        modified: 1
+    - boneName: vincent:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: -50}
+        max: {x: 0, y: 0, z: 50}
+        value: {x: .0589644872, y: 0, z: .0294822436}
+        length: .0737056285
+        modified: 1
+    - boneName: vincent:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: -25, z: -20}
+        max: {x: 0, y: 25, z: 20}
+        value: {x: .0361113958, y: 0, z: .0180556979}
+        length: .0451392643
+        modified: 1
+    - boneName: vincent:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0414292961, y: 0, z: .0207146481}
+        length: .0517866388
+        modified: 1
+    - boneName: vincent:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0310719777, y: 0, z: .0155359888}
+        length: .038839981
+        modified: 1
+    - boneName: vincent:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0443945266, y: 0, z: .0221972633}
+        length: .055493176
+        modified: 1
+    - boneName: vincent:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0271289758, y: 0, z: .0135644879}
+        length: .0339112282
+        modified: 1
+    - boneName: vincent:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0203467291, y: 0, z: .0101733645}
+        length: .0254334211
+        modified: 1
+    - boneName: vincent:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0463367812, y: 0, z: .0231683906}
+        length: .0579209924
+        modified: 1
+    - boneName: vincent:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .029705327, y: 0, z: .0148526635}
+        length: .0371316671
+        modified: 1
+    - boneName: vincent:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0222789925, y: 0, z: .0111394962}
+        length: .0278487504
+        modified: 1
+    - boneName: vincent:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0435618721, y: 0, z: .021780936}
+        length: .0544523597
+        modified: 1
+    - boneName: vincent:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .029705517, y: 0, z: .0148527585}
+        length: .0371319056
+        modified: 1
+    - boneName: vincent:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0222791359, y: 0, z: .0111395679}
+        length: .0278489292
+        modified: 1
+    - boneName: vincent:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0294102114, y: 0, z: .0147051057}
+        length: .036762774
+        modified: 1
+    - boneName: vincent:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0224905889, y: 0, z: .0112452945}
+        length: .028113246
+        modified: 1
+    - boneName: vincent:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0168679412, y: 0, z: .00843397062}
+        length: .0210849345
+        modified: 1
+    - boneName: vincent:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: -25, z: -20}
+        max: {x: 0, y: 25, z: 20}
+        value: {x: .0363417082, y: 0, z: .0181708541}
+        length: .045427151
+        modified: 1
+    - boneName: vincent:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .04074651, y: 0, z: .020373255}
+        length: .0509331562
+        modified: 1
+    - boneName: vincent:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: -40}
+        max: {x: 0, y: 0, z: 35}
+        value: {x: .0305598881, y: 0, z: .0152799441}
+        length: .0381998681
+        modified: 1
+    - boneName: vincent:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .043014463, y: 0, z: .0215072315}
+        length: .0537680984
+        modified: 1
+    - boneName: vincent:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0270831045, y: 0, z: .0135415522}
+        length: .0338538885
+        modified: 1
+    - boneName: vincent:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .020312326, y: 0, z: .010156163}
+        length: .0253904164
+        modified: 1
+    - boneName: vincent:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .0449344032, y: 0, z: .0224672016}
+        length: .0561680198
+        modified: 1
+    - boneName: vincent:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0298903398, y: 0, z: .0149451699}
+        length: .0373629332
+        modified: 1
+    - boneName: vincent:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0224177521, y: 0, z: .011208876}
+        length: .0280221999
+        modified: 1
+    - boneName: vincent:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: -7.50000048, z: -50}
+        max: {x: 0, y: 7.50000048, z: 50}
+        value: {x: .04321035, y: 0, z: .021605175}
+        length: .0540129542
+        modified: 1
+    - boneName: vincent:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0271326955, y: 0, z: .0135663478}
+        length: .0339158773
+        modified: 1
+    - boneName: vincent:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0203495193, y: 0, z: .0101747597}
+        length: .025436908
+        modified: 1
+    - boneName: vincent:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: -20, z: -50}
+        max: {x: 0, y: 20, z: 50}
+        value: {x: .0292218607, y: 0, z: .0146109303}
+        length: .0365273356
+        modified: 1
+    - boneName: vincent:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0222561769, y: 0, z: .0111280885}
+        length: .0278202295
+        modified: 1
+    - boneName: vincent:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: -45}
+        max: {x: 0, y: 0, z: 45}
+        value: {x: .0166921299, y: 0, z: .00834606495}
+        length: .0208651721
+        modified: 1
+    skeleton:
+    - name: Vincent@run
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:Hips
+      position: {x: 2.38418565e-07, y: .991791308, z: .0398552231}
+      rotation: {x: -1.16415295e-08, y: 3.63797853e-10, z: -1.81898926e-10, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftUpLeg
+      position: {x: -.0963383913, y: -.0327323675, z: 6.62230235e-08}
+      rotation: {x: 1.16415295e-08, y: -2.31921105e-09, z: -6.8212086e-10, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:LeftLeg
+      position: {x: 1.04865329e-07, y: -.467250943, z: -.0172996838}
+      rotation: {x: 2.32830626e-08, y: 4.86579577e-09, z: 2.31921082e-09, w: .99999994}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftFoot
+      position: {x: -.000126005281, y: -.341943443, z: -.0084768543}
+      rotation: {x: -4.65661252e-08, y: -3.63797836e-09, z: 1.81899093e-10, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftToeBase
+      position: {x: .0018331107, y: -.121930845, z: .0828225911}
+      rotation: {x: 6.08804889e-18, y: 3.63797859e-09, z: 1.81899121e-10, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftFootToeBase_End
+      position: {x: -0, y: 0, z: .119999997}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightUpLeg
+      position: {x: .0963377878, y: -.0327324271, z: 2.91103071e-08}
+      rotation: {x: 1.16415295e-08, y: -6.18456353e-09, z: 9.09494591e-10, w: .99999994}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightLeg
+      position: {x: 2.29904089e-07, y: -.467251062, z: -.0172996558}
+      rotation: {x: -2.32830626e-08, y: -5.82076654e-09, z: -6.5483623e-09, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightFoot
+      position: {x: -.000126566811, y: -.341943204, z: -.00847687479}
+      rotation: {x: 2.91038287e-08, y: 2.32830626e-08, z: 5.09317122e-09, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightToeBase
+      position: {x: .00183294551, y: -.12193089, z: .0828226432}
+      rotation: {x: -6.54836141e-09, y: -1.16415295e-08, z: 7.27595539e-10, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightFootToeBase_End
+      position: {x: -3.19480896e-05, y: 0, z: .119999997}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:Spine
+      position: {x: -5.96091468e-07, y: .0922632217, z: .0157713499}
+      rotation: {x: 1.16415295e-08, y: -3.27418026e-09, z: -5.4569671e-10, w: .99999994}
+      scale: {x: .999999881, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:Spine1
+      position: {x: -2.46049542e-10, y: .162540078, z: -.00165607792}
+      rotation: {x: -1.16415313e-08, y: 5.82076476e-09, z: 7.2759565e-10, w: .99999994}
+      scale: {x: 1, y: 1, z: .999999881}
+      transformModified: 1
+    - name: vincent:Spine2
+      position: {x: 2.38493698e-07, y: .136396408, z: -.0129229985}
+      rotation: {x: 1.16415313e-08, y: -8.73114825e-09, z: 2.91038282e-09, w: .99999994}
+      scale: {x: 1, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: vincent:LeftShoulder
+      position: {x: -.0614421256, y: .101870298, z: -.0379324779}
+      rotation: {x: 2.32830626e-08, y: 3.76326548e-16, z: -2.91038282e-09, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftArm
+      position: {x: -.123190999, y: -.0111295003, z: -.0179345571}
+      rotation: {x: -2.32830608e-08, y: 5.8207652e-09, z: -5.82076476e-09, w: .99999994}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftForeArm
+      position: {x: -.276870072, y: -3.61782384e-07, z: 4.8930854e-08}
+      rotation: {x: -1.77423915e-15, y: -2.32830626e-08, z: 2.32830626e-08, w: .99999994}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHand
+      position: {x: -.278737903, y: 1.27081449e-07, z: -5.35951195e-08}
+      rotation: {x: -1.3764288e-16, y: 2.40356057e-24, z: -1.77635673e-15, w: .99999994}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftHandIndex1
+      position: {x: -.103945017, y: .0061475141, z: .0270550773}
+      rotation: {x: 2.32830626e-08, y: 2.91038287e-08, z: -1.74622965e-08, w: .99999994}
+      scale: {x: .999999762, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandIndex2
+      position: {x: -.055493176, y: 2.37877487e-07, z: -1.05675625e-07}
+      rotation: {x: -1.16415313e-08, y: 1.74622965e-08, z: -5.82076609e-09, w: .99999994}
+      scale: {x: 1.00000024, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandIndex3
+      position: {x: -.0339112282, y: -1.1939143e-07, z: -8.32519689e-08}
+      rotation: {x: 1.16415295e-08, y: -4.65661252e-08, z: 2.9103834e-08, w: .99999994}
+      scale: {x: .99999994, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftHandIndex4
+      position: {x: -.0275792331, y: 2.84217088e-16, z: 1.47911416e-33}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandMiddle1
+      position: {x: -.104638934, y: .00614738744, z: .00429790094}
+      rotation: {x: 2.32830626e-08, y: 2.91038287e-08, z: -1.74622965e-08, w: .99999994}
+      scale: {x: .999999762, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandMiddle2
+      position: {x: -.0579209924, y: 3.64918236e-07, z: 7.71879414e-08}
+      rotation: {x: -1.16415313e-08, y: 1.74622965e-08, z: -5.82076609e-09, w: .99999994}
+      scale: {x: 1.00000024, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandMiddle3
+      position: {x: -.0371316671, y: -1.19541397e-07, z: -2.44129126e-08}
+      rotation: {x: 1.16415295e-08, y: -4.65661252e-08, z: 2.9103834e-08, w: .99999994}
+      scale: {x: .99999994, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftHandMiddle4
+      position: {x: -.0275792331, y: 2.84217088e-16, z: 1.47911416e-33}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandPinky1
+      position: {x: -.100129604, y: -.00078344089, z: -.039671313}
+      rotation: {x: 2.32830626e-08, y: 2.91038287e-08, z: -1.74622965e-08, w: .99999994}
+      scale: {x: .999999762, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandPinky2
+      position: {x: -.036762774, y: 2.38415211e-07, z: -1.36250335e-07}
+      rotation: {x: -1.16415313e-08, y: 1.74622965e-08, z: -5.82076609e-09, w: .99999994}
+      scale: {x: 1.00000024, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandPinky3
+      position: {x: -.028113246, y: -2.38738181e-07, z: -2.86952755e-08}
+      rotation: {x: 1.16415295e-08, y: -4.65661252e-08, z: 2.9103834e-08, w: .99999994}
+      scale: {x: .99999994, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftHandPinky4
+      position: {x: -.0192546416, y: 2.84217088e-16, z: 1.47911416e-33}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandRing1
+      position: {x: -.103251457, y: .00321138161, z: -.0187554453}
+      rotation: {x: 2.32830626e-08, y: 2.91038287e-08, z: -1.74622965e-08, w: .99999994}
+      scale: {x: .999999762, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandRing2
+      position: {x: -.0544523597, y: 3.57588789e-07, z: 4.33965681e-08}
+      rotation: {x: -1.16415313e-08, y: 1.74622965e-08, z: -5.82076609e-09, w: .99999994}
+      scale: {x: 1.00000024, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandRing3
+      position: {x: -.0371319056, y: -3.57959976e-07, z: -9.2865136e-08}
+      rotation: {x: 1.16415295e-08, y: -4.65661252e-08, z: 2.9103834e-08, w: .99999994}
+      scale: {x: .99999994, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:LeftHandRing4
+      position: {x: -.0275792331, y: 2.84217088e-16, z: 1.47911416e-33}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandThumb1
+      position: {x: -.0237851143, y: -.0100289509, z: .0262094308}
+      rotation: {x: -.0434411615, y: .0281326175, z: -.041499678, w: .997797132}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandThumb2
+      position: {x: -.0336235166, y: -.0100291949, z: .0283976886}
+      rotation: {x: -.0245288815, y: .081994772, z: -8.45300528e-05, w: .996330798}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: vincent:LeftHandThumb3
+      position: {x: -.0450178981, y: -.0134447822, z: .0217826515}
+      rotation: {x: .039625477, y: .00582765648, z: .0854904279, w: .995533586}
+      scale: {x: .999999821, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: vincent:LeftHandThumb4
+      position: {x: -.0321438089, y: 0, z: .0148989856}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:Neck
+      position: {x: 3.57928684e-07, y: .138774872, z: -.0435419045}
+      rotation: {x: 4.23516474e-18, y: 5.82076609e-09, z: -2.18278706e-09, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:Neck1
+      position: {x: -2.38355398e-07, y: .043400526, z: .00926892459}
+      rotation: {x: -2.6469777e-19, y: 1.92852445e-17, z: -1.11022296e-16, w: .99999994}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:Head
+      position: {x: -1.19150684e-07, y: .0402654409, z: .00858522765}
+      rotation: {x: -2.91038238e-09, y: -1.45519163e-09, z: -2.63753486e-09, w: .99999994}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: vincent:HeadTop_End
+      position: {x: -5.17045827e-18, y: .178865969, z: .00123128889}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightShoulder
+      position: {x: .0614019409, y: .10187006, z: -.0379324518}
+      rotation: {x: -2.64697796e-17, y: 7.27595761e-09, z: -6.54836141e-09, w: .99999994}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: vincent:RightArm
+      position: {x: .12323115, y: -.0111293774, z: -.0179345775}
+      rotation: {x: -2.3283059e-08, y: 5.82076609e-09, z: 2.18278728e-08, w: .99999994}
+      scale: {x: 1.00000012, y: .999999821, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightForeArm
+      position: {x: .276870072, y: 1.03397028e-07, z: -1.54032538e-08}
+      rotation: {x: 2.91038251e-08, y: -1.8917488e-08, z: -4.14729584e-08, w: .99999994}
+      scale: {x: .999999821, y: .99999994, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:RightHand
+      position: {x: .278737724, y: 1.46769423e-08, z: -1.1905982e-07}
+      rotation: {x: 8.88178367e-16, y: -8.88178314e-16, z: 1.77635673e-15, w: .99999994}
+      scale: {x: .99999994, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: vincent:RightHandIndex1
+      position: {x: .104665339, y: .00489604985, z: .0271197669}
+      rotation: {x: 1.69406563e-16, y: 7.2759585e-09, z: 2.91038287e-08, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandIndex2
+      position: {x: .0537680984, y: -3.35747513e-10, z: 8.23300983e-09}
+      rotation: {x: -4.36557412e-09, y: 2.18278693e-08, z: -5.82076565e-09, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandIndex3
+      position: {x: .0338538885, y: 2.86201007e-10, z: -4.45955699e-08}
+      rotation: {x: -7.27595895e-09, y: -2.91038287e-08, z: 2.04007025e-16, w: .99999994}
+      scale: {x: 1, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandIndex4
+      position: {x: .0277305469, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandMiddle1
+      position: {x: .107596457, y: .00489628781, z: .00427807402}
+      rotation: {x: 1.69406563e-16, y: 7.2759585e-09, z: 2.91038287e-08, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandMiddle2
+      position: {x: .0561680198, y: -9.78003789e-12, z: -1.1397016e-10}
+      rotation: {x: -4.36557412e-09, y: 2.18278693e-08, z: -5.82076565e-09, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandMiddle3
+      position: {x: .0373629332, y: -4.76248687e-07, z: 2.45265461e-08}
+      rotation: {x: -7.27595895e-09, y: -2.91038287e-08, z: 2.04007025e-16, w: .99999994}
+      scale: {x: 1, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandMiddle4
+      position: {x: .0288025942, y: 5.68434176e-16, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandPinky1
+      position: {x: .099715054, y: -.0011911348, z: -.0395398736}
+      rotation: {x: 1.69406563e-16, y: 7.2759585e-09, z: 2.91038287e-08, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandPinky2
+      position: {x: .0365273356, y: -2.39147766e-07, z: 6.01361876e-08}
+      rotation: {x: -4.36557412e-09, y: 2.18278693e-08, z: -5.82076565e-09, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandPinky3
+      position: {x: .0278202295, y: -2.37618593e-07, z: -8.7787619e-08}
+      rotation: {x: -7.27595895e-09, y: -2.91038287e-08, z: 2.04007025e-16, w: .99999994}
+      scale: {x: 1, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandPinky4
+      position: {x: .0227667559, y: -2.84217088e-16, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandRing1
+      position: {x: .104702532, y: .00387895596, z: -.0193627905}
+      rotation: {x: 1.69406563e-16, y: 7.2759585e-09, z: 2.91038287e-08, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandRing2
+      position: {x: .0540129542, y: 1.19092121e-07, z: 2.39204581e-07}
+      rotation: {x: -4.36557412e-09, y: 2.18278693e-08, z: -5.82076565e-09, w: .99999994}
+      scale: {x: .99999994, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandRing3
+      position: {x: .0339158773, y: -2.38135272e-07, z: -1.04196623e-07}
+      rotation: {x: -7.27595895e-09, y: -2.91038287e-08, z: 2.04007025e-16, w: .99999994}
+      scale: {x: 1, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandRing4
+      position: {x: .0296648573, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandThumb1
+      position: {x: .0251779556, y: -.00936662965, z: .0251367446}
+      rotation: {x: -.0438645557, y: -.0190237388, z: .0412847959, w: .998002708}
+      scale: {x: 1.00000012, y: 1, z: .99999994}
+      transformModified: 1
+    - name: vincent:RightHandThumb2
+      position: {x: .0326380134, y: -.0108695012, z: .0296688806}
+      rotation: {x: -.0281498339, y: -.098989211, z: -.00529899867, w: .994676113}
+      scale: {x: .999999881, y: .99999994, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandThumb3
+      position: {x: .0441654921, y: -.0137023879, z: .0213504452}
+      rotation: {x: .03014718, y: -.045425497, z: -.0915159285, w: .994310021}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: vincent:RightHandThumb4
+      position: {x: .0347618647, y: -.000520370668, z: .0117094601}
+      rotation: {x: 0, y: -0, z: -0, w: .99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  userData: 
