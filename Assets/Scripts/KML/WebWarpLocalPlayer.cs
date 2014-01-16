@@ -34,10 +34,6 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 	bool decimalCoords = false;
 	bool showCoords = true;
 
-	Vector3 currentPos;
-
-	Vector3 lastPos;
-
 	void Start(){
 		geoMarker = (GeographicMarker)FindObjectOfType(typeof(GeographicMarker));
 	}
@@ -110,7 +106,7 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 	}
 
 	public void SetPosition(Vector3 position){
-		lastPos = currentPos = transform.position = position;
+		transform.position = position;
 	}
 
 }

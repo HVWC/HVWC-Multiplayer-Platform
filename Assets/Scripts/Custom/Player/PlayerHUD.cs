@@ -10,14 +10,15 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerHUD : Photon.MonoBehaviour {
-	
+
+	private NetworkManager networkManager;
 	private Chat chat;
 	private PlayerList playerList;
 	private PhotonPlayer selectedPlayer;
 	
 	public GUISkin PhotonSkin;
 	private GUIStyle unselected,selected;
-	private Rect topHudRect,bottomHudRect,playerListRect;
+	private Rect topHudRect,bottomHudRect;
 	private float topHudHeight,bottomHudHeight,buttonWH;
 	private GameObject map;
 	private Camera mapCamera;
@@ -27,19 +28,17 @@ public class PlayerHUD : Photon.MonoBehaviour {
 	private string chatInput = "";
 	
 	public Texture2D C3_Tex,MapTex,VolumeTex,HelpTex,ExitTex,EmptyProgressBar,FullProgressBar;
-
-	GameObject playerCamera;
  
 	private AsyncOperation async = null; // When assigned, load is in progress.
 	
 	// UsplayerCamera for initialization
 	void Start () {
-		enabled = photonView.isMine;
+		networkManager = FindObjectOfType(typeof(NetworkManager)) as NetworkManager;
+		//enabled = photonView.isMine;
 		chat = FindObjectOfType(typeof(Chat)) as Chat;
 		playerList = FindObjectOfType(typeof(PlayerList)) as PlayerList;
 		unselected = PhotonSkin.customStyles[0];
 		selected = PhotonSkin.customStyles[1];
-		playerCamera = GameObject.Find("PlayerCamera");
 		map = GameObject.Find("Map");
 		mapCamera = map.camera;
 		warp = map.GetComponent<WebWarpLocalPlayer>();
@@ -64,9 +63,6 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		topHudRect = new Rect(Screen.width*.005f,0,Screen.width*.99f,topHudHeight);
 		bottomHudRect = new Rect(Screen.width*.005f,Screen.height-bottomHudHeight,Screen.width*.99f,bottomHudHeight);
 		
-		//Window Rects
-		playerListRect = new Rect(0,0,Screen.width,topHudHeight);
-		
 		buttonWH = Screen.width*.022f;
 		AudioListener.volume = volume * .01f;
 		
@@ -75,10 +71,10 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		}
 		
 	}
-	
+
 	void OnGUI(){
 	
-		if(!photonView.isMine || PhotonNetwork.room==null || !showHUD){
+		if(!photonView.isMine || networkManager.Room==null || !showHUD){
 			return;	
 		}
 
@@ -90,10 +86,10 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		//Top HUD
 		GUILayout.BeginArea(topHudRect);
 		GUILayout.BeginHorizontal();
-		//if(GUILayout.Button("Load LVL1")){LoadLevel("Demo");}
-		//if(GUILayout.Button("Load LVL2")){LoadLevel("Demo 2");}
+		if(GUILayout.Button("Load LVL1")){networkManager.LoadLevel("Demo");}
+		if(GUILayout.Button("Load LVL2")){networkManager.LoadLevel("Demo 2");}
 		GUILayout.FlexibleSpace();
-		if(GUILayout.Button(C3_Tex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){C3JoinVoice.JoinVoice(PhotonNetwork.room.name,PhotonNetwork.player.name);}
+		if(GUILayout.Button(C3_Tex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){C3JoinVoice.JoinVoice(networkManager.Room.name,networkManager.PlayerName);}
 		if(GUILayout.Button(MapTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showMap=!showMap;mapCamera.enabled = warp.enabled = showMap;}
 		GUILayout.BeginVertical();
 		if(GUILayout.Button(VolumeTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showVolume=!showVolume;}
@@ -101,7 +97,7 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		GUILayout.EndVertical();
 		if(showHelp){GUILayout.Window(2,new Rect((Screen.width*.5f)-(Screen.width*.2f),(Screen.height*.5f)-(Screen.height*.2f),Screen.width*.4f,Screen.height*.4f),HelpWindow,"H E L P");}
 		if(GUILayout.Button(HelpTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showHelp=!showHelp;}
-		if(GUILayout.Button(ExitTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){PhotonNetwork.LeaveRoom();}
+		if(GUILayout.Button(ExitTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){networkManager.LeaveRoom();}
 		GUILayout.EndHorizontal();
 		GUILayout.EndArea();
 		
@@ -140,7 +136,7 @@ public class PlayerHUD : Photon.MonoBehaviour {
 	void PlayerListWindow(int windowID){
         Vector2 scrollPos = Vector2.zero;
 		scrollPos = GUILayout.BeginScrollView(scrollPos);
-		foreach(PhotonPlayer player in PhotonNetwork.playerList){
+		foreach(PhotonPlayer player in playerList.Players){
 			if(selectedPlayer != player){
 				if(GUILayout.Button(player.name,unselected) && player != playerList.LocalPlayer){
 					selectedPlayer = player;
@@ -165,14 +161,6 @@ public class PlayerHUD : Photon.MonoBehaviour {
 	
 	void HelpWindow(int windowID){
 		GUILayout.Label("Help");
-	}
-	
-	private IEnumerator LoadLevel(string level){
-		PhotonNetwork.isMessageQueueRunning = false;
-		async = Application.LoadLevelAsync(level);
-		yield return async;
-		Debug.Log("Loaded");
-		async = null;
 	}
 	
 }

@@ -43,7 +43,7 @@ public class ThirdPersonController : MonoBehaviour{
 	private Vector3 downwardForce;
 	
 	[HideInInspector]
-	public bool grounded,flying,isRemotePlayer = true;
+	public bool grounded,flying;
 		
 	void Start(){ // Verify setup, configure rigidbody
 		if (target == null){
@@ -54,22 +54,7 @@ public class ThirdPersonController : MonoBehaviour{
 	}
 	
 	
-	void Update(){ 
-		
-		/*switch(characterState){
-			case CharacterState.idle: animationController.ActivateAnimation("idle"); break;
-			case CharacterState.walk: animationController.ActivateAnimation("walk"); break;	
-			case CharacterState.run: animationController.ActivateAnimation("run"); break;	
-			case CharacterState.jump: animationController.ActivateAnimation("jump"); break;	
-			case CharacterState.sit: animationController.ActivateAnimation("sit"); break;	
-			case CharacterState.fly: animationController.ActivateAnimation("fly"); break;	
-			default: break;	
-		}*/
-		
-		if (isRemotePlayer){
-			return;
-		}
-		
+	void Update(){ 		
 		if(flying && !grounded){
 			speed = flySpeed;
 		}else if(Input.GetKey(KeyCode.LeftShift) && grounded){
@@ -87,10 +72,6 @@ public class ThirdPersonController : MonoBehaviour{
 			groundingDistance,
 			groundLayers
 		);	
-		
-		if (isRemotePlayer){
-			return;
-		}
 		
 		if(!flying){
 			target.AddForce(downwardForce, ForceMode.Force); //added gravity to make it more natural
@@ -112,7 +93,7 @@ public class ThirdPersonController : MonoBehaviour{
 		
 		//Rotation
 		float rotationAmount = Input.GetAxis("Horizontal")* 2f * Time.deltaTime;
-		target.transform.RotateAround (target.transform.up, rotationAmount);
+		target.transform.RotateAround (transform.position, target.transform.up, rotationAmount);
 		
 		//Flyf
 		Vector3 fly = Input.GetAxis("Fly") * target.transform.up;	
@@ -157,16 +138,6 @@ public class ThirdPersonController : MonoBehaviour{
 	public void Fly(bool val){
 		rigidbody.useGravity = !val;
 		flying = val;
-	}
-	
-	public void SetIsRemotePlayer(bool val){
-        isRemotePlayer = val;
-    }
-	
-	void OnDrawGizmos(){ // Use gizmos to gain information about the state of your setup
-		Gizmos.color = grounded ? Color.blue : Color.red;
-		Gizmos.DrawLine (target.transform.position + target.transform.up * -heightOffset,
-			target.transform.position + target.transform.up * -(heightOffset + groundingDistance));
 	}
 
 }

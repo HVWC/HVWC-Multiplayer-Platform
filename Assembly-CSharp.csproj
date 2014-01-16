@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{3C25F63F-F2C5-2F3D-D6C3-886E8C3C6206}</ProjectGuid>
+	<ProjectGuid>{B6DD93B7-5B6D-01BA-AA95-CF1B80A6CB7B}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,22 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Custom\AnimationController.cs" />
-     <Compile Include="Assets\Scripts\Custom\C3JoinVoice.cs" />
-     <Compile Include="Assets\Scripts\Custom\Chat.cs" />
-     <Compile Include="Assets\Scripts\Custom\ClickTeleport.cs" />
-     <Compile Include="Assets\Scripts\Custom\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Custom\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\Custom\MaintainObject.cs" />
-     <Compile Include="Assets\Scripts\Custom\NameTag.cs" />
-     <Compile Include="Assets\Scripts\Custom\PlayerHUD.cs" />
-     <Compile Include="Assets\Scripts\Custom\PlayerList.cs" />
-     <Compile Include="Assets\Scripts\Custom\SceneSync.cs" />
-     <Compile Include="Assets\Scripts\Custom\TeleportObject.cs" />
-     <Compile Include="Assets\Scripts\Custom\TeleportToObject.cs" />
-     <Compile Include="Assets\Scripts\Custom\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\Scripts\Custom\ThirdPersonController.cs" />
-     <Compile Include="Assets\Scripts\Custom\ThirdPersonNetwork.cs" />
+     <Compile Include="Assets\Scripts\Custom\Functionality\ClickTeleport.cs" />
+     <Compile Include="Assets\Scripts\Custom\Functionality\TeleportObject.cs" />
+     <Compile Include="Assets\Scripts\Custom\Functionality\TeleportToObject.cs" />
+     <Compile Include="Assets\Scripts\Custom\GUI\C3JoinVoice.cs" />
+     <Compile Include="Assets\Scripts\Custom\GUI\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Custom\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\AnimationController.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\Chat.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\NameTag.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\PlayerHUD.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\PlayerList.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonController.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonNetwork.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicCoord.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicMarker.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicPoint.cs" />
@@ -75,8 +73,6 @@
      <Compile Include="Assets\Scripts\LitJson\Lexer.cs" />
      <Compile Include="Assets\Scripts\LitJson\ParserToken.cs" />
      <Compile Include="Assets\Scripts\Settings\SetupVerification.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonCameraNET.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonControllerNET.cs" />
      <None Include="Assets\Plugins\PhotonNetwork\library\release_history.txt" />
      <None Include="Assets\Docs\changelog.txt" />
      <None Include="Assets\Shaders\3D Text Shader.shader" />
@@ -95,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{77207CE1-C978-0268-7912-288675000032}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{7D384C42-F335-5D26-BA85-E283DA53500E}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
