@@ -47,19 +47,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Custom\Functionality\ClickTeleport.cs" />
+     <Compile Include="Assets\Scripts\Custom\Functionality\ProximityTrigger.cs" />
      <Compile Include="Assets\Scripts\Custom\Functionality\TeleportObject.cs" />
      <Compile Include="Assets\Scripts\Custom\Functionality\TeleportToObject.cs" />
+     <Compile Include="Assets\Scripts\Custom\Functionality\WebLink.cs" />
      <Compile Include="Assets\Scripts\Custom\GUI\C3JoinVoice.cs" />
      <Compile Include="Assets\Scripts\Custom\GUI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Custom\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Custom\Player\AnimationController.cs" />
      <Compile Include="Assets\Scripts\Custom\Player\Chat.cs" />
      <Compile Include="Assets\Scripts\Custom\Player\NameTag.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\NetworkPlayer.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\PlayerCamera.cs" />
+     <Compile Include="Assets\Scripts\Custom\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Custom\Player\PlayerHUD.cs" />
      <Compile Include="Assets\Scripts\Custom\Player\PlayerList.cs" />
-     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonController.cs" />
-     <Compile Include="Assets\Scripts\Custom\Player\ThirdPersonNetwork.cs" />
+     <Compile Include="Assets\Scripts\Custom\QuickPlayBypass.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicCoord.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicMarker.cs" />
      <Compile Include="Assets\Scripts\KML\GeographicPoint.cs" />
@@ -78,10 +81,6 @@
      <None Include="Assets\Shaders\3D Text Shader.shader" />
      <None Include="Assets\Plugins\PhotonNetwork\library\Photon3Unity3D.xml" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Parse.Unity\Parse.Unity.xml" />
- <Reference Include="Parse.Unity">
- <HintPath>Assets\Parse.Unity\Parse.Unity.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>Assets\Plugins\Newtonsoft.Json.dll</HintPath>
  </Reference>

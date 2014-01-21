@@ -21,7 +21,7 @@ public class SetupVerification : MonoBehaviour
 			message.IndexOf ("UnityException: Input Button") == 0
 		)
 		{
-			((ThirdPersonController)FindObjectOfType (typeof (ThirdPersonController))).enabled = false;
+			((PlayerController)FindObjectOfType (typeof (PlayerController))).enabled = false;
 			badSetup = true;
 		}
 	}

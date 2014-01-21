@@ -34,14 +34,7 @@ public class AnimationController : MonoBehaviour{
 		animator = GetComponent<Animator>();
 	}
 
-	public void ActivateAnimation ()
-	{
-		ActivateAnimation (null);
-	}
-
 	public void ActivateAnimation(string animationToActivate){
-		if (animationToActivate == null)
-						throw new System.ArgumentNullException ("Animation ");
 		string target = "";
 		foreach(string a in animations){
 			if(a==animationToActivate){

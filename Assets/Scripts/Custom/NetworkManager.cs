@@ -11,9 +11,22 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class NetworkManager : Photon.MonoBehaviour {
-	
+
+	public static NetworkManager Instance{get; private set;}
+
 	public string version;
-	
+
+	void Awake(){
+		if(Instance==null){
+			Instance = this;
+			gameObject.AddComponent<PhotonView>();
+			gameObject.GetPhotonView().viewID = PhotonNetwork.AllocateViewID();
+			DontDestroyOnLoad(gameObject);
+		}else{
+			Destroy(gameObject);
+		}
+	}
+
 	void Start(){
 		if(!PhotonNetwork.connected){
 			Connect(version);
@@ -164,6 +177,13 @@ public class NetworkManager : Photon.MonoBehaviour {
 	#endregion
     
 	#region Messages
+	/// <summary>
+	/// A message called when the local player fails to join a random room.
+	/// </summary>
+	void OnPhotonRandomJoinFailed(){
+		CreateRoom(null,true,true,10);
+	}
+
 	/// <summary>
 	/// A message called when the local player leaves a room.
 	/// </summary>

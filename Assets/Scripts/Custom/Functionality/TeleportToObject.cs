@@ -15,7 +15,7 @@ public class TeleportToObject : MonoBehaviour {
 
 	void Update(){
 		if(PhotonNetwork.room!=null && !player){
-			player = GameObject.FindGameObjectWithTag("Player").transform;
+			player = GameObject.FindGameObjectWithTag("LocalPlayer").transform;
 		}
 	}
 

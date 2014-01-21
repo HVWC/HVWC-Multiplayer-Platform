@@ -26,10 +26,8 @@ public class PlayerHUD : Photon.MonoBehaviour {
 	private bool showHelp=false,showPlayers=false,showChat=false,showMap=false,showVolume=false,showHUD=true;
 	private float volume = 100;
 	private string chatInput = "";
-	
-	public Texture2D C3_Tex,MapTex,VolumeTex,HelpTex,ExitTex,EmptyProgressBar,FullProgressBar;
- 
-	private AsyncOperation async = null; // When assigned, load is in progress.
+
+	public Texture2D C3_Tex,MapTex,VolumeTex,HelpTex,ExitTex,loadingScreen;
 	
 	// UsplayerCamera for initialization
 	void Start () {
@@ -74,7 +72,11 @@ public class PlayerHUD : Photon.MonoBehaviour {
 
 	void OnGUI(){
 	
-		if(!photonView.isMine || networkManager.Room==null || !showHUD){
+		if(Application.isLoadingLevel){
+			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),loadingScreen);
+		}
+
+		if(!photonView.isMine || networkManager.Room==null || !showHUD || Application.isLoadingLevel){
 			return;	
 		}
 
@@ -113,7 +115,7 @@ public class PlayerHUD : Photon.MonoBehaviour {
 				if(selectedPlayer!=null){
 					chat.SendChat(selectedPlayer,chatInput);	
 				}else{
-					chat.SendChat(PhotonTargets.All,chatInput);	
+					chat.SendChat(PhotonTargets.AllBuffered,chatInput);	
 				}
 				chatInput = "";
 			}
@@ -122,15 +124,6 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		if(GUILayout.Button("C H A T")){showChat=!showChat;}
 		GUILayout.EndHorizontal();
 		GUILayout.EndArea();
-		
-    	if (async != null){
-			float progW=Screen.width*.2f;
-			float progH=Screen.height*.02f;
-			float progX=Screen.width*.5f-(progW*.5f);
-			float progY=Screen.height*.5f-(progH*.5f);
-    		GUI.DrawTexture(new Rect(progX, progY, progW, progH), EmptyProgressBar);
-    		GUI.DrawTexture(new Rect(progX, progY, progW * async.progress, progH), FullProgressBar);
-    	}
 	}
 	
 	void PlayerListWindow(int windowID){

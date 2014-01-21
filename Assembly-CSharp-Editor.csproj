@@ -60,10 +60,6 @@
      <None Include="Assets\Shaders\3D Text Shader.shader" />
      <None Include="Assets\Plugins\PhotonNetwork\library\Photon3Unity3D.xml" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Parse.Unity\Parse.Unity.xml" />
- <Reference Include="Parse.Unity">
- <HintPath>Assets\Parse.Unity\Parse.Unity.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>Assets\Plugins\Newtonsoft.Json.dll</HintPath>
  </Reference>

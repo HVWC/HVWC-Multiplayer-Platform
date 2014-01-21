@@ -23,39 +23,36 @@ public class MainMenu : MonoBehaviour{
 	
 	public float spawnRadius=3f;
 
-	public GUISkin skin;
+	public GUISkin PhotonSkin;
 	public Texture background;
-	
-	NetworkManager networkManager;
+
 	private GUIStyle unselected,selected;
 	private string roomName;
     private Vector2 scrollPos = Vector2.zero;
 
     void Start(){
-		networkManager = GetComponent<NetworkManager>();
-
         //Load values from PlayerPrefs
 		selectedAvatar = PlayerPrefs.GetString("avatar",avatars[0].name);
-        networkManager.PlayerName = PlayerPrefs.GetString("playerName", "Guest" + Random.Range(1, 9999));
+        NetworkManager.Instance.PlayerName = PlayerPrefs.GetString("playerName", "Guest" + Random.Range(1, 9999));
 		roomName = PlayerPrefs.GetString("roomName", "New Room");
 
         //Set camera clipping for nicer "main menu" background
         Camera.main.farClipPlane = Camera.main.nearClipPlane + 0.1f;
 	
-		unselected = skin.customStyles[0];
-		selected = skin.customStyles[1];
+		unselected = PhotonSkin.customStyles[0];
+		selected = PhotonSkin.customStyles[1];
 	}
 	
     void OnGUI(){
 
-		if (networkManager.Room != null){ //Only when we're not in a Room
+		if (NetworkManager.Instance.Room != null){ //Only when we're not in a Room
 			return;
 		}
 
-		GUI.skin = skin;
+		GUI.skin = PhotonSkin;
 		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),background);
 
-		if (!networkManager.Connected && !networkManager.OfflineMode){ //Wait for a connection
+		if (!NetworkManager.Instance.Connected && !NetworkManager.Instance.OfflineMode){ //Wait for a connection
             return;
         }
 
@@ -79,22 +76,22 @@ public class MainMenu : MonoBehaviour{
         GUILayout.BeginHorizontal();
 		
         GUILayout.Label("Name:", GUILayout.Width(150));
-		networkManager.PlayerName = GUILayout.TextField(networkManager.PlayerName);
+		NetworkManager.Instance.PlayerName = GUILayout.TextField(NetworkManager.Instance.PlayerName);
         GUILayout.EndHorizontal();
 
         GUILayout.Space(30);
         GUILayout.Label("Games:");
-		if (networkManager.RoomList.Length == 0){
+		if (NetworkManager.Instance.RoomList.Length == 0){
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             GUILayout.Label("No active games");
             GUILayout.EndScrollView();
         }else{
             scrollPos = GUILayout.BeginScrollView(scrollPos);
-            foreach (RoomInfo room in networkManager.RoomList){
+			foreach (RoomInfo room in NetworkManager.Instance.RoomList){
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(room.name + " " + room.playerCount + "/" + room.maxPlayers);
                 if (GUILayout.Button("Join")){
-                   networkManager.JoinRoom(room.name);
+					NetworkManager.Instance.JoinRoom(room.name);
                 }
                 GUILayout.EndHorizontal();
             }
@@ -107,13 +104,13 @@ public class MainMenu : MonoBehaviour{
         GUILayout.BeginHorizontal();
         roomName = GUILayout.TextField(roomName,GUILayout.Width(300f));
         if (GUILayout.Button("Create")){
-			networkManager.CreateRoom(roomName, true, true, 10);
+			NetworkManager.Instance.CreateRoom(roomName, true, true, 10);
         }
         GUILayout.EndHorizontal();
 
         GUILayout.EndArea();
 		if (GUI.changed){//Save name
-			PlayerPrefs.SetString("playerName", networkManager.PlayerName);
+			PlayerPrefs.SetString("playerName", NetworkManager.Instance.PlayerName);
 			PlayerPrefs.SetString("avatar",selectedAvatar);
 			PlayerPrefs.SetString("roomName",roomName);
 		}
@@ -126,10 +123,13 @@ public class MainMenu : MonoBehaviour{
 	}
 
 	public void SpawnPlayer(string avatarName,Vector3 spawnPosition,Quaternion spawnRotation,int group){	
-		GameObject player = networkManager.Instantiate(avatarName, spawnPosition, spawnRotation, group);
-		player.GetComponent<ThirdPersonCamera>().enabled = true;
-		player.GetComponent<ThirdPersonController>().enabled = true;
+		GameObject player = NetworkManager.Instance.Instantiate(avatarName, spawnPosition, spawnRotation, group);
+		player.GetComponent<PlayerCamera>().enabled = true;
+		player.GetComponent<PlayerController>().enabled = true;
 		player.GetComponent<PlayerHUD>().enabled = true;
+		player.tag = "LocalPlayer";
+		WebWarpLocalPlayer.SetLocalPlayer(player);
+		player.transform.FindChild("Icon").renderer.material.color = Color.green;
 	}
 
 	void OnDrawGizmos(){

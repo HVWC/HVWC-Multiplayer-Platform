@@ -85,7 +85,9 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 
 	public static void SetLocalPlayer(GameObject localPlayer){
 		player = localPlayer;
-		Application.ExternalCall(player!=null ? "EnableLinks" : "DisableLinks", player.name);
+		if(Application.isWebPlayer){
+			Application.ExternalCall(player!=null ? "EnableLinks" : "DisableLinks", player.name);
+		}
 	}
 	
 	void SetPlayerCoordinates(string positionData){
@@ -106,7 +108,7 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 	}
 
 	public void SetPosition(Vector3 position){
-		transform.position = position;
+		player.transform.position = position;
 	}
 
 }
