@@ -71,10 +71,11 @@ public class PlayerHUD : Photon.MonoBehaviour {
 	}
 
 	void OnGUI(){
-	
+		GUI.depth=-1000;
 		if(Application.isLoadingLevel){
 			GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),loadingScreen);
 		}
+		GUI.depth=0;
 
 		if(!photonView.isMine || networkManager.Room==null || !showHUD || Application.isLoadingLevel){
 			return;	
@@ -92,7 +93,7 @@ public class PlayerHUD : Photon.MonoBehaviour {
 		if(GUILayout.Button("Load LVL2")){networkManager.LoadLevel("Demo 2");}
 		GUILayout.FlexibleSpace();
 		if(GUILayout.Button(C3_Tex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){C3JoinVoice.JoinVoice(networkManager.Room.name,networkManager.PlayerName);}
-		if(GUILayout.Button(MapTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showMap=!showMap;mapCamera.enabled = warp.enabled = showMap;}
+		if(GUILayout.Button(MapTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showMap=!showMap;mapCamera.enabled = warp.showCoords = showMap;}
 		GUILayout.BeginVertical();
 		if(GUILayout.Button(VolumeTex,"miniButton",GUILayout.Width(buttonWH),GUILayout.Height(buttonWH))){showVolume=!showVolume;}
 		if(showVolume){volume = GUILayout.VerticalSlider(volume,100,0,GUILayout.Width(buttonWH),GUILayout.Height((topHudHeight-buttonWH)*.9f));}

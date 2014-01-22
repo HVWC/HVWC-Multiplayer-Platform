@@ -2,8 +2,10 @@ using UnityEngine;
 using LitJson;
 using System.Collections;
 
-public class WebWarpLocalPlayer : Photon.MonoBehaviour
-{
+public class WebWarpLocalPlayer : MonoBehaviour{
+
+	public static WebWarpLocalPlayer Instance{get; private set;}
+	
 	internal class Location
 	{
 		public Location()
@@ -26,20 +28,41 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 		}
 	}
 
+	static string objectName;
+
 	GeographicMarker geoMarker;
 	
 	string decimalCoord = "41.892442, 12.48485, 40.0";
 	string dmsCoord = "41 53'32.79\"N, 12 29'5.46\"E, 40.0";
 	
 	bool decimalCoords = false;
-	bool showCoords = true;
+	[HideInInspector]
+	public bool showCoords = false;
+
+	void Awake(){
+		if(Instance==null){
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}else{
+			Destroy(gameObject);
+		}
+	}
 
 	void Start(){
-		geoMarker = (GeographicMarker)FindObjectOfType(typeof(GeographicMarker));
+		geoMarker = GetComponent<GeographicMarker>();
+		objectName=gameObject.name;
+	}
+
+	void Update(){
+		camera.enabled = showCoords && NetworkManager.Instance.Room!=null;
 	}
 		
 	void OnGUI()
 	{
+		if(NetworkManager.Instance.Room==null){
+			return;
+		}
+
 		if (!showCoords){
 			return;
 		}
@@ -86,7 +109,7 @@ public class WebWarpLocalPlayer : Photon.MonoBehaviour
 	public static void SetLocalPlayer(GameObject localPlayer){
 		player = localPlayer;
 		if(Application.isWebPlayer){
-			Application.ExternalCall(player!=null ? "EnableLinks" : "DisableLinks", player.name);
+			Application.ExternalCall(player!=null ? "EnableLinks" : "DisableLinks", objectName);
 		}
 	}
 	

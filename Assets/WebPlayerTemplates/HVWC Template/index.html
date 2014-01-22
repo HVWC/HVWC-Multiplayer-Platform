@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>HVWC | %UNITY_WEB_NAME%</title>
+		<title>%UNITY_CUSTOM_ORGANIZATION% | %UNITY_WEB_NAME%</title>
 		%UNITY_UNITYOBJECT_DEPENDENCIES%
 		<script type="text/javascript">
 		<!--
@@ -14,26 +14,27 @@
 		</script>
 		<script type="text/javascript">
 		<!--
+			var u;
 			jQuery(function() {
 				var config = {
 					width: %UNITY_WIDTH%, 
 					height: %UNITY_HEIGHT%,
 					params: %UNITY_PLAYER_PARAMS%
 				};
-				var unityObject = new UnityObject2(config);
+				u = new UnityObject2(config);
 
 				var $missingScreen = jQuery("#unityPlayer").find(".missing");
 				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
 				$missingScreen.hide();
 				$brokenScreen.hide();
 
-				unityObject.observeProgress(function (progress) {
+				u.observeProgress(function (progress) {
 					switch(progress.pluginStatus) {
 						case "broken":
 							$brokenScreen.find("a").click(function (e) {
 								e.stopPropagation();
 								e.preventDefault();
-								unityObject.installPlugin();
+								u.installPlugin();
 								return false;
 							});
 							$brokenScreen.show();
@@ -42,7 +43,7 @@
 							$missingScreen.find("a").click(function (e) {
 								e.stopPropagation();
 								e.preventDefault();
-								unityObject.installPlugin();
+								u.installPlugin();
 								return false;
 							});
 							$missingScreen.show();
@@ -54,41 +55,29 @@
 						break;
 					}
 				});
-				unityObject.initPlugin(jQuery("#unityPlayer")[0], "%UNITY_WEB_PATH%");
+				u.initPlugin(jQuery("#unityPlayer")[0], "%UNITY_WEB_PATH%");
 			});
 		-->
 		</script>
 		<script type="text/javascript">
-		function GetUnity() {
-			if (typeof unityObject != "undefined") {
-				return unityObject.getObjectById("unityPlayer");
-			}
-			return null;
-		}
 		<!--
 		
 		// send messages to change local player's location
 		var objectName;
 		
-		function EnableLinks(name)
-		{
+		function EnableLinks(name){
 			objectName = name;
 			document.getElementById("links").style.display = "block";
 		}
 		
-		function DisableLinks()
-		{
+		function DisableLinks(){
 			objectName = null;
 			document.getElementById("links").style.display = "none";
 		}
 		
-		function SendLocation(coordinates)
-		{
+		function SendLocation(coordinates){
 			if (!objectName) return false;
-			
-			var unity = unityObject.getObjectById("unityPlayer");
-			unity.SendMessage(objectName, "SetPlayerCoordinates", coordinates);
-			
+			u.getUnity().SendMessage(objectName, "SetPlayerCoordinates", coordinates);
 			return false;
 		}
 		
@@ -156,7 +145,6 @@
 		</style>
 	</head>
 	<body>
-		<p class="header"><span>Unity Web Player | </span>WebPlayer</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
@@ -164,10 +152,13 @@
 						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
 					</a>
 				</div>
+				<div class="broken">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+					</a>
+				</div>
 			</div>
 		</div>
-		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-		
 		<ul id="links" style='width: 400px; margin: 0px auto;'>
 			<li><a class="location-link" href="#" onclick="return SendLocation('41.892442, 12.48485, 45.0');">Go to Column Pocas</a></li>
 			<li><a class="location-link" href="#" onclick="return SendLocation('10.0, 10.0, 10.0');">Go to 10, 10, 10</a></li>
@@ -175,7 +166,6 @@
 			<li><a class="location-link" href="#" onclick="return SendLocation('-10.0, -10.0, 10.0');">Go to -10, -10, 10</a></li>
 			<li><a class="location-link" href="#" onclick="return SendLocation('10.0, -10.0, 10.0');">Go to 10, -10, 10</a></li>
 		</ul>
-		
 		<script type="text/javascript">
 			DisableLinks();
 		</script>

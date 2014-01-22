@@ -12,26 +12,9 @@ using System.Collections.Generic;
 using System; 
 using System.IO;
 
-
-// ----------------- CHANGES FOR C3 LITE INTEGRATION --------------------
-
-/// <summary>
-/// This file can be included in your project to enable simple integration with C3
-/// </summary>
-public class C3JoinVoice : MonoBehaviour
-{
-	public GUISkin skin;
-    public static C3JoinVoice SP;
-	public GameObject PreviewCamera;
-
-	public Texture voiceIcon;
-	public Vector2 tooltip_pos = new Vector2(30,0);
+public class C3JoinVoice : MonoBehaviour{
 	
-	
-
-	// this string identifies your application - it should be provided to you by Vivox
-	// Each game or publisher should request a C3 App ID from Vivox by emailing c3@vivox.com
-	private static string yourC3AppId = "HVWC";
+	private static string c3AppId = "HVWC";
 
 	void OnLeftRoom()
     {
@@ -52,11 +35,16 @@ public class C3JoinVoice : MonoBehaviour
 	{
 		
 		// construct the URL for the web page that allows download of C3 and also redirects to a URL protocal request that causes C3 to join the specified channel
-		string sUrl = string.Format ("http://social.c3p.vivox.com/lite_protocol.php?app={0}&channel={1}&user={2}", yourC3AppId, channelId, userId);
+		string sUrl = string.Format ("http://social.c3p.vivox.com/lite_protocol.php?app={0}&channel={1}&user={2}", c3AppId, channelId, userId);
+		string sProtocol = "c3:TP-" + c3AppId + "-" + channelId + "-" + userId;
 		
 #if UNITY_WEBPLAYER
 		// start browser and show web page
-		Application.ExternalEval("window.open('" + sUrl + "','C3');");
+		if(Application.isWebPlayer){
+			Application.ExternalEval("window.open('" + sUrl + "','C3');");
+		}else{
+			Application.OpenURL(sProtocol);
+		}
 		
 #elif UNITY_STANDALONE_WIN
 		// check if C3 is installed
@@ -66,15 +54,11 @@ public class C3JoinVoice : MonoBehaviour
 			sC3Path = "C:\\Program Files (x86)\\Vivox\\C3";
 		}
 		
-		if (System.IO.File.Exists(sC3Path + "\\C3.exe") || System.IO.File.Exists(sC3Path + "\\c3.exe"))
-		{
+		if (System.IO.File.Exists(sC3Path + "\\C3.exe") || System.IO.File.Exists(sC3Path + "\\c3.exe")){
 			// C3 is installed
 			// send URL protocol request to C3 without starting the browser to show the web page
-			string sProtocol = "c3:TP-" + yourC3AppId + "-" + channelId + "-" + userId;
 			Application.OpenURL(sProtocol);
-		}
-		else
-		{
+		}else{
 			// start browser and show web page
 			Application.OpenURL(sUrl);
 		}
@@ -102,7 +86,3 @@ public class C3JoinVoice : MonoBehaviour
 #endif
 	}
 }
-
-		// -------------- END OF CHANGES FOR C3 LITE INTEGRATION ----------------
-
-	

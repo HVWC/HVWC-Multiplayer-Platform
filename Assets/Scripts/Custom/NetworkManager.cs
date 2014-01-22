@@ -10,25 +10,32 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+///  This singleton class manages the network and wraps useful network methods.
+/// </summary>
 public class NetworkManager : Photon.MonoBehaviour {
 
-	public static NetworkManager Instance{get; private set;}
-
+	/// <summary>
+	///  The version of this build. Photon separates versions on the network.
+	/// </summary>
 	public string version;
 
+	//Because we want one and only one of these objects, we should make this a singleton
+	public static NetworkManager Instance{get; private set;}
+
 	void Awake(){
-		if(Instance==null){
+		if(Instance==null){ //If there is no instance of this script, then set the instance to be this script and make the gameobject survive scene changes
 			Instance = this;
 			gameObject.AddComponent<PhotonView>();
 			gameObject.GetPhotonView().viewID = PhotonNetwork.AllocateViewID();
 			DontDestroyOnLoad(gameObject);
-		}else{
+		}else{ //If there is already an instance of this script, then destroy this gameobject
 			Destroy(gameObject);
 		}
 	}
 
 	void Start(){
-		if(!PhotonNetwork.connected){
+		if(!PhotonNetwork.connected){ //As soon as the game loads up, we want to connect if we aren't connected already
 			Connect(version);
 		}
 	}
