@@ -20,9 +20,9 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 		public double e;
 	}
 	
-	static GameObject player;
+	GameObject player;
 
-	public static GameObject Player {
+	public GameObject Player {
 		get {
 			return player;
 		}
@@ -35,9 +35,9 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 	string decimalCoord = "41.892442, 12.48485, 40.0";
 	string dmsCoord = "41 53'32.79\"N, 12 29'5.46\"E, 40.0";
 	
-	bool decimalCoords = false;
+	bool decimalCoords;
 	[HideInInspector]
-	public bool showCoords = false;
+	public bool showCoords;
 
 	void Awake(){
 		if(Instance==null){
@@ -106,7 +106,7 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 		GUILayout.EndArea();
 	}
 
-	public static void SetLocalPlayer(GameObject localPlayer){
+	public void SetLocalPlayer(GameObject localPlayer){
 		player = localPlayer;
 		if(Application.isWebPlayer){
 			Application.ExternalCall(player!=null ? "EnableLinks" : "DisableLinks", objectName);

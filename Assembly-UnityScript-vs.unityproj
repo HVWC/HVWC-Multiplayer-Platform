@@ -5,20 +5,21 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{4DB0B961-1DC0-1956-EFDF-AD7EAF646038}</ProjectGuid>
+	<ProjectGuid>{B7EC4513-4CD4-D97C-BBD2-98B5345B6856}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
 	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_WIN;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -36,6 +37,7 @@
 	<Reference Include="System" />
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
 	  <HintPath>C:/Program Files (x86)/Unity4/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
@@ -44,18 +46,84 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets (Mobile)\Scripts\Joystick.js" />
-     <None Include="Assets\Plugins\PhotonNetwork\library\release_history.txt" />
-     <None Include="Assets\Docs\changelog.txt" />
-     <None Include="Assets\Plugins\PhotonNetwork\library\Photon3Unity3D.xml" />
-     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\dynsections.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\jquery.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_10.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_11.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_12.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_13.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_14.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_6.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_7.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_8.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_9.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_a.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_b.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_c.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_d.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_e.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\all_f.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_6.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\classes_7.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enums_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\enumvalues_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\functions_6.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\properties_6.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\search.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_0.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_1.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_10.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_2.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_3.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_4.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_5.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_6.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_7.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_8.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_9.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_a.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_b.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_c.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_d.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_e.js" />
+     <Compile Include="Assets\Scripts\IDIA\Documentation\search\variables_f.js" />
+     <None Include="Assets\Plugins\release_history.txt" />
+     <None Include="Assets\Shaders\3D Text Shader.shader" />
+     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
+     <None Include="Assets\Photon Unity Networking\readme.txt" />
+     <None Include="Assets\Photon Unity Networking\changelog.txt" />
  <Reference Include="Photon3Unity3D">
- <HintPath>Assets\Plugins\PhotonNetwork\library\Photon3Unity3D.dll</HintPath>
+ <HintPath>Assets\Plugins\Photon3Unity3D.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{61F3FFEA-A22F-FE6F-A1D8-AD210B975D09}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

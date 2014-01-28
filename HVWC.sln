@@ -1,8 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{6BC9F418-4A2A-42E2-6A59-6F88AD6C1D91}") = "HVWC", "Assembly-CSharp-firstpass.csproj", "{7D384C42-F335-5D26-BA85-E283DA53500E}"
-EndProject
 Project("{6BC9F418-4A2A-42E2-6A59-6F88AD6C1D91}") = "HVWC", "Assembly-CSharp.csproj", "{B6DD93B7-5B6D-01BA-AA95-CF1B80A6CB7B}"
 EndProject
 Project("{6BC9F418-4A2A-42E2-6A59-6F88AD6C1D91}") = "HVWC", "Assembly-CSharp-Editor.csproj", "{714CF0C5-CDB6-FA6A-3F85-52BFA881B2F8}"
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7D384C42-F335-5D26-BA85-E283DA53500E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D384C42-F335-5D26-BA85-E283DA53500E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D384C42-F335-5D26-BA85-E283DA53500E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D384C42-F335-5D26-BA85-E283DA53500E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6DD93B7-5B6D-01BA-AA95-CF1B80A6CB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6DD93B7-5B6D-01BA-AA95-CF1B80A6CB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6DD93B7-5B6D-01BA-AA95-CF1B80A6CB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																													GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
