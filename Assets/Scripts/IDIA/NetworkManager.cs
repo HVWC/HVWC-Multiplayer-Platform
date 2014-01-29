@@ -218,16 +218,6 @@ public class NetworkManager : MonoBehaviour {
 	void OnPhotonRandomJoinFailed(){
 		CreateRoom(null,true,true,10);
 	}
-
-	/// <summary>
-	/// A message called when the local player leaves a room.
-	/// </summary>
-    IEnumerator OnLeftRoom(){
-        while(PhotonNetwork.room!=null || !PhotonNetwork.connected){
-            yield return 0;
-		}
-        LoadLevel(Application.loadedLevel);
-    }
 	#endregion
   
 }
