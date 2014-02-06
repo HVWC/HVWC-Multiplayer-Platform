@@ -12,3 +12,15 @@ Documentation
 -------------
 
 Documentation for all IDIA scripts within Assets/Scripts/IDIA is available here: http://idialabprojects.org/HVWC/Documentation/
+
+Best Practices
+--------------
+
+Best practices and recommendations for using this platform are available here:
+https://www.dropbox.com/s/avpo74hyxzbdo65/HVWCMultiplayerPlatform-BestPractices.pdf
+
+Video Walkthroughs
+------------------
+
+Video walkthroughs for using the platform scripts are available here:
+https://www.dropbox.com/sh/4ddy5ddwte4e98w/cAYPwqd79t
