@@ -21,7 +21,6 @@ var NAVTREEINDEX0 =
 "class_main_menu.html#ae302861039f608991c52ccc841c267c8":[0,0,4,5],
 "class_main_menu_1_1_avatar.html":[0,0,4,0],
 "class_main_menu_1_1_avatar.html#a4e17854e13c27e0e7616086e753e25f5":[0,0,4,0,0],
-"class_main_menu_1_1_avatar.html#a6fa0dd89923dca5e3630972132468ff8":[0,0,4,0,2],
 "class_main_menu_1_1_avatar.html#a8ad4590ac5e346cee88a9b21e54ef60d":[0,0,4,0,1],
 "class_name_tag.html":[0,0,5],
 "class_name_tag.html#a286c9faec08512c10325925c51429786":[0,0,5,1],

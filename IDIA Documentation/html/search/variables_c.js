@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['radius',['radius',['../class_click_teleport.html#a6d6c70eaa2a0c77619b5927e8e0d000d',1,'ClickTeleport']]],
-  ['runspeed',['runSpeed',['../class_player_controller.html#a40299964fecfbf0ca1399d7ca1cb27b9',1,'PlayerController']]]
+  ['selectedavatar',['selectedAvatar',['../class_main_menu.html#a627fe03b9079490d7ec25de8caa28c2e',1,'MainMenu']]],
+  ['spawnradius',['spawnRadius',['../class_main_menu.html#ae302861039f608991c52ccc841c267c8',1,'MainMenu']]]
 ];

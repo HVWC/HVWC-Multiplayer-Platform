@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 using System.Collections;
+using System.Net;
 
 /// <summary>
 /// This class displays the main menu used in the lobby.
@@ -24,11 +25,6 @@ public class MainMenu : MonoBehaviour{
 		/// The name of the avatar prefab.
 		/// </summary>
 		public string name;
-
-		/// <summary>
-		/// The prefab for this avatar.
-		/// </summary>
-		public GameObject prefab;
 
 		/// <summary>
 		/// The icon for this avatar.
@@ -106,10 +102,16 @@ public class MainMenu : MonoBehaviour{
         }
 
 		//Avatar Selection
-        GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 300) / 2, 400, 300));
+        //GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, (Screen.height - 400) / 2, 400, 400));
+		GUILayout.BeginArea(new Rect((Screen.width - 400) / 2, 0, 400, Screen.height));
+		GUILayout.FlexibleSpace();
 		GUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
 		for(int i=0;i<avatars.Length;i++){ //For each of the avatars
+			if(i%5==0){ //Every fifth avatar, we want a new line
+				GUILayout.EndHorizontal();
+				GUILayout.BeginHorizontal();
+			}
 			if(avatars[i].name==selectedAvatar){ //If it is the selected avatar
 				if(GUILayout.Button(avatars[i].icon,selected,GUILayout.Width(74),GUILayout.Height(74))){ //If the player hits this button
 					selectedAvatar = avatars[i].name; //Make this the selected avatar
@@ -132,12 +134,10 @@ public class MainMenu : MonoBehaviour{
 		//Room List
         GUILayout.Space(30);
         GUILayout.Label("Rooms:");
+		scrollPos = GUILayout.BeginScrollView(scrollPos);
 		if (NetworkManager.Instance.RoomList.Length == 0){ //If there are no active rooms
-            scrollPos = GUILayout.BeginScrollView(scrollPos);
             GUILayout.Label("No active rooms"); //Display a label saying so
-            GUILayout.EndScrollView();
         }else{ //If there are active rooms
-            scrollPos = GUILayout.BeginScrollView(scrollPos);
 			foreach (RoomInfo room in NetworkManager.Instance.RoomList){ //For each room
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(room.name + " " + room.playerCount + "/" + room.maxPlayers); //Display a label indicating the room name, player count, and max players
@@ -147,11 +147,13 @@ public class MainMenu : MonoBehaviour{
                 }
                 GUILayout.EndHorizontal();
             }
-            GUILayout.EndScrollView();
         }
+		GUILayout.EndScrollView();
 
 		//Room Creation
 		GUILayout.Space(15);
+		GUILayout.BeginHorizontal();
+		GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         roomName = GUILayout.TextField(roomName,GUILayout.Width(300f)); //Set the room name to whatever the player types in the text field
 		if (GUILayout.Button("Create")){ //If the player hits this button
@@ -159,6 +161,7 @@ public class MainMenu : MonoBehaviour{
 			SaveSettings(); //Save the settings
         }
         GUILayout.EndHorizontal();
+		GUILayout.FlexibleSpace();
         GUILayout.EndArea();
     }
 
