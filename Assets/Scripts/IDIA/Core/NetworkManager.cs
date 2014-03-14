@@ -88,7 +88,7 @@ public class NetworkManager : MonoBehaviour {
 		if(Instance==null){ //If there is no instance of this script, then set the instance to be this script and make the gameobject survive scene changes
 			Instance = this;
 			gameObject.AddComponent<PhotonView>();
-			gameObject.GetPhotonView().viewID = PhotonNetwork.AllocateViewID();
+			gameObject.GetPhotonView().viewID = 1;
 			DontDestroyOnLoad(gameObject);
 		}else{ //If there is already an instance of this script, then destroy this gameobject
 			Destroy(gameObject);

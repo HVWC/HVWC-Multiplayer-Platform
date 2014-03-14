@@ -36,6 +36,7 @@ public class TeleportObject : MonoBehaviour {
 	void Start () {
 		mapCamera = GameObject.Find("Map").GetComponent<Camera>();
 		icon = transform.FindChild("Icon").gameObject;
+		player = GameObject.FindGameObjectWithTag("LocalPlayer");
 	}
 
 	/// <summary>
