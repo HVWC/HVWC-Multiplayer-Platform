@@ -17,10 +17,10 @@ Best Practices
 --------------
 
 Best practices and recommendations for using this platform are available here:
-https://www.dropbox.com/s/avpo74hyxzbdo65/HVWCMultiplayerPlatform-BestPractices.pdf
+https://www.dropbox.com/sh/pmvfb94dybqxte6/AACg3e3_tPcCYHg7CCsrgECja/HVWCMultiplayerPlatform-BestPractices.pdf
 
 Video Walkthroughs
 ------------------
 
 Video walkthroughs for using the platform scripts are available here:
-https://www.dropbox.com/sh/4ddy5ddwte4e98w/cAYPwqd79t
+https://www.dropbox.com/sh/4ddy5ddwte4e98w/AABlK-yzTU8pMFVga29xg_B1a
