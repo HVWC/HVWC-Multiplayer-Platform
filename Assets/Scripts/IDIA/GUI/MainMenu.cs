@@ -6,7 +6,11 @@
 // Permissions beyond the scope of this license may be available at http://idialab.org/info/.
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
+// Modified by Benjamin Niedzielski (bniedzie@ucla.edu)
+// Last modified: 9/3/15
+// ----------------------------------------------------------------------------
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Net;
 
@@ -65,6 +69,8 @@ public class MainMenu : MonoBehaviour{
 
 	//The room name
 	string roomName;
+
+	bool changedName = false;
 
 	//The starting scroll position for the room list
     Vector2 scrollPos = Vector2.zero;
@@ -128,41 +134,51 @@ public class MainMenu : MonoBehaviour{
 
 		//Avatar Name
         GUILayout.Label("Name:", GUILayout.Width(150));
-		NetworkManager.Instance.PlayerName = GUILayout.TextField(NetworkManager.Instance.PlayerName); //Set the player's name to whatever the player types in the text field
+		if (!changedName)
+			NetworkManager.Instance.PlayerName = GUILayout.TextField(NetworkManager.Instance.PlayerName); //Set the player's name to whatever the player types in the text field
         GUILayout.EndHorizontal();
 
 		//Room List
-        GUILayout.Space(30);
-        GUILayout.Label("Rooms:");
+		GUILayout.Space(30);
+		GUILayout.Label("Rooms:");
 		scrollPos = GUILayout.BeginScrollView(scrollPos);
-		if (NetworkManager.Instance.RoomList.Length == 0){ //If there are no active rooms
-            GUILayout.Label("No active rooms"); //Display a label saying so
-        }else{ //If there are active rooms
+		int activeRooms = 0;
+		foreach (RoomInfo room in NetworkManager.Instance.RoomList) {
+			if (room.name.EndsWith("\nEphemeral")) {
+				activeRooms++;
+			}
+		}
+		if (activeRooms == 0){ //If there are no active rooms
+			GUILayout.Label("No active rooms"); //Display a label saying so
+		}else{ //If there are active rooms
 			foreach (RoomInfo room in NetworkManager.Instance.RoomList){ //For each room
-                GUILayout.BeginHorizontal();
-                GUILayout.Label(room.name + " " + room.playerCount + "/" + room.maxPlayers); //Display a label indicating the room name, player count, and max players
-                if (GUILayout.Button("Join")){ //If the player hits this button
-					NetworkManager.Instance.JoinRoom(room.name); //Join this room
-					SaveSettings(); //Save the settings
-                }
-                GUILayout.EndHorizontal();
-            }
-        }
+				if (room.name.EndsWith("\nEphemeral")) {
+					string realRoomName = room.name.Remove(room.name.LastIndexOf("\nEphemeral"));
+					GUILayout.BeginHorizontal();
+					GUILayout.Label(realRoomName + " " + room.playerCount + "/" + room.maxPlayers); //Display a label indicating the room name, player count, and max players
+					if (GUILayout.Button("Join")){ //If the player hits this button
+						NetworkManager.Instance.JoinRoom(room.name); //Join this room
+						SaveSettings(); //Save the settings
+					}
+					GUILayout.EndHorizontal();
+				}
+			}
+		}
 		GUILayout.EndScrollView();
-
+		
 		//Room Creation
 		GUILayout.Space(15);
 		GUILayout.BeginHorizontal();
 		GUILayout.EndHorizontal();
-        GUILayout.BeginHorizontal();
-        roomName = GUILayout.TextField(roomName,GUILayout.Width(300f)); //Set the room name to whatever the player types in the text field
+		GUILayout.BeginHorizontal();
+		roomName = GUILayout.TextField(roomName,GUILayout.Width(300f)); //Set the room name to whatever the player types in the text field
 		if (GUILayout.Button("Create")){ //If the player hits this button
-			NetworkManager.Instance.CreateRoom(roomName, true, true, 10); //Create this room with the specified room name
+			NetworkManager.Instance.CreateRoom(roomName + "\nEphemeral", true, true, 10); //Create this room with the specified room name
 			SaveSettings(); //Save the settings
-        }
-        GUILayout.EndHorizontal();
+		}
+		GUILayout.EndHorizontal();
 		GUILayout.FlexibleSpace();
-        GUILayout.EndArea();
+		GUILayout.EndArea();
     }
 
 	/// <summary>
@@ -179,18 +195,43 @@ public class MainMenu : MonoBehaviour{
 	/// A message called when the local player joins a room.
 	/// </summary>
 	void OnJoinedRoom(){    
-		camera.enabled = false; //Turn off the camera
+		GetComponent<Camera>().enabled = false; //Turn off the camera
 		GetComponent<AudioListener>().enabled = false; //Turn off the Audio Listener
 		Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x-spawnRadius,transform.position.x+spawnRadius),transform.position.y,Random.Range(transform.position.z-spawnRadius,transform.position.z+spawnRadius)); //Generate a random spawn position within the spawn radius
 		SpawnPlayer(selectedAvatar, spawnPosition, gameObject.transform.rotation, 0); //Spawn the selected avatar at the spawn position
+
+		//Avoid duplicate names by adding a number in parens to distinguish between players
+		//This is necessary to ensure that the locks on who can move the stage work properly.
+		bool dupName = false;
+		foreach (PhotonPlayer player in PhotonNetwork.otherPlayers) {
+			if (player.name == NetworkManager.Instance.PlayerName) {
+				dupName = true;
+			}
+		}
+		if (dupName) {
+			int i = 1;
+			while (true) {
+				dupName = false;
+				foreach (PhotonPlayer player in PhotonNetwork.otherPlayers) {
+					if (player.name == (NetworkManager.Instance.PlayerName + "(" + i + ")")) {
+						dupName = true;
+					}
+				}
+				if (!dupName) break;
+				i++;
+			}
+			NetworkManager.Instance.PlayerName += "(" + i + ")";
+			changedName = true;
+		}
 	}
 
 	/// <summary>
 	/// A message called when the local player leaves a room.
 	/// </summary>
 	void OnLeftRoom(){
-		camera.enabled = true; //Turn on the camera
+		GetComponent<Camera>().enabled = true; //Turn on the camera
 		GetComponent<AudioListener>().enabled = true; //Turn on the Audio Listener
+		changedName = false;
 	}
 	#endregion
 
@@ -207,13 +248,25 @@ public class MainMenu : MonoBehaviour{
 		GameObject cameraGO = player.transform.FindChild("Camera").gameObject;
 		cameraGO.SetActive(true);
 		cameraGO.tag = "MainCamera";
-		player.GetComponent<PlayerController>().enabled = true;
+		player.GetComponent<PlayerCharacterController>().enabled = true;
 		player.GetComponent<PlayerHUD>().enabled = true;
+		setUpHUD ();
 		player.tag = "LocalPlayer";
-		WebWarpLocalPlayer.Instance.SetLocalPlayer(player);
+		if (WebWarpLocalPlayer.Instance != null)
+			WebWarpLocalPlayer.Instance.SetLocalPlayer(player);
 		Transform icon = player.transform.FindChild("Icon");
-		icon.renderer.material.color = Color.green;
+		icon.GetComponent<Renderer>().material.color = Color.green;
 		icon.transform.position += Vector3.up * .05f;
+	}
+
+	/**
+	 * This method enables and displays the UI buttons first available to the player.
+	 */
+	void setUpHUD() {
+		GameObject.FindGameObjectWithTag ("CameraButton").GetComponent<Button> ().interactable = true;
+		GameObject.FindGameObjectWithTag ("CameraText").GetComponent<Text> ().text = "Enable Camera Panning";
+		GameObject.FindGameObjectWithTag ("QuitButton").GetComponent<Button> ().interactable = true;
+		GameObject.FindGameObjectWithTag ("QuitText").GetComponent<Text> ().text = "Exit";
 	}
 
 	/// <summary>
