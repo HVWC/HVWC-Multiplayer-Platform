@@ -92,7 +92,7 @@ public class PlayerHUD : MonoBehaviour {
 		playerList = FindObjectOfType(typeof(PlayerList)) as PlayerList; //Get the PlayerList component
 		unselected = CustomSkin.customStyles[0]; //Set unselected to the appropriate custom style set in the custom skin
 		selected = CustomSkin.customStyles[1]; //Set unselected to the appropriate custom style set in the custom skin
-		mapCamera = GameObject.Find("Map").camera; //Get the Camera component on the Map object
+		mapCamera = GameObject.Find("Map").GetComponent<Camera>(); //Get the Camera component on the Map object
 	}
 	
 	/// <summary>

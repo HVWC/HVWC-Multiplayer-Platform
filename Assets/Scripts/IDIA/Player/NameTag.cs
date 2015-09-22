@@ -56,7 +56,7 @@ public class NameTag : MonoBehaviour {
 	void Update () {
 		transform.LookAt(Camera.main.transform); //Make sure the gameobject is always facing the camera, so it will look like a GUI element rather than a 3D object
 		nameTagColor.a = fadeDistance/Vector3.Distance(transform.position,Camera.main.transform.position); //Set the alpha to the fadeDistance divided by the actual distance between it and the camera
-		renderer.material.color = nameTagColor; //Set the color
+		GetComponent<Renderer>().material.color = nameTagColor; //Set the color
 	}
 	#endregion
 

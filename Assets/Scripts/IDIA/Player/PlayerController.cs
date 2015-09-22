@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour{
 	/// A message called once just before Update is called.
 	/// </summary>
 	void Start(){
-		rigidbody.freezeRotation = true; //Freeze the rotation, because we'll do that manually
+		GetComponent<Rigidbody>().freezeRotation = true; //Freeze the rotation, because we'll do that manually
 		downwardForce = new Vector3(0,-gravity,0); //Set our artifical gravity variable
 	}
 	
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour{
 	/// </summary>
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.F)){ //If the player hits the 'F' key
-			rigidbody.AddForce(rigidbody.transform.up*(flySpeed+5),ForceMode.VelocityChange); //Add a little hop to get off the ground
+			GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().transform.up*(flySpeed+5),ForceMode.VelocityChange); //Add a little hop to get off the ground
 			Fly(!flying); //Toggle flying
 		}
 
@@ -164,8 +164,8 @@ public class PlayerController : MonoBehaviour{
 	void FixedUpdate(){
 		
 		grounded = Physics.Raycast( // Shoot a ray downward to see if the local player is touching the ground
-			rigidbody.transform.position + rigidbody.transform.up * -heightOffset,
-			rigidbody.transform.up * -1,
+			GetComponent<Rigidbody>().transform.position + GetComponent<Rigidbody>().transform.up * -heightOffset,
+			GetComponent<Rigidbody>().transform.up * -1,
 			groundingDistance,
 			groundLayers
 		);	
@@ -176,27 +176,27 @@ public class PlayerController : MonoBehaviour{
 			if(!grounded){
 				speed = Mathf.Lerp(speed,0,Time.deltaTime); //If the local player is jumping or falling, decelerate
 			}
-			rigidbody.AddForce(downwardForce, ForceMode.Force); //If the local player is not flying, add gravity to make falling and movement more natural
+			GetComponent<Rigidbody>().AddForce(downwardForce, ForceMode.Force); //If the local player is not flying, add gravity to make falling and movement more natural
 		}
-		movement = Input.GetAxis("Vertical") * rigidbody.transform.forward;
-		rigidbody.AddForce(movement.normalized*speed,ForceMode.VelocityChange); //Add our movement * speed to the local player
+		movement = Input.GetAxis("Vertical") * GetComponent<Rigidbody>().transform.forward;
+		GetComponent<Rigidbody>().AddForce(movement.normalized*speed,ForceMode.VelocityChange); //Add our movement * speed to the local player
 		
 		//Jump
 		if (grounded && Input.GetButton ("Jump")){ //If the local player is grounded and hits the Jump button, make the rigidbody jump up
-			rigidbody.AddForce (25 * rigidbody.transform.up,ForceMode.VelocityChange);
+			GetComponent<Rigidbody>().AddForce (25 * GetComponent<Rigidbody>().transform.up,ForceMode.VelocityChange);
 		}	
 		
 		//Rotation
 		float rotationAmount = Input.GetAxis("Horizontal")* 100f * Time.deltaTime;
-		rigidbody.transform.RotateAround (transform.position, rigidbody.transform.up, rotationAmount); //Add our rotation to the local player
+		GetComponent<Rigidbody>().transform.RotateAround (transform.position, GetComponent<Rigidbody>().transform.up, rotationAmount); //Add our rotation to the local player
 		
 		//Fly
-		Vector3 fly = Input.GetAxis("Fly") * rigidbody.transform.up;
-		rigidbody.AddForce(fly.normalized*flySpeed,ForceMode.VelocityChange);
+		Vector3 fly = Input.GetAxis("Fly") * GetComponent<Rigidbody>().transform.up;
+		GetComponent<Rigidbody>().AddForce(fly.normalized*flySpeed,ForceMode.VelocityChange);
 		if(!flying && !grounded && Mathf.Abs(Input.GetAxis("Fly"))>0){ //If the local player has not been flying, is not grounded, and is inputting on the Fly axis, then the local player is flying
 			Fly(true);
 		}
-		if(flying && grounded && rigidbody.velocity.y<=-.1f){ //If the local player has been flying, but now is grounded and falling, then the local player is not flying anymore
+		if(flying && grounded && GetComponent<Rigidbody>().velocity.y<=-.1f){ //If the local player has been flying, but now is grounded and falling, then the local player is not flying anymore
 			Fly(false);
 		}
 		
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour{
 	/// A method to enable flying and set properties to allow flight.
 	/// </summary>
 	public void Fly(bool val){
-		rigidbody.useGravity = !val; //Turn on/off gravity depending on whether the local player is flying
+		GetComponent<Rigidbody>().useGravity = !val; //Turn on/off gravity depending on whether the local player is flying
 		flying = val; //Toggle flying
 	}
 	#endregion

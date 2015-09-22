@@ -45,7 +45,7 @@ public class TeleportObject : MonoBehaviour {
 	void Update () {
 		Ray ray = mapCamera.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
-		if(icon.collider.Raycast(ray, out hit, Mathf.Infinity)){
+		if(icon.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)){
 			if(Input.GetMouseButtonUp(0)){
 				player.transform.position = transform.position;
 			}

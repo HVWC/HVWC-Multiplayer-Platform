@@ -54,7 +54,7 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 	}
 
 	void Update(){
-		camera.enabled = showCoords && NetworkManager.Instance.Room!=null;
+		GetComponent<Camera>().enabled = showCoords && NetworkManager.Instance.Room!=null;
 	}
 		
 	void OnGUI()

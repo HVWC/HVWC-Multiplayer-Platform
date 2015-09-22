@@ -142,7 +142,12 @@ public class NetworkManager : MonoBehaviour {
 	/// The maximum number of players that can be in this room at one time.
 	/// </param>
 	public void CreateRoom(string roomName,bool isVisible,bool isOpen,int maxPlayers){
-		PhotonNetwork.CreateRoom(roomName, isVisible, isOpen, maxPlayers);
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.isVisible = isVisible;
+        roomOptions.isOpen = isOpen;
+        roomOptions.maxPlayers = (byte)maxPlayers;
+        TypedLobby typedLobby = new TypedLobby();
+        PhotonNetwork.CreateRoom(roomName, roomOptions, typedLobby);
 	}
 
 	/// <summary>

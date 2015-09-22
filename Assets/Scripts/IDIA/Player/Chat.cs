@@ -31,7 +31,7 @@ public class Chat : Photon.MonoBehaviour{
 	/// <param name="info">
 	/// Info about the RPC call.
 	/// </param>
-	[RPC]
+	[PunRPC]
 	void AddMessage(string text, PhotonMessageInfo info){
         Messages.Add("[" + info.sender + "] " + text);
         if (Messages.Count > 15){
