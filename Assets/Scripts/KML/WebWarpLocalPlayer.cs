@@ -113,7 +113,7 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 		}
 	}
 	
-	void SetPlayerCoordinates(string positionData){
+	public void SetPlayerCoordinates(string positionData){
 		GeographicCoord geoCoord = new GeographicCoord(GeographicCoord.Mode.LatLongDecimalDegrees);
 		geoCoord.text = positionData;
 		
