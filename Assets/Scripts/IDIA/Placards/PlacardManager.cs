@@ -25,7 +25,7 @@ public class PlacardManager : MonoBehaviour {
     void SetPlacardLocations() {
         foreach(DrupalPlacard placard in placards) {
             GameObject newPlacard = new GameObject(placard.title);
-            GeographicManager.Instance.SetObjectCoordinates(newPlacard.transform,placard.latitude + " " + placard.longitude);
+            GeographicManager.Instance.SetObjectCoordinates(newPlacard.transform,placard.latitude + ", " + placard.longitude + ", " + placard.elevation);
             newPlacard.transform.parent = transform;
         }
     }

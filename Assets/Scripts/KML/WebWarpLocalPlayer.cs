@@ -49,7 +49,7 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 	}
 
 	void Start(){
-		geoMarker = GetComponent<GeographicMarker>();
+		geoMarker = FindObjectOfType<GeographicMarker>();
 		objectName=gameObject.name;
 	}
 

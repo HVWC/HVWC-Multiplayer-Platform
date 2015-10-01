@@ -27,7 +27,7 @@ public class GeographicManager : MonoBehaviour {
     }
 
     public void SetPosition(Transform t, Vector3 position) {
-        transform.position = position;
+        t.position = position;
     }
 
 }
