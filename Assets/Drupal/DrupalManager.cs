@@ -47,56 +47,84 @@ namespace Drupal {
         #endregion
 
         #region Class Fields
-        public DrupalEnvironment environment;
+        public DrupalEnvironment currentEnvironment;
         public DrupalTour tour;
         public DrupalPlacard[] inWorldObjects;
         #endregion
 
+        #region Debug Fields
+        public bool debug;
+        public TextAsset currentEnvironmentText, tourText, inWorldObjectsText, registerPlacardClickText, addPlacardText;
+        #endregion
+
+        void Start() {
+            GetCurrentEnvironment();
+        }
+
         #region External Calls
         public void GetCurrentEnvironment() {
+            if (debug) {
+                GotCurrentEnvironment(currentEnvironmentText.text);
+                return;
+            }
             Application.ExternalCall("DrupalUnityInterface.getCurrentEnvironment", gameObject.name, "GotCurrentEnvironment"); //external method: Interface.prototype.getCurrentEnvironment = function(gameObject,method){...}
         }
 
         public void GetTour() {
-            Application.ExternalCall("DrupalUnityInterface.getTour", environment.currentTourID, gameObject.name, "GotTour"); //external method: Interface.prototype.getTour = function(tour_id,gameObject,method){...}
+            if (debug) {
+                GotTour(tourText.text);
+                return;
+            }
+            Application.ExternalCall("DrupalUnityInterface.getTour", currentEnvironment.currentTourID, gameObject.name, "GotTour"); //external method: Interface.prototype.getTour = function(tour_id,gameObject,method){...}
         }
 
         public void GetInWorldObjects() {
-            Application.ExternalCall("DrupalUnityInterface.getInWorldObjects", environment.id, gameObject.name, "GotInWorldObjects"); //external method: Interface.prototype.getInWorldObjects = function(environment_id,gameObject,method){...}
+            if (debug) {
+                GotInWorldObjects(inWorldObjectsText.text);
+                return;
+            }
+            Application.ExternalCall("DrupalUnityInterface.getInWorldObjects", currentEnvironment.id, gameObject.name, "GotInWorldObjects"); //external method: Interface.prototype.getInWorldObjects = function(environment_id,gameObject,method){...}
         }
 
         public void RegisterPlacardClick(int placard_id) {
+            if (debug) {
+                RegisteredPlacardClick(registerPlacardClickText.text);
+                return;
+            }
             Application.ExternalCall("DrupalUnityInterface.registerPlacardClick", placard_id, gameObject.name, "RegisteredPlacardClick"); //external method: Interface.prototype.registerPlacardClick = function(placard_id,gameObject,method){...}
         }
         
         public void AddPlacard(DrupalPlacard placard) {
+            if (debug) {
+                AddedPlacard(addPlacardText.text);
+                return;
+            }
             string placard_json = "{\"id\":" + placard.id + ",\"title\":\"" + placard.title + "\",\"latitude\":" + placard.latitude + ",\"longitude\":" + placard.longitude + ",\"elevation\":" + placard.elevation + ",\"orientation\":" + placard.orientation + "}";
-            Application.ExternalCall("DrupalUnityInterface.addPlacard", environment.currentTourID, placard_json, gameObject.name, "AddedPlacard"); //external method: Interface.prototype.addPlacard = function(tour_id,placard,gameObject,method){...}
+            Application.ExternalCall("DrupalUnityInterface.addPlacard", currentEnvironment.currentTourID, placard_json, gameObject.name, "AddedPlacard"); //external method: Interface.prototype.addPlacard = function(tour_id,placard,gameObject,method){...}
         }
         #endregion
 
         #region Callbacks
         public void GotCurrentEnvironment(string json) {  //callback: u.getUnity().SendMessage(gameObject,method,jsonResultAsString);
-            if(OnGotCurrentEnvironment != null) {
+            JSONNode node = JSON.Parse(json);
+            currentEnvironment = new DrupalEnvironment();
+            currentEnvironment.id = node["id"].AsInt;
+            currentEnvironment.title = node["title"];
+            currentEnvironment.currentTourID = node["current_tour_id"].AsInt;
+            if (OnGotCurrentEnvironment != null) {
                 OnGotCurrentEnvironment(json);
             }
-            JSONNode node = JSON.Parse(json);
-            environment = new DrupalEnvironment();
-            environment.id = node["id"].AsInt;
-            environment.title = node["title"];
-            environment.currentTourID = node["current_tour_id"].AsInt;
+            GetTour();
         }
 
         public void GotTour(string json) {  //callback: u.getUnity().SendMessage(gameObject,method,jsonResultAsString);
-            if(OnGotTour != null) {
-                OnGotTour(json);
-            }
             JSONNode node = JSON.Parse(json);
             tour = new DrupalTour();
             tour.title = node["title"];
             tour.id = node["id"].AsInt;
             tour.placards = new DrupalPlacard[node["placards"].AsArray.Count];
             for(int i = 0; i < node["placards"].AsArray.Count; i++) {
+                tour.placards[i] = new DrupalPlacard();
                 tour.placards[i].id = node["placards"][i]["id"].AsInt;
                 tour.placards[i].title = node["placards"][i]["title"];
                 tour.placards[i].latitude = node["placards"][i]["latitude"].AsFloat;
@@ -104,21 +132,26 @@ namespace Drupal {
                 tour.placards[i].elevation = node["placards"][i]["elevation"].AsFloat;
                 tour.placards[i].orientation = node["placards"][i]["orientation"].AsFloat;
             }
+            if (OnGotTour != null) {
+                OnGotTour(json);
+            }
+            GetInWorldObjects();
         }
 
         public void GotInWorldObjects(string json) {  //callback: u.getUnity().SendMessage(gameObject,method,jsonResultAsString);
-            if(OnGotInWorldObjects != null) {
-                OnGotInWorldObjects(json);
-            }
             JSONNode node = JSON.Parse(json);
-            inWorldObjects = new DrupalPlacard[node.AsArray.Count];
-            for(int i = 0; i < node.AsArray.Count; i++) {
-                inWorldObjects[i].id = node[i]["id"].AsInt;
-                inWorldObjects[i].title = node[i]["title"];
-                inWorldObjects[i].latitude = node[i]["latitude"].AsFloat;
-                inWorldObjects[i].longitude = node[i]["longitude"].AsFloat;
-                inWorldObjects[i].elevation = node[i]["elevation"].AsFloat;
-                inWorldObjects[i].orientation = node[i]["orientation"].AsFloat;
+            inWorldObjects = new DrupalPlacard[node["placards"].AsArray.Count];
+            for(int i = 0; i < node["placards"].AsArray.Count; i++) {
+                inWorldObjects[i] = new DrupalPlacard();
+                inWorldObjects[i].id = node["placards"][i]["id"].AsInt;
+                inWorldObjects[i].title = node["placards"][i]["title"];
+                inWorldObjects[i].latitude = node["placards"][i]["latitude"].AsFloat;
+                inWorldObjects[i].longitude = node["placards"][i]["longitude"].AsFloat;
+                inWorldObjects[i].elevation = node["placards"][i]["elevation"].AsFloat;
+                inWorldObjects[i].orientation = node["placards"][i]["orientation"].AsFloat;
+            }
+            if (OnGotInWorldObjects != null) {
+                OnGotInWorldObjects(json);
             }
         }
 
