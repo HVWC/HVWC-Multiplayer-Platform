@@ -20,10 +20,10 @@ var DrupalUnityInterface;
   Interface.prototype.getCurrentEnvironment = function(gameObject, method) {
     console.log("get environment "+gameObject+" "+method);
     var enviroment = {
-      id: 6,
-      title: 'Test Environment',
-      current_tour_id: 123,
-    };
+    "id": 6,
+    "title": "Test Environment",
+    "current_tour_id": 123
+	};
     var environment_json = JSON.stringify(enviroment);
 
     u.getUnity().SendMessage(gameObject, method, environment_json);
@@ -50,27 +50,27 @@ var DrupalUnityInterface;
       return false;
     }
     var tour = {
-      title: "Test tour",
-      id: 123,
-      placards: [
+    "title": "Test tour",
+    "id": 123,
+    "placards": [
         {
-          id: 3241,
-          title: "First placard in our test tour",
-          latitude: 12.1212,
-          longitude: 60.3455,
-          elevation: 20, //Elevation in feet
-          orientation: 355,  //Orienation 0 - 360 degrees, clockwise
+            "id": 3241,
+            "title": "First placard in our test tour",
+            "latitude": 12.1212,
+            "longitude": 60.3455,
+            "elevation": 20,
+            "orientation": 355
         },
         {
-          id: 3242,
-          title: "Second placard in our test tour",
-          latitude: 12.14,
-          longitude: 60.5,
-          elevation: 20, //Elevation in feet
-          orientation: 15,  //Orienation 0 - 360 degrees, clockwise
+            "id": 3242,
+            "title": "Second placard in our test tour",
+            "latitude": 12.14,
+            "longitude": 60.5,
+            "elevation": 20,
+            "orientation": 15
         }
-      ]
-    };
+    ]
+	};
 
     var tour_json = JSON.stringify(tour);
 
@@ -96,24 +96,26 @@ var DrupalUnityInterface;
       u.getUnity().SendMessage(gameObject, method, "false");
       return false;
     }
-    var in_world_objects = [
-      {
-        id: 2344,
-        title: "First in-world object",
-        latitude: 12.1212,
-        longitude: 60.3455,
-        elevation: 20, //Elevation in feet
-        orientation: 355,  //Orienation 0 - 360 degrees, clockwise
-      },
-      {
-        id: 4466,
-        title: "Second in-world object",
-        latitude: 12.14,
-        longitude: 60.5,
-        elevation: 45, //Elevation in feet
-        orientation: 15,  //Orienation 0 - 360 degrees, clockwise
-      }
-    ];
+    var in_world_objects = {
+    "placards": [
+        {
+            "id": 2344,
+            "title": "First in-world object",
+            "latitude": 12.1212,
+            "longitude": 60.3455,
+            "elevation": 20,
+            "orientation": 355
+        },
+        {
+            "id": 4466,
+            "title": "Second in-world object",
+            "latitude": 12.14,
+            "longitude": 60.5,
+            "elevation": 45,
+            "orientation": 15
+        }
+    ]
+};
     var in_world_objects_json = JSON.stringify(in_world_objects);
     u.getUnity().SendMessage(gameObject, method, in_world_objects_json);
   }

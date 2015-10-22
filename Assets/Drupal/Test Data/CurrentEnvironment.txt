@@ -1,5 +1,5 @@
 {
-  id: 6,
-  title: "Test Environment",
-  current_tour_id: 123,
+    "id": 6,
+    "title": "Test Environment",
+    "current_tour_id": 123
 }

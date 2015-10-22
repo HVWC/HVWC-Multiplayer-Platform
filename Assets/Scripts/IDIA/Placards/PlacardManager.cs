@@ -5,16 +5,26 @@ using SimpleJSON;
 
 public class PlacardManager : MonoBehaviour {
 
+    public GameObject placardPrefab;
     public DrupalPlacard[] placards;
 
     DrupalManager drupal;
+    Canvas canvas;
 
     void OnEnable() {
-        DrupalManager.OnGotTour += OnGotTour; ;
+        DrupalManager.OnGotTour += OnGotTour;
     }
 
     void Start() {
         drupal = FindObjectOfType<DrupalManager>();
+        canvas = GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+    }
+
+    void Update() {
+        if (!canvas.worldCamera) {
+            canvas.worldCamera = Camera.main;
+        }
     }
 
     void OnGotTour(string json) {
@@ -24,9 +34,11 @@ public class PlacardManager : MonoBehaviour {
 
     void SetPlacardLocations() {
         foreach(DrupalPlacard placard in placards) {
-            GameObject newPlacard = new GameObject(placard.title);
+            GameObject newPlacard = (GameObject)Instantiate(placardPrefab, Vector3.zero, Quaternion.identity);
             GeographicManager.Instance.SetObjectCoordinates(newPlacard.transform,placard.latitude + ", " + placard.longitude + ", " + placard.elevation);
-            newPlacard.transform.parent = transform;
+            newPlacard.GetComponent<RectTransform>().SetParent(transform,false);
+            newPlacard.transform.rotation.eulerAngles.Set(0f,placard.orientation,0f); ;
+            newPlacard.GetComponent<Placard>().placard = placard;
         }
     }
 
