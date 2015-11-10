@@ -7,7 +7,6 @@
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// This class allows for teleportation by double-clicking on a collider.

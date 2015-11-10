@@ -84,4 +84,8 @@ public class NetworkPlayer : Photon.MonoBehaviour{
         }
     }
 
+    void OnLeftRoom() {
+        Destroy(gameObject);
+    }
+
 }

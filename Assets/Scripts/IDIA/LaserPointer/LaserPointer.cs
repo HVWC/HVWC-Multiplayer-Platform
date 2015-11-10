@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LaserPointer : MonoBehaviour {
@@ -15,7 +15,7 @@ public class LaserPointer : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.L)){
+        if (Input.GetKeyDown(KeyCode.L) && !EventSystem.current.currentSelectedGameObject) {
             laserPointerEnabled = !laserPointerEnabled;
         }
         if (laserPointerEnabled) {
