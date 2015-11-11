@@ -36,10 +36,15 @@ namespace Drupal {
         public double orientation;
     }
 
+    [System.Serializable]
+    public class Status {
+        public bool success;
+    }
+
     public class DrupalManager : MonoBehaviour {
 
         #region Events
-        public delegate void AddedP(bool added);
+        public delegate void AddedP(Status added);
         public static event AddedP OnAddedPlacard;
 
         public delegate void GotCE(Environment currentEnvironment);
@@ -63,7 +68,7 @@ namespace Drupal {
         public delegate void GotT(Tour tour);
         public static event GotT OnGotTour;
 
-        public delegate void RegisteredPC(bool registered);
+        public delegate void RegisteredPC(Status registered);
         public static event RegisteredPC OnRegisteredPlacardClick;
         #endregion
 
@@ -171,9 +176,9 @@ namespace Drupal {
 
 #region Callbacks
         public void AddedPlacard(string json) {  //callback: u.getUnity().SendMessage(gameObject,method,resultAsString);
-            bool added;
+            Status added;
             try {
-                added = JsonMapper.ToObject<bool>(json);
+                added = JsonMapper.ToObject<Status>(json);
             } catch {
                 Debug.LogError("Unable to map JSON to object.");
                 return;
@@ -273,9 +278,9 @@ namespace Drupal {
         }
 
         public void RegisteredPlacardClick(string json) {  //callback: u.getUnity().SendMessage(gameObject,method,resultAsString);
-            bool registered;
+            Status registered;
             try {
-                registered = JsonMapper.ToObject<bool>(json);
+                registered = JsonMapper.ToObject<Status>(json);
             } catch {
                 Debug.LogError("Unable to map JSON to object.");
                 return;

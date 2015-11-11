@@ -21,8 +21,8 @@ public class DrupalUI : MonoBehaviour {
         DrupalManager.OnRegisteredPlacardClick += DrupalManager_OnRegisteredPlacardClick;
     }
 
-    private void DrupalManager_OnAddedPlacard(bool added) {
-        results.text += added.ToString() + "\n\n";
+    private void DrupalManager_OnAddedPlacard(Status added) {
+        results.text += added.success + "\n\n";
     }
 
     private void DrupalManager_OnGotCurrentEnvironment(Environment currentEnvironment) {
@@ -53,8 +53,8 @@ public class DrupalUI : MonoBehaviour {
         results.text += JsonMapper.ToJson(tour) + "\n\n";
     }
 
-    private void DrupalManager_OnRegisteredPlacardClick(bool registered) {
-        results.text += registered.ToString() + "\n\n";
+    private void DrupalManager_OnRegisteredPlacardClick(Status registered) {
+        results.text += registered.success + "\n\n";
     }
 
     public void AddPlacard() {
