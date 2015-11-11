@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Drupal;
-using SimpleJSON;
 
 public class NarrativeManager : MonoBehaviour {
 
-    public DrupalPlacard[] placards;
+    public Drupal.Placard[] placards;
 
     Canvas canvas;
 

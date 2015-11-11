@@ -1,18 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Drupal;
-using SimpleJSON;
 
 public class PlacardManager : MonoBehaviour {
 
     public GameObject placardPrefab;
-    public DrupalPlacard[] placards;
+    public Placard[] placards;
 
     DrupalManager drupal;
     Canvas canvas;
 
     void OnEnable() {
-        DrupalManager.OnGotTour += OnGotTour;
+        DrupalManager.OnGotTour += OnGotTour; ;
     }
 
     void Start() {
@@ -27,18 +25,18 @@ public class PlacardManager : MonoBehaviour {
         }
     }
 
-    void OnGotTour(string json) {
+    void OnGotTour(Tour tour) {
         placards = drupal.tour.placards;
         SetPlacardLocations();
     }
 
     void SetPlacardLocations() {
-        foreach(DrupalPlacard placard in placards) {
+        foreach(Placard placard in placards) {
             GameObject newPlacard = (GameObject)Instantiate(placardPrefab, Vector3.zero, Quaternion.identity);
-            GeographicManager.Instance.SetObjectCoordinates(newPlacard.transform,placard.latitude + ", " + placard.longitude + ", " + placard.elevation);
-            newPlacard.GetComponent<RectTransform>().SetParent(transform,false);
-            newPlacard.transform.rotation.eulerAngles.Set(0f,placard.orientation,0f); ;
-            newPlacard.GetComponent<Placard>().placard = placard;
+            GeographicManager.Instance.SetObjectCoordinates(newPlacard.transform, placard.location.latitude + ", " + placard.location.longitude + ", " + placard.location.elevation);
+            newPlacard.GetComponent<RectTransform>().SetParent(transform, false);
+            newPlacard.transform.rotation.eulerAngles.Set(0f, (float)placard.location.orientation,0f); ;
+            newPlacard.GetComponent<PlacardObject>().placard = placard;
         }
     }
 

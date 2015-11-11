@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Drupal;
-using System.Collections;
 
 public class AddPlacardUI : MonoBehaviour {
 
@@ -36,12 +35,12 @@ public class AddPlacardUI : MonoBehaviour {
     }
 
     public void CreatePlacard() {
-        DrupalPlacard newPlacard = new DrupalPlacard();
+        Drupal.Placard newPlacard = new Drupal.Placard();
         newPlacard.title = titleInput.text;
-        newPlacard.latitude = float.Parse(latitudeInput.text);
-        newPlacard.longitude = float.Parse(longitudeInput.text);
-        newPlacard.elevation = float.Parse(elevationInput.text);
-        newPlacard.orientation = float.Parse(orientationInput.text);
+        newPlacard.location.latitude = float.Parse(latitudeInput.text);
+        newPlacard.location.longitude = float.Parse(longitudeInput.text);
+        newPlacard.location.elevation = float.Parse(elevationInput.text);
+        newPlacard.location.orientation = float.Parse(orientationInput.text);
         drupal.AddPlacard(newPlacard);
     }
 }

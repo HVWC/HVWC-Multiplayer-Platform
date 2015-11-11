@@ -1,20 +1,23 @@
-{
-    "placards": [
-        {
-            "id": 2344,
-            "title": "First in-world object",
+[
+    {
+        "id": 3241,
+        "title": "First placard in our test tour",
+        "description": "First placard in our test tour",
+        "location": {
             "latitude": 12.1212,
             "longitude": 60.3455,
             "elevation": 20,
             "orientation": 355
-        },
-        {
-            "id": 4466,
-            "title": "Second in-world object",
+        }
+    },
+    {
+        "id": 3242,
+        "description": "First placard in our test tour",
+        "location": {
             "latitude": 12.14,
             "longitude": 60.5,
-            "elevation": 45,
+            "elevation": 20,
             "orientation": 15
         }
-    ]
-}
+    }
+]

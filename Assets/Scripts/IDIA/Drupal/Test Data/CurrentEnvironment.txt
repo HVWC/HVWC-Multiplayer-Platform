@@ -1,5 +1,41 @@
 {
     "id": 6,
     "title": "Test Environment",
-    "current_tour_id": 123
+	"description": "Test Environment description! Wow what an environment",
+    "starting_location" : {
+		"latitude": 12.1212,
+		"longitude": 60.3455,
+		"elevation": 20,
+		"orientation": 355
+	},
+	"tours": [
+		{
+			"id": 123,
+			"title": "First placard",
+			"description": "The first tour",
+			"placards": [
+				{
+					"id": 3241,
+					"title": "First placard in our test tour",
+					"description": "First placard in our test tour",
+					"location": {
+						"latitude": 12.1212,
+						"longitude": 60.3455,
+						"elevation": 20,
+						"orientation": 355
+					}
+				},
+				{
+					"id": 3242,
+					"description": "First placard in our test tour",
+					"location": {
+						"latitude": 12.14,
+						"longitude": 60.5,
+						"elevation": 20,
+						"orientation": 15
+					}
+				}
+			]
+		}
+	]
 }

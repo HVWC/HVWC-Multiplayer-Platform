@@ -124,8 +124,6 @@ public class CustomPlayerController : MonoBehaviour {
         character.Move(movement * Time.deltaTime * scale);
         transform.Rotate(0f, rotation, 0f);
 
-
-        Debug.Log(movement);
         //Animations
         if (character.isGrounded) { //If the local player is not grounded
             if (!Input.GetAxis("Vertical").AlmostEquals(0, .01f) || !Input.GetAxis("Horizontal").AlmostEquals(0, .01f)) { //If the local player is moving
