@@ -86,12 +86,12 @@ namespace Drupal {
         #endregion
 
         void Start() {
-            GetCurrentEnvironment();
 #if UNITY_EDITOR
             debug = true;
 #else
             debug=false;
 #endif
+            GetCurrentEnvironment();
         }
 
 #region External Calls

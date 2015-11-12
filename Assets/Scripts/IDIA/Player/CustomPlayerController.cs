@@ -126,7 +126,7 @@ public class CustomPlayerController : MonoBehaviour {
 
         //Animations
         if (character.isGrounded) { //If the local player is not grounded
-            if (!Input.GetAxis("Vertical").AlmostEquals(0, .01f) || !Input.GetAxis("Horizontal").AlmostEquals(0, .01f)) { //If the local player is moving
+            if (!Input.GetAxis("Vertical").AlmostEquals(0, .01f)) { //If the local player is moving
                 if (System.Math.Abs(speed - walkSpeed) < speedThreshold) {
                     CharState = CharacterState.WALK; //If the local player's speed is close to the walking speed, then it is walking
                 }
