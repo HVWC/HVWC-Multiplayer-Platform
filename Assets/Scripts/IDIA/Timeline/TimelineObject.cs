@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class TimelineObject : MonoBehaviour {
 
-    public float minTime,maxTime; //inclusive
+    public TimelineRange[] ranges;
+    //public float minTime,maxTime; //inclusive
     public UnityEvent OnEnteredTime;
     public UnityEvent OnExitedTime;
 
@@ -15,22 +16,22 @@ public class TimelineObject : MonoBehaviour {
     }
 
     void Start() {
-        if (time >= minTime && time <= maxTime) {
+        if (InRange(time)) {
             OnEnteredTime.Invoke();
             inTime = true;
         }
-        if ((time < minTime || time > maxTime)) {
+        if (InRange(time)) {
             OnExitedTime.Invoke();
             inTime = false;
         }
     }
 
     void Update() {
-        if(time>=minTime && time <= maxTime && !inTime) {
+        if(InRange(time) && !inTime) {
             OnEnteredTime.Invoke();
             inTime = true;
         }
-        if ((time < minTime || time > maxTime) && inTime) {
+        if (!InRange(time) && inTime) {
             OnExitedTime.Invoke();
             inTime = false;
         }
@@ -38,5 +39,14 @@ public class TimelineObject : MonoBehaviour {
 
     private void OnChangedTime(float t) {
         time = t;
+    }
+
+    bool InRange(float t) {
+        foreach (TimelineRange range in ranges) {
+            if (time >= range.minTime && time <= range.maxTime) {
+                return true;
+            }
+        }
+        return false;
     }
 }

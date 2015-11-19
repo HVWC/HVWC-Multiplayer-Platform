@@ -60,6 +60,14 @@ public class LinkedObject : MonoBehaviour {
         }
     }
 
+    public void Highlight() {
+        SetObjectColors(transform, hoverColor);
+    }
+
+    public void UnHighlight() {
+        SetObjectColors(transform, originalColors);
+    }
+
     void SetObjectColors(Transform t, Color c) {
         MeshRenderer[] renderers = t.GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < renderers.Length; i++) {

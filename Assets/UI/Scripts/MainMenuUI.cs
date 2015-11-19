@@ -54,11 +54,12 @@ public class MainMenuUI : MonoBehaviour{
     }
 
     public void RefreshRooms() {
+        Debug.Log(PhotonNetwork.GetRoomList().Length);
         for(int i = 0; i < rooms.transform.childCount;i++ ) {
             rooms.transform.GetChild(i).transform.FindChild("JoinButton").GetComponent<Button>().onClick.RemoveAllListeners();
             Destroy(rooms.transform.GetChild(i).gameObject);
         }
-        foreach(RoomInfo room in NetworkManager.Instance.RoomList) {
+        foreach(RoomInfo room in PhotonNetwork.GetRoomList()) {
             GameObject roomObj = Instantiate(roomPrefab);
             roomObj.transform.SetParent(rooms.transform);
             roomObj.transform.FindChild("RoomName").GetComponent<Text>().text = room.name;
@@ -71,7 +72,12 @@ public class MainMenuUI : MonoBehaviour{
         if(input.text == "") {
             return;
         }
-        NetworkManager.Instance.CreateRoom(input.text, true, true, 10);
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.isVisible = true;
+        roomOptions.isOpen = true;
+        roomOptions.maxPlayers = (byte)10;
+        TypedLobby typedLobby = new TypedLobby();
+        PhotonNetwork.CreateRoom(input.text,roomOptions,typedLobby);
     }
 
 

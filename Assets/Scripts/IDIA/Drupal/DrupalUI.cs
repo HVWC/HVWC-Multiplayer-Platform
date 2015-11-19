@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Drupal;
+using DrupalUnity;
 using LitJson;
 
 public class DrupalUI : MonoBehaviour {
 
     public Text results;
-    DrupalManager drupal;
+    DrupalUnityIO drupalIO;
 
     void Start() {
-        drupal = FindObjectOfType<DrupalManager>();
-        DrupalManager.OnAddedPlacard += DrupalManager_OnAddedPlacard;
-        DrupalManager.OnGotCurrentEnvironment += DrupalManager_OnGotCurrentEnvironment;
-        DrupalManager.OnGotCurrentPlacardId += DrupalManager_OnGotCurrentPlacardId;
-        DrupalManager.OnGotCurrentTourId += DrupalManager_OnGotCurrentTourId;
-        DrupalManager.OnGotEnvironment += DrupalManager_OnGotEnvironment;
-        DrupalManager.OnGotInWorldObjects += DrupalManager_OnGotInWorldObjects;
-        DrupalManager.OnGotPlacards += DrupalManager_OnGotPlacards;
-        DrupalManager.OnGotTour += DrupalManager_OnGotTour;
-        DrupalManager.OnRegisteredPlacardClick += DrupalManager_OnRegisteredPlacardClick;
+        drupalIO = FindObjectOfType<DrupalUnityIO>();
+        DrupalUnityIO.OnAddedPlacard += DrupalManager_OnAddedPlacard;
+        DrupalUnityIO.OnGotCurrentEnvironment += DrupalManager_OnGotCurrentEnvironment;
+        DrupalUnityIO.OnGotCurrentPlacardId += DrupalManager_OnGotCurrentPlacardId;
+        DrupalUnityIO.OnGotCurrentTourId += DrupalManager_OnGotCurrentTourId;
+        DrupalUnityIO.OnGotEnvironment += DrupalManager_OnGotEnvironment;
+        DrupalUnityIO.OnGotPlacards += DrupalManager_OnGotPlacards;
+        DrupalUnityIO.OnGotTour += DrupalManager_OnGotTour;
     }
 
     private void DrupalManager_OnAddedPlacard(Status added) {
@@ -41,11 +39,7 @@ public class DrupalUI : MonoBehaviour {
         results.text += JsonMapper.ToJson(environment) + "\n\n";
     }
 
-    private void DrupalManager_OnGotInWorldObjects(Drupal.Placard[] inWorldObjects) {
-        results.text += JsonMapper.ToJson(inWorldObjects) + "\n\n";
-    }
-
-    private void DrupalManager_OnGotPlacards(Drupal.Placard[] placards) {
+    private void DrupalManager_OnGotPlacards(DrupalUnity.Placard[] placards) {
         results.text += JsonMapper.ToJson(placards) + "\n\n";
     }
 
@@ -53,12 +47,8 @@ public class DrupalUI : MonoBehaviour {
         results.text += JsonMapper.ToJson(tour) + "\n\n";
     }
 
-    private void DrupalManager_OnRegisteredPlacardClick(Status registered) {
-        results.text += registered.success + "\n\n";
-    }
-
     public void AddPlacard() {
-        Drupal.Placard newPlacard = new Drupal.Placard();
+        DrupalUnity.Placard newPlacard = new DrupalUnity.Placard();
         newPlacard.id = 0;
         newPlacard.location = new Location();
         newPlacard.location.latitude = 0.0;
@@ -66,19 +56,17 @@ public class DrupalUI : MonoBehaviour {
         newPlacard.location.orientation = 0.0;
         newPlacard.title = "New Placard";
         newPlacard.description = "Description";
-        drupal.AddPlacard(newPlacard);
+        drupalIO.AddPlacard(newPlacard);
     }
 
     void OnDestroy() {
-        DrupalManager.OnAddedPlacard -= DrupalManager_OnAddedPlacard;
-        DrupalManager.OnGotCurrentEnvironment -= DrupalManager_OnGotCurrentEnvironment;
-        DrupalManager.OnGotCurrentPlacardId -= DrupalManager_OnGotCurrentPlacardId;
-        DrupalManager.OnGotCurrentTourId -= DrupalManager_OnGotCurrentTourId;
-        DrupalManager.OnGotEnvironment -= DrupalManager_OnGotEnvironment;
-        DrupalManager.OnGotInWorldObjects -= DrupalManager_OnGotInWorldObjects;
-        DrupalManager.OnGotPlacards -= DrupalManager_OnGotPlacards;
-        DrupalManager.OnGotTour -= DrupalManager_OnGotTour;
-        DrupalManager.OnRegisteredPlacardClick -= DrupalManager_OnRegisteredPlacardClick;
+        DrupalUnityIO.OnAddedPlacard -= DrupalManager_OnAddedPlacard;
+        DrupalUnityIO.OnGotCurrentEnvironment -= DrupalManager_OnGotCurrentEnvironment;
+        DrupalUnityIO.OnGotCurrentPlacardId -= DrupalManager_OnGotCurrentPlacardId;
+        DrupalUnityIO.OnGotCurrentTourId -= DrupalManager_OnGotCurrentTourId;
+        DrupalUnityIO.OnGotEnvironment -= DrupalManager_OnGotEnvironment;
+        DrupalUnityIO.OnGotPlacards -= DrupalManager_OnGotPlacards;
+        DrupalUnityIO.OnGotTour -= DrupalManager_OnGotTour;
     }
     	
 }

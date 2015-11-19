@@ -49,8 +49,8 @@ public class NetworkPlayer : Photon.MonoBehaviour{
 
 	void Update(){
 		if (!photonView.isMine){ //If this is a remote player
-			transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * 5); //Lerp from the player's current position to their actual position
-			transform.rotation = Quaternion.Lerp(transform.rotation, correctPlayerRot, Time.deltaTime * 5); //Lerp from the player's current rotation to their actual rotation
+			//transform.position = Vector3.Lerp(transform.position, correctPlayerPos, Time.deltaTime * 5); //Lerp from the player's current position to their actual position
+			//transform.rotation = Quaternion.Lerp(transform.rotation, correctPlayerRot, Time.deltaTime * 5); //Lerp from the player's current rotation to their actual rotation
 			Renderer[] rs = transform.GetComponentsInChildren<Renderer>();
 			foreach(Renderer r in rs){
 				r.enabled = sceneID==Application.loadedLevel; //Turn on/off each renderer on the player depending on their relative scene
@@ -65,21 +65,21 @@ public class NetworkPlayer : Photon.MonoBehaviour{
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
         if (stream.isWriting){ //If this is the local player, send the remote players our animation, position, rotation, and scene
             stream.SendNext(controllerScript.CharState);
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            //stream.SendNext(transform.position);
+            //stream.SendNext(transform.rotation);
 			stream.SendNext(Application.loadedLevel);
 
 		}else{ //If this is the remote player, receive their animation, position, rotation, and scene
             controllerScript.CharState = (PlayerController.CharacterState)(int)stream.ReceiveNext();
-            correctPlayerPos = (Vector3)stream.ReceiveNext();
-            correctPlayerRot = (Quaternion)stream.ReceiveNext();
+            //correctPlayerPos = (Vector3)stream.ReceiveNext();
+            //correctPlayerRot = (Quaternion)stream.ReceiveNext();
 			sceneID = (int)stream.ReceiveNext();
 
-			if(!gotFirstUpdate){ //If this is the first update, forget about lerping and just get the player to their position and rotation
+			/*if(!gotFirstUpdate){ //If this is the first update, forget about lerping and just get the player to their position and rotation
 				gotFirstUpdate=true;
 				transform.position = correctPlayerPos;
 				transform.rotation = correctPlayerRot;
-			}
+			}*/
 
         }
     }

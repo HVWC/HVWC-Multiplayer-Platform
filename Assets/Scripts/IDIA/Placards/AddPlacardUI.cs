@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Drupal;
+using DrupalUnity;
 
 public class AddPlacardUI : MonoBehaviour {
 
     public InputField titleInput, latitudeInput, longitudeInput, elevationInput, orientationInput;
     public Button submitButton;
 
-    DrupalManager drupal;
+    DrupalUnityIO drupal;
 
     Transform player;
     double latitude,longitude;
 
     void Start() {
-        drupal = FindObjectOfType<DrupalManager>();
+        drupal = FindObjectOfType<DrupalUnityIO>();
     }
 
 	// Update is called once per frame
@@ -35,7 +35,7 @@ public class AddPlacardUI : MonoBehaviour {
     }
 
     public void CreatePlacard() {
-        Drupal.Placard newPlacard = new Drupal.Placard();
+        DrupalUnity.Placard newPlacard = new DrupalUnity.Placard();
         newPlacard.title = titleInput.text;
         newPlacard.location.latitude = float.Parse(latitudeInput.text);
         newPlacard.location.longitude = float.Parse(longitudeInput.text);

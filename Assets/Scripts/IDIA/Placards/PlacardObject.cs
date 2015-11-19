@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using Drupal;
+using DrupalUnity;
 
 public class PlacardObject : MonoBehaviour {
 
-    public Drupal.Placard placard;
+    public Placard placard;
 
     GameObject player;
 
