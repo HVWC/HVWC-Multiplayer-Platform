@@ -79,6 +79,7 @@ namespace DrupalUnity {
         bool debug=false;
 #endif
         public TextAsset addPlacardText, currentEnvironmentText, currentPlacardIdText, currentTourIdText, environmentText, inWorldObjectsText, placardsText, tourText, registerPlacardClickText;
+        string debugString = "Nothing yet...";
         #endregion
 
         void Start() {
@@ -255,6 +256,7 @@ namespace DrupalUnity {
             if (OnGotPlacards != null) {
                 OnGotPlacards(placards);
             }
+            debugString = "Got "+ placards.Length + " Placards!";
         }
 
         public void GotTour(string json) {
@@ -281,6 +283,7 @@ namespace DrupalUnity {
             if (OnPlacardSelected != null) {
                 OnPlacardSelected(placard);
             }
+            debugString = "Placard " + placard.id + " selected!";
         }
 
         public void BuildingSelected(string json) {
@@ -296,6 +299,13 @@ namespace DrupalUnity {
             }
         }
         #endregion
+
+        void OnGUI() {
+            GUILayout.Label(debugString);
+            if(GUILayout.Button("Get Current Environment")){
+                GetCurrentEnvironment();
+            }
+        }
 
     }
 }

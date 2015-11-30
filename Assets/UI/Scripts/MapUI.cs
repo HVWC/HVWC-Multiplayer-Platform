@@ -18,7 +18,8 @@ public class MapUI : MonoBehaviour {
     }
 
     public void TeleportPlayer(Transform t) {
-        player.transform.position = t.position; 
+        player.transform.position = t.position;
+        player.transform.rotation = t.rotation;
     }
 
 }

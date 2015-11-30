@@ -16,7 +16,8 @@
         },
         {
             "id": 3242,
-            "description": "First placard in our test tour",
+			"title": "Second placard in our test tour",
+            "description": "Second placard in our test tour",
             "location": {
                 "latitude": 12.14,
                 "longitude": 60.5,

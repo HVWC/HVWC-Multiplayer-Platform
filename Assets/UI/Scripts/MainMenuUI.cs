@@ -91,6 +91,7 @@ public class MainMenuUI : MonoBehaviour{
         player.tag = "LocalPlayer";
         player.transform.FindChild("Camera").gameObject.SetActive(true);
         player.transform.FindChild("Canvas").gameObject.SetActive(false);
+        player.GetComponent<ClickTeleport>().enabled = true;
         //WebWarpLocalPlayer.Instance.SetLocalPlayer(player);
         /*Transform icon = player.transform.FindChild("Icon");
         icon.GetComponent<Renderer>().material.color = Color.green;
