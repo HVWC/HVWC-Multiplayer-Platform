@@ -50,9 +50,8 @@ public class CustomPlayerController : MonoBehaviour {
     #region Fields
     public AnimationController animationController;
     CharacterController character;
-
+    
     CharacterState charState;
-
     public float turnSpeed = 90f;
     public float walkSpeed = 1.0f;
     public float runSpeed = 1.5f;

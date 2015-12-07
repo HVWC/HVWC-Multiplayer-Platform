@@ -63,8 +63,8 @@ public class GeographicMarker : MonoBehaviour
 		pos.z += (float)((z - markerZ)*scale);
 		return pos;
 	}
-	
-	public Vector3 Translate(GeoPoint geoPoint)
+
+    public Vector3 Translate(GeoPoint geoPoint)
 	{
 		return Translate(geoPoint.latitude, geoPoint.longitude, geoPoint.elevation);
 	}

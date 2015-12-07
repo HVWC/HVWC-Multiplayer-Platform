@@ -11,10 +11,13 @@ public class ChatUI : MonoBehaviour {
     Chat chat;
     PlayersUI playersUI;
 
+    void OnEnable() {
+        Chat.OnGotChat += OnGotChat;
+    }
+
     void Start() {
         chat = FindObjectOfType<Chat>();
         playersUI = FindObjectOfType<PlayersUI>();
-        InvokeRepeating("RefreshChat", 0f, 5f);
     }
 
     public void SendChat() {
@@ -36,11 +39,19 @@ public class ChatUI : MonoBehaviour {
         for (int i = 0; i < messages.transform.childCount; i++) {
             Destroy(messages.transform.GetChild(i).gameObject);
         }
-        foreach (string message in chat.Messages) {
+        foreach (string message in Chat.Messages) {
             GameObject messageObj = Instantiate(messagePrefab);
             messageObj.transform.SetParent(messages.transform);
             messageObj.GetComponent<Text>().text = message;
         }
+    }
+
+    private void OnGotChat(string message) {
+        RefreshChat();
+    }
+
+    void OnDisable() {
+        Chat.OnGotChat -= OnGotChat;
     }
 
 }

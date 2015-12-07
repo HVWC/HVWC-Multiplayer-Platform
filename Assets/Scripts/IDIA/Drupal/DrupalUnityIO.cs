@@ -18,6 +18,7 @@ namespace DrupalUnity {
         public string title;
         public string description;
         public Placard[] placards;
+        public string unity_binary;
     }
 
     [System.Serializable]
@@ -184,8 +185,9 @@ namespace DrupalUnity {
             Status added;
             try {
                 added = JsonMapper.ToObject<Status>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnAddedPlacard != null) {
@@ -193,15 +195,17 @@ namespace DrupalUnity {
             }
         }
 
-        public void GotCurrentEnvironment(string json) { 
+        public void GotCurrentEnvironment(string json) {
+            Application.ExternalCall("console.log","GotCurrentEnvironment was called in the Unity webplayer!");
             Environment currentEnvironment;
             try {
                 currentEnvironment = JsonMapper.ToObject<Environment>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
-            if (OnGotCurrentEnvironment != null) {
+            if(OnGotCurrentEnvironment != null) {
                 OnGotCurrentEnvironment(currentEnvironment);
             }
         }
@@ -210,8 +214,9 @@ namespace DrupalUnity {
             int currentPlacardId;
             try {
                 currentPlacardId = JsonMapper.ToObject<int>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnGotCurrentPlacardId != null) {
@@ -223,8 +228,9 @@ namespace DrupalUnity {
             int currentTourId;
             try {
                 currentTourId = JsonMapper.ToObject<int>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnGotCurrentTourId != null) {
@@ -236,8 +242,9 @@ namespace DrupalUnity {
             Environment environment;
             try {
                 environment = JsonMapper.ToObject<Environment>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnGotEnvironment != null) {
@@ -249,8 +256,9 @@ namespace DrupalUnity {
             Placard[] placards;
             try {
                 placards = JsonMapper.ToObject<Placard[]>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnGotPlacards != null) {
@@ -263,8 +271,9 @@ namespace DrupalUnity {
             Tour tour;
             try {
                 tour = JsonMapper.ToObject<Tour>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnGotTour != null) {
@@ -276,8 +285,9 @@ namespace DrupalUnity {
             Placard placard;
             try {
                 placard = JsonMapper.ToObject<Placard>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnPlacardSelected != null) {
@@ -290,8 +300,9 @@ namespace DrupalUnity {
             int buildingId;
             try {
                 buildingId = JsonMapper.ToObject<int>(json);
-            } catch {
-                Debug.LogError("Unable to map JSON to object.");
+            } catch(JsonException e) {
+                Debug.LogError(e.ToString());
+                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
                 return;
             }
             if (OnBuildingSelected != null) {

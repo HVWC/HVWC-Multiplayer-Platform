@@ -10,7 +10,7 @@ public class PlayersUI : MonoBehaviour {
     public PhotonPlayer selectedPlayer;
 
     void Start () {
-        InvokeRepeating("RefreshPlayers",0f,5f);
+        RefreshPlayers();
 	}
 
     public void RefreshPlayers() {
@@ -24,6 +24,14 @@ public class PlayersUI : MonoBehaviour {
             playerObj.transform.FindChild("Name").GetComponent<Text>().text = player.name;
             playerObj.GetComponent<Toggle>().onValueChanged.AddListener((on) => { selectedPlayer = on ? player : null; });
         }
+    }
+
+    void OnPhotonPlayerConnected(PhotonPlayer newPlayer) {
+        RefreshPlayers();
+    }
+
+    void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer) {
+        RefreshPlayers();
     }
 
 }

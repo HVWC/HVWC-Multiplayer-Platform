@@ -7,7 +7,6 @@
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
 ///  This class allows for the enabling of quickplay in the web player.
@@ -56,8 +55,8 @@ public class QuickPlayBypass : MonoBehaviour {
 	///  A method to set up quickplay in the web player.
 	/// </summary>
 	void SetUpQuickPlay(){
-		NetworkManager.Instance.JoinRandomRoom();
-		NetworkManager.Instance.PlayerName = "Guest" + Random.Range(1, 9999);
+        PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.playerName = "Guest" + Random.Range(1, 9999);
 	}
 	#endregion
 

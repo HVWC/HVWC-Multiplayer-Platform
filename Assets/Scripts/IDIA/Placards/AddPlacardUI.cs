@@ -8,12 +8,14 @@ public class AddPlacardUI : MonoBehaviour {
     public Button submitButton;
 
     DrupalUnityIO drupal;
+    GeographicMarker geoMarker;
 
     Transform player;
     double latitude,longitude;
 
     void Start() {
         drupal = FindObjectOfType<DrupalUnityIO>();
+        geoMarker = FindObjectOfType<GeographicMarker>();
     }
 
 	// Update is called once per frame

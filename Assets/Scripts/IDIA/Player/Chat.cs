@@ -6,7 +6,6 @@
 // Permissions beyond the scope of this license may be available at http://idialab.org/info/.
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
-using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
@@ -14,11 +13,18 @@ using System.Collections.Generic;
 /// </summary>
 public class Chat : Photon.MonoBehaviour{
 
+    public delegate void GotChat(string message);
+    public static event GotChat OnGotChat;
+
 	#region Fields
 	/// <summary>
 	///  A list of the messages that have been sent.
 	/// </summary>
-    public List<string> Messages = new List<string>();
+    public static List<string> Messages = new List<string>();
+    /// <summary>
+	///  The max number of messages to keep.
+	/// </summary>
+    public int maxNumberOfMessages = 15;
 	#endregion
 
 	#region RPCs
@@ -33,10 +39,14 @@ public class Chat : Photon.MonoBehaviour{
 	/// </param>
 	[PunRPC]
 	void AddMessage(string text, PhotonMessageInfo info){
-        Messages.Add("[" + info.sender + "] " + text);
-        if (Messages.Count > 15){
+        string message = "[" + info.sender + "] " + text;
+        Messages.Add(message);
+        if (Messages.Count > maxNumberOfMessages){
             Messages.RemoveAt(0);
 		}
+        if(OnGotChat != null) {
+            OnGotChat(message);
+        }
     }
 	#endregion
 
@@ -71,6 +81,17 @@ public class Chat : Photon.MonoBehaviour{
             photonView.RPC("AddMessage", target, message);
 		}
     }
-	#endregion
+
+    /// <summary>
+	///  A method to clear all chat messages.
+	/// </summary>
+    public static void ClearMessages() {
+        Messages.Clear();
+    }
+    #endregion
+
+    void OnLeftRoom() {
+        ClearMessages();
+    }
 
 }

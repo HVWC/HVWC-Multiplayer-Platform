@@ -19,15 +19,10 @@ public class GeographicManager : MonoBehaviour {
         geoMarker = FindObjectOfType<GeographicMarker>();
     }
 
-    public void SetObjectCoordinates(Transform t,string positionData) {
+    public Vector3 GetPosition(double latitude, double longitude, double elevation) {
         GeographicCoord geoCoord = new GeographicCoord(GeographicCoord.Mode.LatLongDecimalDegrees);
-        geoCoord.text = positionData;
-        Vector3 p = geoMarker.Translate(geoCoord.ToGeoPoint());
-        SetPosition(t,p);
-    }
-
-    public void SetPosition(Transform t, Vector3 position) {
-        t.position = position;
+        geoCoord.text = latitude + ", " + longitude + ", " + elevation;
+        return geoMarker.Translate(geoCoord.ToGeoPoint());
     }
 
 }

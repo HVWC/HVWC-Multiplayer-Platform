@@ -1,42 +1,64 @@
 {
-    "id": 6,
-    "title": "Test Environment",
-	"description": "Test Environment description! Wow what an environment",
-    "starting_location" : {
-		"latitude": 12.1212,
-		"longitude": 60.3455,
-		"elevation": 20,
-		"orientation": 355
+	"id": 6,
+	"title": "Another Environment",
+	"description": "This is another Unity environmentrn",
+	"starting_location": {
+		"latitude": 12.23,
+		"longitude": 12.232
 	},
-	"tours": [
+	"tours": [{
+		"id": 4,
+		"title": "Buildings",
+		"description": "<p>Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding freemium prototype ping pong. Early stage disruptive ecosystem community outreach dynamic location based strategic investor.</p>n",
+		"tags": [null],
+		"unity_binary": "http://unity-project.localhost/sites/default/files/unity/Builds_1.unity3d",
+		"placards": [{
+			"id": 3,
+			"title": "The Roman Arena in the 2nd Century BCE",
+			"description": "<p>Communis opinio holds that gladiatorial games at Rome in the 3rd and 2nd centuries BCE were performed in temporary structures, constructed of wood, set up within the Roman Forum, the civic, religious, and juridical center of the Eternal city. The Roman arena of the 2nd century BCE as proposed by Welch (2007) 51 fig. 22.</p>n",
+			"image_url": "/sites/default/files/placard2.png",
+			"location": {
+				"latitude": 41.892743,
+				"longitude": 12.484498,
+				"country": "xx",
+				"elevation": 35,
+				"orientation": null
+			},
+			"layer": "3The_Roman_Arena_in_the_2nd_Century_BCE"
+		}, 
 		{
-			"id": 123,
-			"title": "First placard",
-			"description": "The first tour",
-			"placards": [
-				{
-					"id": 3241,
-					"title": "First placard in our test tour",
-					"description": "First placard in our test tour",
-					"location": {
-						"latitude": 12.1212,
-						"longitude": 60.3455,
-						"elevation": 20,
-						"orientation": 355
-					}
-				},
-				{
-					"id": 3242,
-					"title": "Second placard in our test tour",
-					"description": "Second placard in our test tour",
-					"location": {
-						"latitude": 12.14,
-						"longitude": 60.5,
-						"elevation": 20,
-						"orientation": 15
-					}
-				}
-			]
-		}
-	]
+		"id": 8,
+		"title": "Test tour 3",
+		"description": "<p>qweqsad aw asd adwq das</p>n",
+		"tags": [null],
+		"unity_binary": "http://unity-project.localhost/sites/default/files/unity/Builds_3.unity3d",
+		"placards": [{
+			"id": 3,
+			"title": "The Roman Arena in the 2nd Century BCE",
+			"description": "<p>Communis opinio holds that gladiatorial games at Rome in the 3rd and 2nd centuries BCE were performed in temporary structures, constructed of wood, set up within the Roman Forum, the civic, religious, and juridical center of the Eternal city. The Roman arena of the 2nd century BCE as proposed by Welch (2007) 51 fig. 22.</p>n",
+			"image_url": "/sites/default/files/placard2.png",
+			"location": {
+				"latitude": 41.892743,
+				"longitude": 12.484498,
+				"country": "xx",
+				"elevation": 35,
+				"orientation": null
+			},
+			"layer": "3The_Roman_Arena_in_the_2nd_Century_BCE"
+		}, {
+			"id": 1,
+			"title": "RomeLab: An Introduction",
+			"description": "<p>This digital version of the city of Rome, ca. 160 BCE functions as a laboratory, and was constructed and designed as such.  Built to interrogate spatial relationships, and not to be presented as a stand-alone museum artifact or as a magical window that enables the reader to step backward through digital time, this Forum is a three-dimensional map or, to borrow terminology from Willard McCarty, a "
+			tinker toy model "</p>n",
+			"image_url": "/sites/default/files/office.jpg",
+			"location": {
+				"latitude": 41.892231,
+				"longitude": 12.482776,
+				"country": "xx",
+				"elevation": 150,
+				"orientation": null
+			},
+			"layer": "1RomeLab_An_Introduction"
+		}]
+	}]
 }

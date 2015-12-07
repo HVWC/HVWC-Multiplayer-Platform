@@ -16,19 +16,23 @@ public class MainMenuUI : MonoBehaviour{
 
     public GameObject rooms;
     public GameObject roomPrefab;
+    public GameObject connectingWindow;
 
     public string firstScene;
 
-    [HideInInspector]
-	public string selectedAvatar;
+	public string selectedAvatar = "Adam";
 
     void Start() {
         InvokeRepeating("RefreshRooms",0f,5f);
-        selectedAvatar = "Adam";
+        selectedAvatar = selectedAvatar=="" ? "Adam" : selectedAvatar;
+        if(!PhotonNetwork.connected) {
+            PhotonNetwork.ConnectUsingSettings("1.0");
+            connectingWindow.SetActive(true);
+        }
     }
 
 	void SaveSettings(){
-		PlayerPrefs.SetString("playerName", NetworkManager.Instance.PlayerName);
+		PlayerPrefs.SetString("playerName", PhotonNetwork.playerName);
 		PlayerPrefs.SetString("avatar",selectedAvatar);
 	}
 
@@ -37,11 +41,11 @@ public class MainMenuUI : MonoBehaviour{
     }
 
     public void SetPlayerName(string name) {
-        NetworkManager.Instance.PlayerName = name;
+        PhotonNetwork.playerName = name;
     }
 
     public void ValidateStartButton(string input) {
-        startButton.interactable = input.Length > 0 && NetworkManager.Instance.Connected;
+        startButton.interactable = input.Length > 0 && PhotonNetwork.connected;
     }
 
     public void ValidateCreateRoomButton(string input) {
@@ -54,7 +58,6 @@ public class MainMenuUI : MonoBehaviour{
     }
 
     public void RefreshRooms() {
-        Debug.Log(PhotonNetwork.GetRoomList().Length);
         for(int i = 0; i < rooms.transform.childCount;i++ ) {
             rooms.transform.GetChild(i).transform.FindChild("JoinButton").GetComponent<Button>().onClick.RemoveAllListeners();
             Destroy(rooms.transform.GetChild(i).gameObject);
@@ -64,7 +67,7 @@ public class MainMenuUI : MonoBehaviour{
             roomObj.transform.SetParent(rooms.transform);
             roomObj.transform.FindChild("RoomName").GetComponent<Text>().text = room.name;
             roomObj.transform.FindChild("RoomPopulation").GetComponent<Text>().text = room.playerCount+"/"+room.maxPlayers;
-            roomObj.transform.FindChild("JoinButton").GetComponent<Button>().onClick.AddListener(() => NetworkManager.Instance.JoinRoom(room.name));
+            roomObj.transform.FindChild("JoinButton").GetComponent<Button>().onClick.AddListener(() => PhotonNetwork.JoinRoom(room.name));
         }
     }
 
@@ -86,16 +89,16 @@ public class MainMenuUI : MonoBehaviour{
     }
 
     void SpawnPlayer(string avatarName, Vector3 spawnPosition, Quaternion spawnRotation, int group) {
-        GameObject player = NetworkManager.Instance.Instantiate(avatarName, spawnPosition, spawnRotation, group);
+        GameObject player = PhotonNetwork.Instantiate(avatarName, spawnPosition, spawnRotation, group);
         player.GetComponent<CustomPlayerController>().enabled = true;
         player.tag = "LocalPlayer";
         player.transform.FindChild("Camera").gameObject.SetActive(true);
         player.transform.FindChild("Canvas").gameObject.SetActive(false);
-        player.GetComponent<ClickTeleport>().enabled = true;
-        //WebWarpLocalPlayer.Instance.SetLocalPlayer(player);
-        /*Transform icon = player.transform.FindChild("Icon");
-        icon.GetComponent<Renderer>().material.color = Color.green;
-        icon.transform.position += Vector3.up * .05f;*/
+        player.GetComponent<DoubleClickTeleport>().enabled = true;
+    }
+
+    void OnConnectedToPhoton() {
+        connectingWindow.SetActive(false);
     }
 
     void OnJoinedRoom() {
@@ -109,6 +112,10 @@ public class MainMenuUI : MonoBehaviour{
     /// </summary>
     void OnLeftRoom() {
         Open();
+    }
+
+    void OnReceivedRoomListUpdate() {
+        RefreshRooms();
     }
 
     public void Open() {

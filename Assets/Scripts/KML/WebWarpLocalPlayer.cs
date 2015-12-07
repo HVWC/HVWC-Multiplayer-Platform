@@ -1,6 +1,4 @@
 using UnityEngine;
-using LitJson;
-using System.Collections;
 
 public class WebWarpLocalPlayer : MonoBehaviour{
 
@@ -54,12 +52,12 @@ public class WebWarpLocalPlayer : MonoBehaviour{
 	}
 
 	void Update(){
-		GetComponent<Camera>().enabled = showCoords && NetworkManager.Instance.Room!=null;
+		GetComponent<Camera>().enabled = showCoords && PhotonNetwork.room!=null;
 	}
 		
 	void OnGUI()
 	{
-		if(NetworkManager.Instance.Room==null){
+		if(PhotonNetwork.room==null){
 			return;
 		}
 
