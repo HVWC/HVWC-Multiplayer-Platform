@@ -15,7 +15,7 @@ public class CityEngineBuilding : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        drupalIO.SelectBuilding(objID);
+        Application.ExternalCall("window.open", "http://mandala.shanti.virginia.edu/places/"+objID+"/overview/nojs", "_blank");
     }
 
 }

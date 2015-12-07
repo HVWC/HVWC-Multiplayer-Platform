@@ -85,7 +85,6 @@ namespace DrupalUnity {
 
         void Start() {
             AddEventListener(gameObject.name, "PlacardSelected", "placard_selected");
-            AddEventListener(gameObject.name, "BuildingSelected", "building_selected");
         }
 
         #region External Calls
@@ -155,14 +154,6 @@ namespace DrupalUnity {
             }
             string placard_json = JsonMapper.ToJson(placard);
             TriggerEvent("placard_selected",placard_json);
-        }
-
-        public void SelectBuilding(int buildingId) {
-            if (debug) {
-                return;
-            }
-            string building_id_json = JsonMapper.ToJson(buildingId);
-            TriggerEvent("building_selected", building_id_json);
         }
 
         public void AddEventListener(string gameObjectName, string callback, string eventName) {
@@ -294,20 +285,6 @@ namespace DrupalUnity {
                 OnPlacardSelected(placard);
             }
             debugString = "Placard " + placard.id + " selected!";
-        }
-
-        public void BuildingSelected(string json) {
-            int buildingId;
-            try {
-                buildingId = JsonMapper.ToObject<int>(json);
-            } catch(JsonException e) {
-                Debug.LogError(e.ToString());
-                Application.ExternalCall("console.exception", "[UNITY WEBPLAYER] " + e.ToString());
-                return;
-            }
-            if (OnBuildingSelected != null) {
-                OnBuildingSelected(buildingId);
-            }
         }
         #endregion
 
