@@ -24,8 +24,17 @@ public class PlayerCamera : MonoBehaviour {
     }
 
 	void Update() {
-
         mode.Update();
+        ChangeFOV();
+    }
+
+    void ChangeFOV() {
+        if(Input.GetKey(KeyCode.PageUp)) {
+            cam.fieldOfView -= .1f;
+        }
+        if(Input.GetKey(KeyCode.PageDown)) {
+            cam.fieldOfView += .1f;
+        }
     }
 
 }

@@ -23,6 +23,8 @@ public class NetworkPlayer : Photon.MonoBehaviour{
 	///  The current scene of the remote player.
 	/// </summary>
 	int sceneID = 0;
+
+    bool hideOtherPlayers = false;
 	#endregion
 	
     void Awake(){
@@ -32,16 +34,15 @@ public class NetworkPlayer : Photon.MonoBehaviour{
     }
 
 	void Update(){
-		if (!photonView.isMine){
-			Renderer[] rs = transform.GetComponentsInChildren<Renderer>();
-			foreach(Renderer r in rs){
-				r.enabled = sceneID==Application.loadedLevel; //Turn on/off each renderer on the player depending on their relative scene
-			}
-			Collider[] cs = transform.GetComponentsInChildren<Collider>();
-			foreach(Collider c in cs){
-				c.enabled = sceneID==Application.loadedLevel; //Turn on/off each collider on the player depending on their relative scene
-			}
+        if(!photonView.isMine) {
+            ToggleAvatars(!hideOtherPlayers);
+        }
+		if (!photonView.isMine && !hideOtherPlayers){
+            ToggleAvatars(sceneID == Application.loadedLevel);
 		}
+        if(Input.GetKeyDown(KeyCode.RightControl)) {
+            hideOtherPlayers = !hideOtherPlayers;
+        }
 	}
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
@@ -58,6 +59,17 @@ public class NetworkPlayer : Photon.MonoBehaviour{
     void OnLeftRoom() {
         Debug.Log("local player left room");
         PhotonNetwork.Destroy(photonView.gameObject);
+    }
+
+    void ToggleAvatars(bool on) {
+        Renderer[] rs = transform.GetComponentsInChildren<Renderer>();
+        foreach(Renderer r in rs) {
+            r.enabled = on; //Turn on/off each renderer on the player depending on their relative scene
+        }
+        Collider[] cs = transform.GetComponentsInChildren<Collider>();
+        foreach(Collider c in cs) {
+            c.enabled = on; //Turn on/off each collider on the player depending on their relative scene
+        }
     }
 
 }
