@@ -74,6 +74,9 @@ namespace DrupalUnity {
         #endregion
 
         #region Debug Fields
+        string tagRegex = "(<\\/?(?:\\s|\\S)*?>)";
+        string bTagRegex = "(<\\/?b>)";
+        string iTagRegex = "(<\\/?i>)";
 #if UNITY_EDITOR
         bool debug = true;
 #else

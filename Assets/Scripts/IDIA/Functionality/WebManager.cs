@@ -6,4 +6,10 @@ public class WebManager : MonoBehaviour {
         Application.OpenURL(url);
     }
 
+#if UNITY_WEBPLAYER
+    public void OpenURLInNewTab(string url) {
+        Application.ExternalCall("window.open",url,"_blank");
+    }
+#endif
+
 }
