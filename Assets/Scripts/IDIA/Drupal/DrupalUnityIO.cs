@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Text.RegularExpressions;
 using LitJson;
 
 namespace DrupalUnity {
@@ -27,6 +28,8 @@ namespace DrupalUnity {
         public string title;
         public string description;
         public Location location;
+        public string layer;
+        public string image_url;
     }
 
     [System.Serializable]
@@ -75,8 +78,6 @@ namespace DrupalUnity {
 
         #region Debug Fields
         string tagRegex = "(<\\/?(?:\\s|\\S)*?>)";
-        string bTagRegex = "(<\\/?b>)";
-        string iTagRegex = "(<\\/?i>)";
 #if UNITY_EDITOR
         bool debug = true;
 #else
@@ -175,7 +176,8 @@ namespace DrupalUnity {
         #endregion
 
         #region Callbacks
-        public void AddedPlacard(string json) {  
+        public void AddedPlacard(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             Status added;
             try {
                 added = JsonMapper.ToObject<Status>(json);
@@ -190,7 +192,7 @@ namespace DrupalUnity {
         }
 
         public void GotCurrentEnvironment(string json) {
-            Application.ExternalCall("console.log","GotCurrentEnvironment was called in the Unity webplayer!");
+            json = Regex.Replace(json, tagRegex, ""); 
             Environment currentEnvironment;
             try {
                 currentEnvironment = JsonMapper.ToObject<Environment>(json);
@@ -205,6 +207,7 @@ namespace DrupalUnity {
         }
 
         public void GotCurrentPlacardId(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             int currentPlacardId;
             try {
                 currentPlacardId = JsonMapper.ToObject<int>(json);
@@ -219,6 +222,7 @@ namespace DrupalUnity {
         }
 
         public void GotCurrentTourId(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             int currentTourId;
             try {
                 currentTourId = JsonMapper.ToObject<int>(json);
@@ -233,6 +237,7 @@ namespace DrupalUnity {
         }
 
         public void GotEnvironment(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             Environment environment;
             try {
                 environment = JsonMapper.ToObject<Environment>(json);
@@ -247,6 +252,7 @@ namespace DrupalUnity {
         }
 
         public void GotPlacards(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             Placard[] placards;
             try {
                 placards = JsonMapper.ToObject<Placard[]>(json);
@@ -258,10 +264,10 @@ namespace DrupalUnity {
             if (OnGotPlacards != null) {
                 OnGotPlacards(placards);
             }
-            debugString = "Got "+ placards.Length + " Placards!";
         }
 
         public void GotTour(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             Tour tour;
             try {
                 tour = JsonMapper.ToObject<Tour>(json);
@@ -276,6 +282,7 @@ namespace DrupalUnity {
         }
 
         public void PlacardSelected(string json) {
+            json = Regex.Replace(json, tagRegex, ""); 
             Placard placard;
             try {
                 placard = JsonMapper.ToObject<Placard>(json);
@@ -287,16 +294,7 @@ namespace DrupalUnity {
             if (OnPlacardSelected != null) {
                 OnPlacardSelected(placard);
             }
-            debugString = "Placard " + placard.id + " selected!";
         }
         #endregion
-
-        void OnGUI() {
-            GUILayout.Label(debugString);
-            if(GUILayout.Button("Get Current Environment")){
-                GetCurrentEnvironment();
-            }
-        }
-
     }
 }

@@ -90,7 +90,7 @@ public class MainMenuUI : MonoBehaviour{
 
     void SpawnPlayer(string avatarName, Vector3 spawnPosition, Quaternion spawnRotation, int group) {
         GameObject player = PhotonNetwork.Instantiate(avatarName, spawnPosition, spawnRotation, group);
-        player.GetComponent<CustomPlayerController>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
         player.tag = "LocalPlayer";
         player.transform.FindChild("Camera").gameObject.SetActive(true);
         player.transform.FindChild("Canvas").gameObject.SetActive(false);

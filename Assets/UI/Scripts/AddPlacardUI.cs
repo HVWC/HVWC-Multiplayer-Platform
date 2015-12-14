@@ -4,7 +4,7 @@ using DrupalUnity;
 
 public class AddPlacardUI : MonoBehaviour {
 
-    public InputField titleInput, latitudeInput, longitudeInput, elevationInput, orientationInput;
+    public InputField titleInput, descriptionInput, latitudeInput, longitudeInput, elevationInput, orientationInput;
     public Button submitButton;
 
     DrupalUnityIO drupal;
@@ -37,12 +37,19 @@ public class AddPlacardUI : MonoBehaviour {
     }
 
     public void CreatePlacard() {
-        DrupalUnity.Placard newPlacard = new DrupalUnity.Placard();
+        Placard newPlacard = new Placard();
         newPlacard.title = titleInput.text;
+        newPlacard.description = descriptionInput.text;
         newPlacard.location.latitude = float.Parse(latitudeInput.text);
         newPlacard.location.longitude = float.Parse(longitudeInput.text);
         newPlacard.location.elevation = float.Parse(elevationInput.text);
         newPlacard.location.orientation = float.Parse(orientationInput.text);
         drupal.AddPlacard(newPlacard);
     }
+
+    public void ClearFields() {
+        titleInput.text = "";
+        descriptionInput.text = "";
+    }
+
 }

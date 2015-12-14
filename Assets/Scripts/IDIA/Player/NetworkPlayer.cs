@@ -17,7 +17,7 @@ public class NetworkPlayer : Photon.MonoBehaviour{
 	/// <summary>
 	///  An instance of the PlayerController component on the player.
 	/// </summary>
-    CustomPlayerController controllerScript;
+    PlayerController controllerScript;
 
 	/// <summary>
 	///  The current scene of the remote player.
@@ -29,7 +29,7 @@ public class NetworkPlayer : Photon.MonoBehaviour{
 	
     void Awake(){
 		DontDestroyOnLoad(gameObject); //Make this player survive scene changes
-        controllerScript = GetComponent<CustomPlayerController>(); //Get the PlayerController component
+        controllerScript = GetComponent<PlayerController>(); //Get the PlayerController component
 		gameObject.name = gameObject.name + photonView.viewID; //Add the players network id to the end of their gameobject name
     }
 
@@ -51,13 +51,12 @@ public class NetworkPlayer : Photon.MonoBehaviour{
 			stream.SendNext(Application.loadedLevel);
 
 		}else{ //If this is the remote player, receive their animation, position, rotation, and scene
-            controllerScript.CharState = (CustomPlayerController.CharacterState)(int)stream.ReceiveNext();
+            controllerScript.CharState = (PlayerController.CharacterState)(int)stream.ReceiveNext();
 			sceneID = (int)stream.ReceiveNext();
         }
     }
 
     void OnLeftRoom() {
-        Debug.Log("local player left room");
         PhotonNetwork.Destroy(photonView.gameObject);
     }
 
