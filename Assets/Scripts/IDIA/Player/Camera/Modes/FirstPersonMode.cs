@@ -1,4 +1,11 @@
-﻿using System;
+﻿// ----------------------------------------------------------------------------
+// This source code is provided only under the Creative Commons licensing terms stated below.
+// HVWC Multiplayer Platform alpha v1 by Institute for Digital Intermedia Arts at Ball State University \is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+// Based on a work at https://github.com/HVWC/HVWC.
+// Work URL: http://idialab.org/mellon-foundation-humanities-virtual-world-consortium/
+// Permissions beyond the scope of this license may be available at http://idialab.org/info/.
+// To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
+// ----------------------------------------------------------------------------
 using UnityEngine;
 
 [System.Serializable]
@@ -11,11 +18,9 @@ public class FirstPersonMode : IPlayerCameraMode {
     public float cameraTransitionSpeed;
 
     bool isMouseDragging;
-    Vector2 mouseDelta;
+    Vector2 mouseDragDelta;
     Quaternion camLookRotation;
     Quaternion lookRotation;
-
-    bool initialized = false;
 
     public void SetPlayerCamera(PlayerCamera pCam) {
         pC = pCam;
@@ -23,7 +28,6 @@ public class FirstPersonMode : IPlayerCameraMode {
 
     public void ToBirdsEyeMode() {
         pC.mode = pC.birdsEyeMode;
-        initialized = false;
     }
 
     public void ToFirstPersonMode() {
@@ -32,7 +36,6 @@ public class FirstPersonMode : IPlayerCameraMode {
 
     public void ToThirdPersonMode() {
         pC.mode = pC.thirdPersonMode;
-        initialized = false;
     }
 
     public void Update() {
@@ -55,17 +58,30 @@ public class FirstPersonMode : IPlayerCameraMode {
     }
 
     void Look() {
-        mouseDelta.x += Input.GetAxis("Mouse X");
-        mouseDelta.y -= Input.GetAxis("Mouse Y");
+        mouseDragDelta.x += Input.GetAxis("Mouse X");
+        mouseDragDelta.y -= Input.GetAxis("Mouse Y");
     }
 
     void UpdateCamera() {
-        camLookRotation = Quaternion.Euler(mouseDelta.y*5f, 0f, 0f);
-        lookRotation = Quaternion.Euler(0f, mouseDelta.x * 5f, 0f);
+        camLookRotation = Quaternion.Euler(mouseDragDelta.y * 2f, 0f, 0f);
+        lookRotation = Quaternion.Euler(0f, mouseDragDelta.x * 2f, 0f);
+        camLookRotation = Quaternion.Euler(ClampAngle(camLookRotation.eulerAngles.x, 300f, 70f), 0f, 0f);
         pC.transform.position = Vector3.Lerp(pC.transform.position, transform.position, Time.deltaTime * cameraTransitionSpeed);
-        pC.transform.localRotation = Quaternion.Lerp(pC.transform.localRotation,camLookRotation,Time.deltaTime*cameraTransitionSpeed);
-        pC.transform.parent.localRotation = Quaternion.Lerp(pC.transform.parent.localRotation, lookRotation, Time.deltaTime * cameraTransitionSpeed);
+        pC.transform.localRotation = Quaternion.Lerp(pC.transform.localRotation, camLookRotation, Time.deltaTime * cameraTransitionSpeed);
+        pC.transform.parent.rotation = Quaternion.Lerp(pC.transform.parent.rotation, lookRotation, Time.deltaTime * cameraTransitionSpeed);
         pC.cam.cullingMask = mask;
+    }
+
+    float ClampAngle(float angle, float min, float max) {
+
+        if(angle < 90 || angle > 270) { 
+            if(angle > 180) angle -= 360; 
+            if(max > 180) max -= 360;
+            if(min > 180) min -= 360;
+        }
+        angle = Mathf.Clamp(angle, min, max);
+        if(angle < 0) angle += 360;
+        return angle;
     }
 
 }
