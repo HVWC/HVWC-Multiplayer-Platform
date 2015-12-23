@@ -8,53 +8,91 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 
+/// <summary>
+/// This class handles the birds eye mode of the player camera.
+/// </summary>
 [System.Serializable]
 public class BirdsEyeMode : IPlayerCameraMode {
 
+    #region Fields
+    /// <summary>
+    /// The player camera.
+    /// </summary>
     PlayerCamera pC;
-
+    /// <summary>
+    /// The transform of the camera mode.
+    /// </summary>
     public Transform transform;
+    /// <summary>
+    /// The layer mask of the camera mode.
+    /// </summary>
     public LayerMask mask;
+    /// <summary>
+    /// The speed at which the camera transitions to this mode.
+    /// </summary>
     public float cameraTransitionSpeed;
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to set the player camera.
+    /// </summary>
+    /// <param name="pCam">
+    /// The player camera.
+    /// </param>
     public void SetPlayerCamera(PlayerCamera pCam) {
         pC = pCam;
     }
-
+    /// <summary>
+    /// A method to switch the camera mode to birds eye mode.
+    /// </summary>
     public void ToBirdsEyeMode() {
         Debug.LogWarning("Can't transition to the same camera mode!");
     }
-
+    /// <summary>
+    /// A method to switch the camera mode to first person mode.
+    /// </summary>
     public void ToFirstPersonMode() {
         pC.mode = pC.firstPersonMode;
     }
-
+    /// <summary>
+    /// A method to switch the camera mode to third person mode.
+    /// </summary>
     public void ToThirdPersonMode() {
         pC.mode = pC.thirdPersonMode;
     }
-
+    /// <summary>
+    /// A method to update the camera mode.
+    /// </summary>
     public void Update() {
         CheckMouseWheel();
         CheckArrowKeys();
         UpdateCamera();
     }
-
+    /// <summary>
+    /// A method to check the mouse wheel.
+    /// </summary>
     void CheckMouseWheel() {
         if (Input.mouseScrollDelta.y > 0) {
             ToThirdPersonMode();
         }
     }
-
+    /// <summary>
+    /// A mthod to check the arrow keys.
+    /// </summary>
     void CheckArrowKeys() {
         if (Input.GetKeyDown(KeyCode.Home)) {
             ToThirdPersonMode();
         }
     }
-
+    /// <summary>
+    /// A method to update the camera.
+    /// </summary>
     void UpdateCamera() {
         pC.transform.position = Vector3.Lerp(pC.transform.position, transform.position, Time.deltaTime * cameraTransitionSpeed);
         pC.transform.rotation = Quaternion.Lerp(pC.transform.rotation, transform.rotation, Time.deltaTime * cameraTransitionSpeed);
         pC.cam.cullingMask = mask;
     }
+    #endregion
 
 }

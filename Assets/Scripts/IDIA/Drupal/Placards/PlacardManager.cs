@@ -12,40 +12,100 @@ using UnityEngine.Events;
 using DrupalUnity;
 using UnityEngine.EventSystems;
 
+/// <summary>
+///  This class constructs a Placard Event.
+/// </summary>
 [System.Serializable]
 public class PlacardEvent : UnityEvent<Placard> { }
 
+/// <summary>
+///  This class manages incoming placards.
+/// </summary>
 public class PlacardManager : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    ///  The placard prefab.
+    /// </summary>
     public GameObject placardPrefab;
+    /// <summary>
+    ///  The array of incoming placards.
+    /// </summary>
     public Placard[] placards;
+    /// <summary>
+    ///  The event to invoke when a placard is selected.
+    /// </summary>
     public PlacardEvent OnPlacardSelected;
-
+    /// <summary>
+    ///  An instance of the Drupal Unity Interface.
+    /// </summary>
     DrupalUnityIO drupalUnityIO;
+    /// <summary>
+    ///  An instance of a canvas to hold the placard UI prefabs.
+    /// </summary>
     Canvas canvas;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+	/// A message called when the script instance is enabled.
+	/// </summary>
     void OnEnable() {
         DrupalUnityIO.OnGotTour += OnGotTour;
         DrupalUnityIO.OnPlacardSelected += OnPlacardWasSelected;
     }
-
+    /// <summary>
+    /// A message called when the script starts.
+    /// </summary>
     void Start() {
         drupalUnityIO = FindObjectOfType<DrupalUnityIO>();
         canvas = GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
     }
-
+    /// <summary>
+    /// A message called when the script updates.
+    /// </summary>
     void Update() {
         if (!canvas.worldCamera) {
             canvas.worldCamera = Camera.main;
         }
     }
+    /// <summary>
+	/// A message called when the script instance is disabled.
+	/// </summary>
+    void OnDisable() {
+        DrupalUnityIO.OnGotTour -= OnGotTour;
+    }
+    #endregion
 
+    #region Callbacks
+    /// <summary>
+    /// A callback called when the Drupal Unity Interface gets a tour.
+    /// </summary>
+    /// <param name="tour">
+	/// The received tour.
+	/// </param>
     void OnGotTour(Tour tour) {
         placards = tour.placards;
         GeneratePlacards();
     }
+    /// <summary>
+    /// A callback called when the Drupal Unity Interface selects a placard.
+    /// </summary>
+    /// <param name="placard">
+	/// The selected placard.
+	/// </param>
+    void OnPlacardWasSelected(Placard placard) {
+        if(OnPlacardSelected != null) {
+            OnPlacardSelected.Invoke(placard);
+        }
+    }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to generate placard objects for each of the placards received.
+    /// </summary>
     void GeneratePlacards() {
         int count = 0;
         foreach(Placard p in placards) {
@@ -53,8 +113,8 @@ public class PlacardManager : MonoBehaviour {
             Placard placard = p; //capture the iterator; otherwise you always get last placard
             GameObject newPlacard = (GameObject)Instantiate(placardPrefab, Vector3.zero, Quaternion.identity);
             newPlacard.transform.position = GeographicManager.Instance.GetPosition(placard.location.latitude, placard.location.longitude, placard.location.elevation);
-            newPlacard.GetComponent<RectTransform>().SetParent(transform, false);
-            newPlacard.transform.rotation.eulerAngles.Set(0f, (float)placard.location.orientation,0f); ;
+            newPlacard.transform.rotation.eulerAngles.Set(0f, (float)placard.location.orientation, 0f);
+            newPlacard.GetComponent<RectTransform>().SetParent(transform, true);
             newPlacard.GetComponent<PlacardObject>().placard = placard;
             newPlacard.GetComponent<Text>().text = "#"+count;
             EventTrigger trigger = newPlacard.GetComponent<EventTrigger>();
@@ -64,15 +124,6 @@ public class PlacardManager : MonoBehaviour {
             trigger.triggers.Add(entry);
         }
     }
-
-    void OnPlacardWasSelected(Placard placard) {
-        if(OnPlacardSelected != null) {
-            OnPlacardSelected.Invoke(placard);
-        }
-    }
-
-    void OnDisable() {
-        DrupalUnityIO.OnGotTour -= OnGotTour;
-    }
+    #endregion
 
 }

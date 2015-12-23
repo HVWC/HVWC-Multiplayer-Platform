@@ -8,18 +8,40 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 
+/// <summary>
+/// This class handles object texture swapping.
+/// </summary>
 public class TextureSwapper : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    /// An array of textures to swap between.
+    /// </summary>
     public Texture2D[] textures;
+    /// <summary>
+    /// The index of the current texture.
+    /// </summary>
     int index = 0;
-
+    /// <summary>
+    /// The material of this object.
+    /// </summary>
     Material material;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+    /// This message is called when the script is called.
+    /// </summary>
     void Start() {
         material = GetComponent<Renderer>().material;
         SetTexture(index);
     }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to set the texture to the previous one in the array.
+    /// </summary>
     public void PreviousTexture() {
         index--;
         if(index <= 0) {
@@ -27,7 +49,9 @@ public class TextureSwapper : MonoBehaviour {
         }
         SetTexture(index);
     }
-
+    /// <summary>
+    /// A method to set the texture to the next one in the array.
+    /// </summary>
     public void NextTexture() {
         index++;
         if(index >= textures.Length) {
@@ -35,7 +59,12 @@ public class TextureSwapper : MonoBehaviour {
         }
         SetTexture(index);
     }
-
+    /// <summary>
+    /// A method to set the texture to a specified index in the array.
+    /// </summary>
+    /// <param name="i">
+    /// The index of the texture.
+    /// </param>
     public void SetTexture(int i) {
         if(i < 0 || i > textures.Length) {
             Debug.LogWarning("Can't set texture: Index "+ i +" does not exist");
@@ -43,5 +72,6 @@ public class TextureSwapper : MonoBehaviour {
         }
         material.mainTexture = textures[i];
     }
-	
+    #endregion
+
 }

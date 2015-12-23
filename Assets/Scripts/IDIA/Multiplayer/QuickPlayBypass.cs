@@ -20,46 +20,6 @@ public class QuickPlayBypass : MonoBehaviour {
 	bool didFirstJoin;
 	#endregion
 
-	#region Methods
-	/// <summary>
-	///  A method to get the url of the page on which the web player is hosted.
-	/// </summary>
-	void GetURL(){
-		Application.ExternalEval("u.getUnity().SendMessage(\"" + name + "\", \"ReceiveURL\", document.URL);");
-	}
-
-	/// <summary>
-	///  A method to receive the url from the page on which the web player is hosted.
-	/// </summary>
-	/// /// <param name="url">
-	/// The URL of the page on which the web player is hosted.
-	/// </param>
-	void ReceiveURL(string url){
-		CheckURL(url);
-	}
-
-	/// <summary>
-	///  A method to check the url for a quickplay GET variable.
-	/// </summary>
-	/// <param name="url">
-	/// The URL of the page on which the web player is hosted.
-	/// </param>
-	void CheckURL(string url){
-		string quickPlayString = url.Substring(url.LastIndexOf("?")+1);
-		if(url.Contains("?quickplay")||quickPlayString.Contains("&quickplay")){
-			SetUpQuickPlay();
-		}
-	}
-
-	/// <summary>
-	///  A method to set up quickplay in the web player.
-	/// </summary>
-	void SetUpQuickPlay(){
-        PhotonNetwork.JoinRandomRoom();
-        PhotonNetwork.playerName = "Guest" + Random.Range(1, 9999);
-	}
-	#endregion
-
 	#region Photon Messages
 	/// <summary>
 	///  A message called when the local player enters the lobby.
@@ -70,6 +30,46 @@ public class QuickPlayBypass : MonoBehaviour {
 			didFirstJoin = true;
 		}
 	}
-	#endregion
+    #endregion
+
+    #region Methods
+    /// <summary>
+    ///  A method to get the url of the page on which the web player is hosted.
+    /// </summary>
+    void GetURL() {
+        Application.ExternalEval("u.getUnity().SendMessage(\"" + name + "\", \"ReceiveURL\", document.URL);");
+    }
+
+    /// <summary>
+    ///  A method to receive the url from the page on which the web player is hosted.
+    /// </summary>
+    /// /// <param name="url">
+    /// The URL of the page on which the web player is hosted.
+    /// </param>
+    void ReceiveURL(string url) {
+        CheckURL(url);
+    }
+
+    /// <summary>
+    ///  A method to check the url for a quickplay GET variable.
+    /// </summary>
+    /// <param name="url">
+    /// The URL of the page on which the web player is hosted.
+    /// </param>
+    void CheckURL(string url) {
+        string quickPlayString = url.Substring(url.LastIndexOf("?") + 1);
+        if(url.Contains("?quickplay") || quickPlayString.Contains("&quickplay")) {
+            SetUpQuickPlay();
+        }
+    }
+
+    /// <summary>
+    ///  A method to set up quickplay in the web player.
+    /// </summary>
+    void SetUpQuickPlay() {
+        PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.playerName = "Guest" + Random.Range(1, 9999);
+    }
+    #endregion
 
 }

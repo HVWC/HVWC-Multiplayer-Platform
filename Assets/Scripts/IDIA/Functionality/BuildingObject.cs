@@ -10,25 +10,75 @@ using UnityEngine;
 using DrupalUnity;
 using UnityEngine.Events;
 
+/// <summary>
+///  This class handles tour and placard dependent objects.
+/// </summary>
 public class BuildingObject : MonoBehaviour {
 
-    public int[] validPlacardIDs;
+    #region Fields
+    /// <summary>
+    ///  Valid tour IDs.
+    /// </summary>
     public int[] validTourIDs;
-    public UnityEvent OnValidTour,OnInvalidTour, OnValidPlacard, OnInvalidPlacard;
+    /// <summary>
+    ///  Valid placard IDs.
+    /// </summary>
+    public int[] validPlacardIDs;
+    /// <summary>
+    ///  The event to invoke when an valid tour is received.
+    /// </summary>
+    public UnityEvent OnValidTour;
+    /// <summary>
+    ///  The event to invoke when an invalid tour is received.
+    /// </summary>
+    public UnityEvent OnInvalidTour;
+    /// <summary>
+    ///  The event to invoke when an valid placard is received.
+    /// </summary>
+    public UnityEvent OnValidPlacard;
+    /// <summary>
+    ///  The event to invoke when an invalid placard is received.
+    /// </summary>
+    public UnityEvent OnInvalidPlacard;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+    ///  This message is called when the script is enabled. 
+    /// </summary>
     void OnEnable() {
         DrupalUnityIO.OnPlacardSelected += OnPlacardSelected;
         DrupalUnityIO.OnGotTour += OnGotTour;
     }
+    /// <summary>
+    ///  This message is called when the script is disabled. 
+    /// </summary>
+    void OnDisable() {
+        DrupalUnityIO.OnPlacardSelected -= OnPlacardSelected;
+        DrupalUnityIO.OnGotTour -= OnGotTour;
+    }
+    #endregion
 
-    private void OnGotTour(Tour tour) {
+    #region Callbacks
+    /// <summary>
+    /// A callback called when the Drupal Unity Interface gets a tour.
+    /// </summary>
+    /// <param name="tour">
+	/// The received tour.
+	/// </param>
+    void OnGotTour(Tour tour) {
         if(IsValidTourID(tour.id)) {
             OnValidTour.Invoke();
         } else {
             OnInvalidTour.Invoke();
         }
     }
-
+    /// <summary>
+    /// A callback called when the Drupal Unity Interface selects a placard.
+    /// </summary>
+    /// <param name="placard">
+	/// The selected placard.
+	/// </param>
     void OnPlacardSelected(Placard placard) {
         if (IsValidPlacardID(placard.id)) {
             OnValidPlacard.Invoke();
@@ -36,17 +86,33 @@ public class BuildingObject : MonoBehaviour {
             OnInvalidPlacard.Invoke();
         }
     }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to determine whether a given placard ID is valid or not.
+    /// </summary>
+    /// <param name="id">
+	/// The placard id.
+	/// </param>
+    /// <returns>
+    /// true or false
+    /// </returns>
     bool IsValidPlacardID(int id) {
         return validPlacardIDs.Contains(id);
     }
-
+    /// <summary>
+    /// A method to determine whether a given placard ID is valid or not.
+    /// </summary>
+    /// <param name="id">
+	/// The tour id.
+	/// </param>
+    /// <returns>
+    /// true or false
+    /// </returns>
     bool IsValidTourID(int id) {
         return validTourIDs.Contains(id);
     }
+    #endregion
 
-    void OnDisable() {
-        DrupalUnityIO.OnPlacardSelected -= OnPlacardSelected;
-        DrupalUnityIO.OnGotTour -= OnGotTour;
-    }
 }

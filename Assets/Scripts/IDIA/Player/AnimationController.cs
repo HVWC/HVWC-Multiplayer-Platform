@@ -18,12 +18,10 @@ public class AnimationController : MonoBehaviour{
 	///  An instance of the Animator component on the player.
 	/// </summary>
 	Animator animator;
-
 	/// <summary>
 	///  An array of the names of the animations we have on our player.
 	/// </summary>
 	string[] animations = new string[]{"idle", "walk", "run", "jump", "sit", "fly"};
-
 	/// <summary>
 	///  The currently playing animation.
 	/// </summary>
@@ -42,7 +40,6 @@ public class AnimationController : MonoBehaviour{
 			animations = value;
 		}
 	}
-
 	/// <summary>
 	///  A property to get/set the currently playing animation.
 	/// </summary>

@@ -9,21 +9,34 @@
 using UnityEngine;
 using DrupalUnity;
 
+/// <summary>
+///  This class handles city engine objects.
+/// </summary>
 [RequireComponent(typeof(Collider))]
 public class CityEngineBuilding : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    ///  The city engine object ID.
+    /// </summary>
     int objID;
-    DrupalUnityIO drupalIO;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+    ///  This message is called when the script starts. 
+    /// </summary>
     void Start() {
-        drupalIO = FindObjectOfType<DrupalUnityIO>();
         if(!int.TryParse(gameObject.name.Substring(1, 5), out objID)) {
             Debug.LogError("Wasn't able to parse City Engine object name!");
         }
     }
-
+    /// <summary>
+    ///  This message is called when the collider on the object to which this script is attached is clicked. 
+    /// </summary>
     void OnMouseDown() {
         Application.ExternalCall("window.open", "http://mandala.shanti.virginia.edu/places/"+objID+"/overview/nojs", "_blank");
     }
+    #endregion
 
 }

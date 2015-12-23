@@ -9,33 +9,65 @@
 using UnityEngine;
 using DrupalUnity;
 
+/// <summary>
+///  This class manages individual placard behavior.
+/// </summary>
 public class PlacardObject : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    ///  The placard data.
+    /// </summary>
     public Placard placard;
-
+    /// <summary>
+    ///  The local player.
+    /// </summary>
     GameObject player;
+    /// <summary>
+    ///  An instance of the Drupal Unity Interface.
+    /// </summary>
     DrupalUnityIO drupalUnityIO;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+    /// A message called when the script starts.
+    /// </summary>
     void Start() {
         player = GameObject.FindGameObjectWithTag("LocalPlayer");
         drupalUnityIO = FindObjectOfType<DrupalUnityIO>();
     }
-
+    /// <summary>
+    /// A message called when the script updates.
+    /// </summary>
     void Update() {
         if (!player) {
             player = GameObject.FindGameObjectWithTag("LocalPlayer");
         }
     }
-
-    public void TeleportPlayer() {
-        player.transform.position = transform.position;
-        player.transform.rotation = transform.rotation;
-    }
-
+    /// <summary>
+    /// A message called when a collider enters this object's trigger.
+    /// </summary>
+    /// /// <param name="col">
+	/// The other collider.
+	/// </param>
     void OnTriggerEnter(Collider col) {
         if(col.tag == "LocalPlayer") {
             drupalUnityIO.SelectPlacard(placard);
         }
     }
+    #endregion
+
+    #region Methods
+    /// <summary>
+    /// A method to teleport the local player to the placard's position.
+    /// </summary>
+    public void TeleportPlayer() {
+        player.transform.position = transform.position;
+        player.transform.rotation = transform.rotation;
+    }
+    #endregion
+
+
 
 }

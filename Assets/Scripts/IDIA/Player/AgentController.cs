@@ -9,15 +9,32 @@
 using UnityEngine;
 using DrupalUnity;
 
+/// <summary>
+/// This class handles the movement of the nav mesh agent on the nav mesh.
+/// </summary>
 public class AgentController : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    /// The nav mesh agent.
+    /// </summary>
     public NavMeshAgent navMeshAgent;
+    /// <summary>
+    /// The destination of this nav mesh agent.
+    /// </summary>
     Vector3 destination;
-	
+    #endregion
+
+    #region Unity Messages
+    /// <summary>
+    /// A message called when the script is enabled.
+    /// </summary>
     void OnEnable() {
         DrupalUnityIO.OnPlacardSelected += OnPlacardSelected;
     }
-
+    /// <summary>
+    /// A message called when the script updates.
+    /// </summary>
     void Update () {
         if(navMeshAgent.isOnNavMesh) {
             if(!navMeshAgent.pathPending) {
@@ -30,13 +47,23 @@ public class AgentController : MonoBehaviour {
             }
         }
 	}
+    /// <summary>
+    /// A message called when the script is disabled.
+    /// </summary>
+    void OnDisable() {
+        DrupalUnityIO.OnPlacardSelected -= OnPlacardSelected;
+    }
+    #endregion
 
+    #region Callbacks
+    /// <summary>
+    /// A callback called when a placard is selected in the Drupal Unity Interface.
+    /// </summary>
+    /// <param name="placard"></param>
     void OnPlacardSelected(Placard placard) {
         destination = GeographicManager.Instance.GetPosition(placard.location.latitude, placard.location.longitude, placard.location.elevation);
         navMeshAgent.Resume();
     }
+    #endregion
 
-    void OnDisable() {
-        DrupalUnityIO.OnPlacardSelected -= OnPlacardSelected;
-    }
 }

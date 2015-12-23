@@ -8,7 +8,6 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
 
 /// <summary>
 /// This class handles the movement and animations of the local player.
@@ -48,25 +47,76 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Fields
+    /// <summary>
+    /// The animation controller.
+    /// </summary>
     public AnimationController animationController;
+    /// <summary>
+    /// The character controller.
+    /// </summary>
     CharacterController character;
-    
+    /// <summary>
+    /// The character animation state.
+    /// </summary>
     CharacterState charState;
+    /// <summary>
+    /// The turn speed.
+    /// </summary>
     public float turnSpeed = 90f;
+    /// <summary>
+    /// The walk speed.
+    /// </summary>
     public float walkSpeed = 1.0f;
+    /// <summary>
+    /// The run speed.
+    /// </summary>
     public float runSpeed = 1.5f;
+    /// <summary>
+    /// The fly speed.
+    /// </summary>
     public float flySpeed = 2.0f;
+    /// <summary>
+    /// The jump speed.
+    /// </summary>
     public float jumpSpeed = 8.0f;
+    /// <summary>
+    /// The current speed.
+    /// </summary>
     float speed;
+    /// <summary>
+    /// The vertical speed.
+    /// </summary>
     float vSpeed = 0f;
+    /// <summary>
+    /// The speed threshold.
+    /// </summary>
     float speedThreshold = .1f;
+    /// <summary>
+    /// The gravity.
+    /// </summary>
     float gravity = 9.8f;
-
+    /// <summary>
+    /// The scale.
+    /// </summary>
     float scale = 3;
-    bool flying, running, jumping;
+    /// <summary>
+    /// Is the character flying?
+    /// </summary>
+    bool flying;
+    /// <summary>
+    /// Is the character running?
+    /// </summary>
+    bool running;
+    /// <summary>
+    /// Is the character jumping?
+    /// </summary>
+    bool jumping;
     #endregion
 
     #region Properties
+    /// <summary>
+    /// The character animation state property.
+    /// </summary>
     public CharacterState CharState {
         get { return charState; }
         set {
@@ -77,10 +127,15 @@ public class PlayerController : MonoBehaviour {
     #endregion
 
     #region Unity Messages
+    /// <summary>
+    /// A message called when this script starts.
+    /// </summary>
     void Start() {
         character = GetComponent<CharacterController>();
     }
-
+    /// <summary>
+    /// A message called when this script updates.
+    /// </summary>
     void Update() {
         if (EventSystem.current.currentSelectedGameObject) {
             return;
@@ -92,7 +147,6 @@ public class PlayerController : MonoBehaviour {
         jumping = Input.GetButtonDown("Jump");
         
     }
-
     /// <summary>
     /// A message called every fixed framerate frame.
     /// </summary>

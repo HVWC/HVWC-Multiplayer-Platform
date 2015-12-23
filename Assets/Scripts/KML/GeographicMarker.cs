@@ -53,6 +53,7 @@ public class GeographicMarker : MonoBehaviour
 	
 	public Vector3 Translate(double latitude, double longitude, float elevation)
 	{
+        RefreshMarker();
 		Vector3 pos = transform.position;
 		
 		double x, z;

@@ -9,39 +9,75 @@
 using UnityEngine;
 using DrupalUnity;
 
+/// <summary>
+///  This class manages the data that comes from the Drupal Unity Interface.
+/// </summary>
 public class DrupalManager : MonoBehaviour {
-
-    DrupalUnityIO drupalUnityIO;
-
+    
     #region Class Fields
+    /// <summary>
+    ///  An instance of the Drupal Unity Interface.
+    /// </summary>
+    DrupalUnityIO drupalUnityIO;
+    /// <summary>
+    ///  The current environment in the Drupal Unity Interface.
+    /// </summary>
     public Environment currentEnvironment;
+    /// <summary>
+    ///  The current tour in the Drupal Unity Interface.
+    /// </summary>
     public Tour currentTour;
     #endregion
 
+    #region Unity Messages
+    /// <summary>
+    ///  A message called when this script is enabled.
+    /// </summary>
     void OnEnable() {
         DrupalUnityIO.OnGotCurrentEnvironment += OnGotCurrentEnvironment;
         DrupalUnityIO.OnGotTour += OnGotTour;
     }
-
+    /// <summary>
+    ///  A message called when this script is being loaded.
+    /// </summary>
     void Awake() {
         drupalUnityIO = FindObjectOfType<DrupalUnityIO>();
     }
-
+    /// <summary>
+    ///  A message called when this script starts.
+    /// </summary>
     void Start () {
         drupalUnityIO.GetCurrentEnvironment();
 	}
-
-    void OnGotCurrentEnvironment(Environment currentEnvironment) {
-        drupalUnityIO.GetTour(currentEnvironment.tours[0].id);
-    }
-
-    void OnGotTour(Tour tour) {
-        currentTour = tour;
-    }
-
+    /// <summary>
+    ///  A message called when this script is disabled.
+    /// </summary>
     void OnDisable() {
         DrupalUnityIO.OnGotCurrentEnvironment -= OnGotCurrentEnvironment;
         DrupalUnityIO.OnGotTour -= OnGotTour;
     }
+    #endregion
+
+    #region Callbacks
+    /// <summary>
+    ///  A callback called when the Drupal Unity Interface received the current environment.
+    /// </summary>
+    /// <param name="environment">
+	/// The received environment.
+	/// </param>
+    void OnGotCurrentEnvironment(Environment environment) {
+        currentEnvironment = environment;
+        drupalUnityIO.GetTour(environment.tours[0].id);
+    }
+    /// <summary>
+    ///  A callback called when the Drupal Unity Interface received a tour.
+    /// </summary>
+    /// <param name="tour">
+	/// The received tour.
+	/// </param>
+    void OnGotTour(Tour tour) {
+        currentTour = tour;
+    }
+    #endregion
 
 }

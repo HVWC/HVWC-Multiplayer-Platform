@@ -29,10 +29,13 @@ public class ProximityTrigger : MonoBehaviour {
 		gameObject.layer = 2; //We must put this object on the IgnoreRaycast layer, so we do not block clicks
 	}
 
-	/// <summary>
-	/// A message called when a collider has entered a trigger on this object.
-	/// </summary>
-	void OnTriggerEnter(Collider c){
+    /// <summary>
+    /// A message called when a collider has entered a trigger on this object.
+    /// </summary>
+    /// <param name="c">
+    /// The other collider.
+    /// </param>
+    void OnTriggerEnter(Collider c){
 		if(c.tag=="LocalPlayer"){ //If the it was the local player's collider
 			if(Application.isWebPlayer){ //If this is the web player
 				Application.ExternalEval("window.open('"+url+"','_blank')"); //Open the URL in a new tab

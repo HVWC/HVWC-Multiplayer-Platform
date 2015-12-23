@@ -8,24 +8,59 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 
+/// <summary>
+/// This class manages the timeline.
+/// </summary>
 public class TimelineManager : MonoBehaviour {
 
+    #region Events
+    /// <summary>
+    ///  The delegate to handle a time change.
+    /// </summary>
+    /// <param name="time">
+    /// The new time.
+    /// </param>
     public delegate void ChangedTime(float time);
+    /// <summary>
+    ///  The event to invoke when the time has changed.
+    /// </summary>
     public static event ChangedTime OnChangedTime;
+    #endregion
 
+    #region Fields
+    /// <summary>
+    /// The default time.
+    /// </summary>
     public float defaultTime; 
+    /// <summary>
+    /// The time.
+    /// </summary>
     float time;
-    
+    #endregion
+
+    #region Unity Messages
+    /// <summary>
+    /// A message called when this script starts.
+    /// </summary>
     void Start() {
         time = defaultTime;
         SetTimeline(time);
     }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to set the timeline.
+    /// </summary>
+    /// <param name="newTime">
+    /// The new time.
+    /// </param>
     public void SetTimeline(float newTime) {
         time = newTime;
         if (OnChangedTime!=null) {
             OnChangedTime(newTime);
         }
     }
+    #endregion
 
 }

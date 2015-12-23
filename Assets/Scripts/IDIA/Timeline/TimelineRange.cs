@@ -6,7 +6,21 @@
 // Permissions beyond the scope of this license may be available at http://idialab.org/info/.
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
+/// <summary>
+/// This class constructs a Timeline Range.
+/// </summary>
 [System.Serializable]
 public class TimelineRange{
-    public float minTime, maxTime;
+
+    #region Fields
+    /// <summary>
+    /// The min time.
+    /// </summary>
+    public float minTime;
+    /// <summary>
+    /// The max time.
+    /// </summary>
+    public float maxTime;
+    #endregion
+
 }

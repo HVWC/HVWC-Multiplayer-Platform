@@ -7,7 +7,6 @@
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// This class allows for teleportation by clicking on a collider.
@@ -19,30 +18,29 @@ public class TeleportToObject : MonoBehaviour {
 	/// The transform of the local player.
 	/// </summary>
 	Transform player;
-	#endregion
+    #endregion
 
-	#region Unity Messages
-	/// <summary>
-	/// A message called when the object is clicked.
-	/// </summary>
-	void OnMouseDown(){
-		player.position = transform.position; //Teleport the player to this object
+    #region Unity Messages
+    /// <summary>
+    /// A message called when the script starts.
+    /// </summary>
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("LocalPlayer").transform; //Get the local player's transform
+    }
+    /// <summary>
+    /// A message called when the object is clicked.
+    /// </summary>
+    void OnMouseDown(){
+		player.position = transform.position;
 	}
 	#endregion
 
 	#region Photon Messages
 	/// <summary>
-	/// A message called when the local player joins a room.
-	/// </summary>
-	void OnJoinedRoom(){
-		player = GameObject.FindGameObjectWithTag("LocalPlayer").transform; //Get the local player's transform
-	}
-
-	/// <summary>
 	/// A message called when the local player leaves a room.
 	/// </summary>
 	void OnLeftRoom(){
-		player = null; //Nullify the player
+		player = null;
 	}
 	#endregion
 

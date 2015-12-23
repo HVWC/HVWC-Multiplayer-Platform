@@ -12,8 +12,16 @@ using System.Collections.Generic;
 ///  This class handles public and private chat messaging between players.
 /// </summary>
 public class Chat : Photon.MonoBehaviour{
-
+    /// <summary>
+    /// The delegate to handle a received message.
+    /// </summary>
+    /// <param name="message">
+    /// The message received.
+    /// </param>
     public delegate void GotChat(string message);
+    /// <summary>
+    ///  The event to invoke when a message is received.
+    /// </summary>
     public static event GotChat OnGotChat;
 
 	#region Fields
@@ -25,19 +33,28 @@ public class Chat : Photon.MonoBehaviour{
 	///  The max number of messages to keep.
 	/// </summary>
     public int maxNumberOfMessages = 15;
-	#endregion
+    #endregion
 
-	#region RPCs
-	/// <summary>
-	///  An RPC method to add a message to the message list.
-	/// </summary>
-	/// <param name="text">
-	/// The message to send.
-	/// </param>
-	/// <param name="info">
-	/// Info about the RPC call.
-	/// </param>
-	[PunRPC]
+    #region Photon Messages
+    /// <summary>
+    /// A message called when the local player leaves the room.
+    /// </summary>
+    void OnLeftRoom() {
+        ClearMessages();
+    }
+    #endregion
+
+    #region Methods
+    /// <summary>
+    ///  An RPC method to add a message to the message list.
+    /// </summary>
+    /// <param name="text">
+    /// The message to send.
+    /// </param>
+    /// <param name="info">
+    /// Info about the RPC call.
+    /// </param>
+    [PunRPC]
 	void AddMessage(string text, PhotonMessageInfo info){
         string message = "[" + info.sender + "] " + text;
         Messages.Add(message);
@@ -48,9 +65,6 @@ public class Chat : Photon.MonoBehaviour{
             OnGotChat(message);
         }
     }
-	#endregion
-
-	#region Methods
 	/// <summary>
 	///  A method to send a public chat message.
 	/// </summary>
@@ -89,9 +103,5 @@ public class Chat : Photon.MonoBehaviour{
         Messages.Clear();
     }
     #endregion
-
-    void OnLeftRoom() {
-        ClearMessages();
-    }
 
 }

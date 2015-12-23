@@ -8,16 +8,32 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 
+/// <summary>
+/// This class handles the spawn point.
+/// </summary>
 public class SpawnPoint : MonoBehaviour {
 
-	void OnLevelWasLoaded(int level) {
+    #region Unity Messages
+    /// <summary>
+    /// This message is called when a level has been loaded.
+    /// </summary>
+    /// <param name="level">
+    /// The level that was loaded.
+    /// </param>
+    void OnLevelWasLoaded(int level) {
         SpawnPlayer();
     }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to spawn the local player gameObject.
+    /// </summary>
     public void SpawnPlayer() {
         GameObject localPlayer = GameObject.FindGameObjectWithTag("LocalPlayer");
         localPlayer.transform.position = transform.position;
         localPlayer.transform.rotation = transform.rotation;
     }
+    #endregion
 
 }

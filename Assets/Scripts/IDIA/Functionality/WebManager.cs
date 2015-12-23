@@ -8,16 +8,33 @@
 // ----------------------------------------------------------------------------
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class WebManager : MonoBehaviour {
 
-	public void OpenURL(string url) {
+    #region Methods
+    /// <summary>
+    /// A method to open the url in the default browser.
+    /// </summary>
+    /// <param name="url">
+    /// The URL to open.
+    /// </param>
+    public void OpenURL(string url) {
         Application.OpenURL(url);
     }
 
 #if UNITY_WEBPLAYER
+    /// <summary>
+    /// A method to open a new tab in the current browser.
+    /// </summary>
+    /// <param name="url">
+    /// The URL to open.
+    /// </param>
     public void OpenURLInNewTab(string url) {
         Application.ExternalCall("window.open",url,"_blank");
     }
 #endif
+    #endregion
 
 }

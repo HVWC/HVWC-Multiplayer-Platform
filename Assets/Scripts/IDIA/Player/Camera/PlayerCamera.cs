@@ -10,41 +10,92 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour {
 
+    #region Fields
+    /// <summary>
+    /// The first person mode.
+    /// </summary>
     public FirstPersonMode firstPersonMode;
+    /// <summary>
+    /// The third person mode.
+    /// </summary>
     public ThirdPersonMode thirdPersonMode;
+    /// <summary>
+    /// The birds eye mode.
+    /// </summary>
     public BirdsEyeMode birdsEyeMode;
-
+    /// <summary>
+    /// The camera mode.
+    /// </summary>
     [HideInInspector]
     public IPlayerCameraMode mode;
+    /// <summary>
+    /// The camera.
+    /// </summary>
     [HideInInspector]
     public Camera cam;
-
-    public KeyCode fovMinus = KeyCode.Plus, fovPlus=KeyCode.Minus, lookUp = KeyCode.PageUp, lookDown = KeyCode.PageDown;
+    /// <summary>
+    /// The key to decrease field of view.
+    /// </summary>
+    public KeyCode fovMinus = KeyCode.Plus;
+    /// <summary>
+    /// The key to increase field of view.
+    /// </summary>
+    public KeyCode fovPlus = KeyCode.Minus;
+    /// <summary>
+    /// The key to look up.
+    /// </summary>
+    public KeyCode lookUp = KeyCode.PageUp;
+    /// <summary>
+    /// The key to look down.
+    /// </summary>
+    public KeyCode lookDown = KeyCode.PageDown;
+    /// <summary>
+    /// The angle to look up or down.
+    /// </summary>
     public float lookStep = 30f;
+    /// <summary>
+    /// The current look offset.
+    /// </summary>
     float offset = 0f;
+    #endregion
 
+    #region Unity Messages
+    /// <summary>
+	/// A message called when the script instance is being loaded.
+	/// </summary>
     void Awake() {
         firstPersonMode.SetPlayerCamera(this);
         thirdPersonMode.SetPlayerCamera(this);
         birdsEyeMode.SetPlayerCamera(this);
         cam = GetComponent<Camera>();
     }
-
+    /// <summary>
+    /// A message called when the script starts.
+    /// </summary>
     void Start() {
         mode = thirdPersonMode;
         cam = GetComponent<Camera>();
     }
-
+    /// <summary>
+    /// A message called when the script updates.
+    /// </summary>
 	void Update() {
         mode.Update();
         ChangeFOV();
         ChangeLook();
     }
-
+    /// <summary>
+    /// A message called after the script updates.
+    /// </summary>
     void LateUpdate() {
         cam.transform.localEulerAngles = new Vector3(offset, cam.transform.localEulerAngles.y,cam.transform.localEulerAngles.z);
     }
+    #endregion
 
+    #region Methods
+    /// <summary>
+    /// A method to change the field of view.
+    /// </summary>
     void ChangeFOV() {
         if(Input.GetKey(fovMinus)) {
             cam.fieldOfView -= .1f;
@@ -53,7 +104,9 @@ public class PlayerCamera : MonoBehaviour {
             cam.fieldOfView += .1f;
         }
     }
-
+    /// <summary>
+    /// A method to change the look angle.
+    /// </summary>
     void ChangeLook() {
         if(Input.GetKeyDown(lookUp)) {
             Debug.Log("lookup");
@@ -64,5 +117,6 @@ public class PlayerCamera : MonoBehaviour {
             offset = Mathf.Clamp(offset + lookStep, -lookStep, lookStep);
         }
     }
+    #endregion
 
 }
