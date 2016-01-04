@@ -15,8 +15,6 @@ using System.Collections;
 /// </summary>
 public class AvatarPlacardController : MonoBehaviour {
 
-    float destinationElevation;
-
     #region Fields
     /// <summary>
     /// The speed of movement.
@@ -75,7 +73,6 @@ public class AvatarPlacardController : MonoBehaviour {
     /// </param>
     /// <returns>IEnumerator</returns>
     IEnumerator DoMove(Vector3 destination,double orientation) {
-        destinationElevation = destination.y;
         ToggleCollider(false);
         float distance = Vector3.Distance(transform.position, destination);
         while(distance > 0) {

@@ -121,7 +121,7 @@ public class PlacardManager : MonoBehaviour {
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             entry.callback.AddListener((e) => { drupalUnityIO.SelectPlacard(placard); });
-            trigger.triggers.Add(entry);
+            trigger.delegates.Add(entry);
         }
     }
     #endregion

@@ -7,7 +7,6 @@
 // To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
 // ----------------------------------------------------------------------------
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 /// <summary>
@@ -78,7 +77,7 @@ public class SceneChanger : Photon.MonoBehaviour {
     IEnumerator DoLoadScene(string sceneName) {
 #if UNITY_EDITOR || UNITY_STANDALONE
         loadingScreen.SetActive(true);
-        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation async = Application.LoadLevelAsync(sceneName);
         while(!async.isDone) {
             yield return new WaitForSeconds(.5f);
         }
@@ -89,7 +88,7 @@ public class SceneChanger : Photon.MonoBehaviour {
         while (!Application.CanStreamedLevelBeLoaded(sceneName)) {
             yield return new WaitForSeconds(.1f);
         }
-        AsyncOperation async = SceneManager.LoadSceneAsync(sceneName);
+        AsyncOperation async = Application.LoadLevelAsync(sceneName);
         while(!async.isDone) {
             yield return new WaitForSeconds(.1f);
         }
