@@ -22,7 +22,7 @@
 				"latitude": 41.892743,
 				"longitude": 12.484498,
 				"orientation": 0,
-				"elevation": 35
+				"elevation": 2
 			},
 			"layer": "3The_Roman_Arena_in_the_2nd_Century_BCE"
 		}, {
@@ -34,7 +34,7 @@
 				"latitude": 41.892231,
 				"longitude": 12.482776,
 				"orientation": 0,
-				"elevation": 150
+				"elevation": 2
 			},
 			"layer": "1RomeLab_An_Introduction"
 		}, {
@@ -46,7 +46,7 @@
 				"latitude": 41.892594,
 				"longitude": 12.484105,
 				"orientation": 0,
-				"elevation": 100
+				"elevation": 2
 			},
 			"layer": "2Typology_and_Representation"
 		}, {
@@ -58,7 +58,7 @@
 				"latitude": 41.89238,
 				"longitude": 12.48548,
 				"orientation": 200,
-				"elevation": 35
+				"elevation": 2
 			},
 			"layer": "Default"
 		}]

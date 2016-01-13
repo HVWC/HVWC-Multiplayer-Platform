@@ -35,7 +35,6 @@ public class DrupalManager : MonoBehaviour {
     /// </summary>
     void OnEnable() {
         DrupalUnityIO.OnGotCurrentEnvironment += OnGotCurrentEnvironment;
-        DrupalUnityIO.OnGotTour += OnGotTour;
     }
     /// <summary>
     ///  A message called when this script is being loaded.
@@ -54,7 +53,6 @@ public class DrupalManager : MonoBehaviour {
     /// </summary>
     void OnDisable() {
         DrupalUnityIO.OnGotCurrentEnvironment -= OnGotCurrentEnvironment;
-        DrupalUnityIO.OnGotTour -= OnGotTour;
     }
     #endregion
 
@@ -67,16 +65,7 @@ public class DrupalManager : MonoBehaviour {
 	/// </param>
     void OnGotCurrentEnvironment(Environment environment) {
         currentEnvironment = environment;
-        drupalUnityIO.GetTour(environment.tours[0].id);
-    }
-    /// <summary>
-    ///  A callback called when the Drupal Unity Interface received a tour.
-    /// </summary>
-    /// <param name="tour">
-	/// The received tour.
-	/// </param>
-    void OnGotTour(Tour tour) {
-        currentTour = tour;
+        currentTour = environment.tours[0];
     }
     #endregion
 

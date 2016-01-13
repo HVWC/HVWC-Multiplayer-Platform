@@ -342,7 +342,7 @@ namespace DrupalUnity {
         /// </param>
         public void SelectPlacard(Placard placard) {
             if (debug) {
-                Debug.Log(placard);
+                OnPlacardSelected(placard);
                 return;
             }
             string placard_json = JsonMapper.ToJson(placard);

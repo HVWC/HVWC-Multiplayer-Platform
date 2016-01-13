@@ -201,6 +201,8 @@ public class MainMenuUI : MonoBehaviour{
         player.tag = "LocalPlayer";
         player.transform.FindChild("Camera").gameObject.SetActive(true);
         player.transform.FindChild("Canvas").gameObject.SetActive(false);
+        player.transform.FindChild("LaserPointer").gameObject.SetActive(true);
+        player.GetComponent<AvatarPlacardController>().enabled = true;
         player.GetComponent<DoubleClickTeleport>().enabled = true;
     }
     /// <summary>

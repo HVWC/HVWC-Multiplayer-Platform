@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using DrupalUnity;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 /// <summary>
 ///  This class constructs a Placard Event.
@@ -31,7 +32,11 @@ public class PlacardManager : MonoBehaviour {
     /// <summary>
     ///  The array of incoming placards.
     /// </summary>
-    public Placard[] placards;
+    Placard[] placards;
+    /// <summary>
+    ///  The array of placard objects.
+    /// </summary>
+    List<GameObject> placardObjects = new List<GameObject>();
     /// <summary>
     ///  The event to invoke when a placard is selected.
     /// </summary>
@@ -51,6 +56,7 @@ public class PlacardManager : MonoBehaviour {
 	/// A message called when the script instance is enabled.
 	/// </summary>
     void OnEnable() {
+        DrupalUnityIO.OnGotCurrentEnvironment += OnGotCurrentEnvironment;
         DrupalUnityIO.OnGotTour += OnGotTour;
         DrupalUnityIO.OnPlacardSelected += OnPlacardWasSelected;
     }
@@ -74,11 +80,24 @@ public class PlacardManager : MonoBehaviour {
 	/// A message called when the script instance is disabled.
 	/// </summary>
     void OnDisable() {
+        DrupalUnityIO.OnGotCurrentEnvironment -= OnGotCurrentEnvironment;
         DrupalUnityIO.OnGotTour -= OnGotTour;
+        DrupalUnityIO.OnPlacardSelected -= OnPlacardWasSelected;
     }
     #endregion
 
     #region Callbacks
+    /// <summary>
+    /// A callback called when the Drupal Unity Interface gets an environment.
+    /// </summary>
+    /// <param name="environment">
+    /// The received environment.
+    /// </param>
+    void OnGotCurrentEnvironment(Environment environment) {
+        ClearPlacards();
+        placards = environment.tours[0].placards;
+        GeneratePlacards();
+    }
     /// <summary>
     /// A callback called when the Drupal Unity Interface gets a tour.
     /// </summary>
@@ -86,6 +105,7 @@ public class PlacardManager : MonoBehaviour {
 	/// The received tour.
 	/// </param>
     void OnGotTour(Tour tour) {
+        ClearPlacards();
         placards = tour.placards;
         GeneratePlacards();
     }
@@ -117,12 +137,23 @@ public class PlacardManager : MonoBehaviour {
             newPlacard.GetComponent<RectTransform>().SetParent(transform, true);
             newPlacard.GetComponent<PlacardObject>().placard = placard;
             newPlacard.GetComponent<Text>().text = "#"+count;
+            placardObjects.Add(newPlacard);
             EventTrigger trigger = newPlacard.GetComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             entry.callback.AddListener((e) => { drupalUnityIO.SelectPlacard(placard); });
             trigger.delegates.Add(entry);
         }
+    }
+    /// <summary>
+    /// A method to clear the placards array and destroy placard objects.
+    /// </summary>
+    void ClearPlacards() {
+        placards = null;
+        foreach(GameObject pO in placardObjects) {
+            Destroy(pO);
+        }
+        placardObjects.Clear();
     }
     #endregion
 
