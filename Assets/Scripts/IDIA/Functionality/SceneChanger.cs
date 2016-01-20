@@ -75,7 +75,7 @@ public class SceneChanger : Photon.MonoBehaviour {
     /// The name of the scene to load.
     /// </param>
     IEnumerator DoLoadScene(string sceneName) {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         loadingScreen.SetActive(true);
         AsyncOperation async = Application.LoadLevelAsync(sceneName);
         while(!async.isDone) {

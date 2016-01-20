@@ -66,14 +66,17 @@ public class PlayersUI : MonoBehaviour {
     /// </summary>
     public void RefreshPlayers() {
         for(int i = 0; i < players.transform.childCount; i++) {
-            players.transform.GetChild(i).GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
+            Toggle playerToggle = players.transform.GetChild(i).GetComponent<Toggle>();
+            playerToggle.onValueChanged.RemoveAllListeners();
             Destroy(players.transform.GetChild(i).gameObject);
         }
         foreach(PhotonPlayer player in PhotonNetwork.playerList) {
             GameObject playerObj = Instantiate(playerPrefab);
             playerObj.transform.SetParent(players.transform);
             playerObj.transform.FindChild("Name").GetComponent<Text>().text = player.name;
-            playerObj.GetComponent<Toggle>().onValueChanged.AddListener((on) => { selectedPlayer = on ? player : null; });
+            Toggle playerToggle = playerObj.GetComponent<Toggle>();
+            playerToggle.group = players.GetComponent<ToggleGroup>();
+            playerToggle.onValueChanged.AddListener((on) => { selectedPlayer = on ? player : null; });
         }
     }
     #endregion
