@@ -26,6 +26,8 @@ Video Walkthroughs
 Video walkthroughs for using the platform scripts are available here:
 
 idialabprojects.org/HVWC/Quickstart.mpeg
+
 idialabprojects.org/HVWC/AvatarPlacardMovement.mpeg
+
 idialabprojects.org/HVWC/AddingAvatars.mpeg
 
