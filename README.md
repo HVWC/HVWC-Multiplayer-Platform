@@ -31,3 +31,9 @@ http://idialabprojects.org/HVWC/AvatarPlacardMovement.mpeg
 
 http://idialabprojects.org/HVWC/AddingAvatars.mpeg
 
+Guide
+------------------
+
+The guide for using a built webplayer using the platform is located here:
+http://idialabprojects.org/HVWC/HVWCMultiplayerPlatformGuide.pdf
+
