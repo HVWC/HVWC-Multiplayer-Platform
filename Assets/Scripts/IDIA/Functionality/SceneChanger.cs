@@ -94,7 +94,7 @@ public class SceneChanger : Photon.MonoBehaviour {
         }
         loadingScreen.SetActive(false);
         yield return async;
-#elif UNITY_WEBPLAYER
+#elif UNITY_WEBPLAYER || UNITY_WEBGL
         loadingScreen.SetActive(true);
         while (!Application.CanStreamedLevelBeLoaded(sceneName)) {
             yield return new WaitForSeconds(.1f);
@@ -122,7 +122,7 @@ public class SceneChanger : Photon.MonoBehaviour {
         }
         loadingScreen.SetActive(false);
         yield return async;
-#elif UNITY_WEBPLAYER
+#elif UNITY_WEBPLAYER || UNITY_WEBGL
         loadingScreen.SetActive(true);
         while (!Application.CanStreamedLevelBeLoaded(sceneID)) {
             yield return new WaitForSeconds(.1f);
