@@ -115,13 +115,23 @@ public class GeographicCoord
 		z = 0.0 - RaduisMax * Math.Log(Math.Tan(0.5 * ((Math.PI * 0.5) - phi)) / con);
 		x = RaduisMax * (longitude * Deg2Rad);
 	}
-	
+
 	public static void DecimalDegreesToMercatorSpherical(out double z, out double x, double latitude, double longitude)
 	{
-		z = (float)(Rad2Deg * Math.Log(Math.Tan(Math.PI/4.0 + latitude*Deg2Rad/2.0)));
-		x = (float)(Rad2Deg * Math.Log(Math.Tan(Math.PI/4.0 + longitude*Deg2Rad/2.0)));
-	}
- 
+		double lat = Math.Min(89.5, Math.Max(latitude, -89.5));
+		double phi = lat * Deg2Rad;
+		double con = Eccent * Math.Sin(phi);
+		con = Math.Pow(((1.0 - con) / (1.0 + con)), Com);
+		z = 0.0 - RaduisMax * Math.Log(Math.Tan(0.5 * ((Math.PI * 0.5) - phi)) / con);
+		x = RaduisMax * (longitude * Deg2Rad);
+	}	
+	
+//	public static void DecimalDegreesToMercatorSpherical(out double z, out double x, double latitude, double longitude)
+//	{
+//		z = (float)(Rad2Deg * Math.Log(Math.Tan(Math.PI/4.0 + latitude*Deg2Rad/2.0)));
+//		x = (float)(Rad2Deg * Math.Log(Math.Tan(Math.PI/4.0 + longitude*Deg2Rad/2.0)));
+//	}
+// 
 	public static void MercatorEllipticalToDecimalDegrees(out double latitude, out double longitude, double z, double x)
 	{
 		double ts = Math.Exp(-z / RaduisMax);
@@ -138,7 +148,7 @@ public class GeographicCoord
 		latitude = phi * Rad2Deg;
 		longitude = (x * Rad2Deg) / RaduisMax;
 	}
-	
+
 	public static void MercatorSphericalToDecimalDegrees(out double latitude, out double longitude, double z, double x)
 	{
 		latitude = Rad2Deg * (2.0 * Math.Atan(Math.Exp(z * Deg2Rad)) - Math.PI/2.0);

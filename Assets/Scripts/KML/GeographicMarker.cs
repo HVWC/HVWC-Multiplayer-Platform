@@ -6,12 +6,14 @@
 */ 
 
 using UnityEngine;
+using System;	
 using System.Collections;
+
 
 public class GeographicMarker : MonoBehaviour
 {
 	public GeographicCoord marker;
-	public double scale = 80000.0;
+	//public double scale = 80000.0;
 	
 	/*
 	 * Given 41°53'30.36"N, 12°29'4.87"E
@@ -39,6 +41,8 @@ public class GeographicMarker : MonoBehaviour
 	
 	private double markerX = 0.0;
 	private double markerZ = 0.0;
+	//new scaleFactor code
+	private double scaleFactor = 1.0;
 	
 	public void RefreshMarker()
 	{
@@ -58,10 +62,16 @@ public class GeographicMarker : MonoBehaviour
 		
 		double x, z;
 		GeographicCoord.DecimalDegreesToMercatorSpherical(out z, out x, latitude, longitude);
-		
-		pos.x += (float)((x - markerX)*scale);
+		//new scaleFactor code
+		scaleFactor = 1/Math.Cos((Math.PI/180 * latitude)); 
+
+		pos.x += (float)((x - markerX)/scaleFactor);
 		pos.y += elevation - marker.elevation;
-		pos.z += (float)((z - markerZ)*scale);
+		pos.z += (float)((z - markerZ)/scaleFactor);
+
+//		pos.x += (float)((x - markerX)*scale);
+//		pos.y += elevation - marker.elevation;
+//		pos.z += (float)((z - markerZ)*scale);
 		return pos;
 	}
 
